@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="src/main/resources/jars/jtds-1.2.jar"/>
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+        <plugin type="com.xxg.mybatis.plugins.MySQLLimitPlugin" />
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+       <!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.1.77.21:3306/MPHobbit?autoReconnect=true&amp;autoReconnectForPools=true&amp;useUnicode=true&amp;characterEncoding=utf-8"
+                        userId="hobbit" password="dp!@bWZ9gcy6Z">
+        </jdbcConnection>-->
+
+        <jdbcConnection driverClass="net.sourceforge.jtds.jdbc.Driver"
+                        connectionURL="jdbc:jtds:sqlserver://172.22.36.27:7788/cyerp" userId="sa" password="admin">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="model" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="dao"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--<table tableName="DBH_Heartbeat" domainObjectName="HeartbeatPO">-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="DBH_HackDetail" domainObjectName="HackDetailPO">-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="DBH_ShopAccount" domainObjectName="ShopAccountPO">-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="DBH_OperationLog" domainObjectName="OperationLogPO">-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="DBH_Plugin" domainObjectName="PluginPO">-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <table tableName="cy_bt_Dsc_Info" domainObjectName="DiscountBO">
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="sqlserver" identity="true"/>
+            <columnOverride column="Valid" javaType="java.lang.Boolean" jdbcType="TINYINT" />
+        </table>
+
+    </context>
+
+</generatorConfiguration>

@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.xdemo.example</groupId>
+	<artifactId>saber-utils-springmvc-param</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>saber-utils-springmvc-param Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<springframework>4.0.5.RELEASE</springframework>
+		<servlet>3.1.0</servlet>
+		<jstl>1.2</jstl>
+		<xstream>1.4.7</xstream>
+		<commons-fileupload>1.3.1</commons-fileupload>
+		<jackson>1.9.13</jackson>
+	</properties>
+	<dependencies>
+		<!-- jackson json解析支持 -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson}</version>
+		</dependency>
+		<!-- Spring web mvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework}</version>
+		</dependency>
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet}</version>
+		</dependency>
+		<!-- JSTL -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl}</version>
+		</dependency>
+		<!--xml解析支持 -->
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>${xstream}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>springmvc-param</finalName>
+		<plugins>
+			<plugin>
+				<!-- 编译器插件，可以指定JDK版本，项目编码等 -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF8</encoding>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

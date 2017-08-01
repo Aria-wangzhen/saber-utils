@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="saber-utils-collection-date-string" />
+        <module name="saber-utils-interview" />
+        <module name="saber-utils-mybatis" />
+        <module name="saber-utils-readFile" />
+        <module name="saber-utils-regex" />
+        <module name="saber-utils-regexp" />
+        <module name="saber-utils-regexp (1)" />
+        <module name="saber-utils-springmvc-param" />
+        <module name="saber-utils-test" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="saber-utils" target="1.5" />
+      <module name="saber-utils-collection-date-string" target="1.5" />
+      <module name="saber-utils-interview" target="1.5" />
+      <module name="saber-utils-mybatis" target="1.5" />
+      <module name="saber-utils-readFile" target="1.5" />
+      <module name="saber-utils-regex" target="1.5" />
+      <module name="saber-utils-regexp" target="1.5" />
+      <module name="saber-utils-regexp (1)" target="1.5" />
+      <module name="saber-utils-regexp (1) (saber-utils-regexp)" target="1.5" />
+      <module name="saber-utils-springmvc-param" target="1.7" />
+      <module name="saber-utils-test" target="1.5" />
+      <module name="sader-utils-springmvc-param" target="1.5" />
+      <module name="string" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
