@@ -14,6 +14,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/saber-utils-dianping/pom.xml" />
         <option value="$PROJECT_DIR$/sader-utils-springmvc-param/pom.xml" />
       </set>
     </option>

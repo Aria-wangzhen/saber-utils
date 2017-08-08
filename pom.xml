@@ -17,6 +17,7 @@
         <module>saber-utils-regex</module>
         <module>saber-utils-collection-date-string</module>
         <module>saber-utils-test</module>
+        <module>saber-utils-encryption</module>
 
     </modules>
 

@@ -23,11 +23,11 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="saber-utils-collection-date-string" />
+        <module name="saber-utils-encryption" />
         <module name="saber-utils-interview" />
         <module name="saber-utils-mybatis" />
         <module name="saber-utils-readFile" />
         <module name="saber-utils-regex" />
-        <module name="saber-utils-regexp" />
         <module name="saber-utils-regexp (1)" />
         <module name="saber-utils-springmvc-param" />
         <module name="saber-utils-test" />
@@ -36,6 +36,7 @@
     <bytecodeTargetLevel>
       <module name="saber-utils" target="1.5" />
       <module name="saber-utils-collection-date-string" target="1.5" />
+      <module name="saber-utils-encryption" target="1.5" />
       <module name="saber-utils-interview" target="1.5" />
       <module name="saber-utils-mybatis" target="1.5" />
       <module name="saber-utils-readFile" target="1.5" />
