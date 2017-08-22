@@ -360,11 +360,18 @@ public class Shoujihao {
                 "15952680841\n" +
                 "18551417015\n" +
                 "15861826015";
-        List<String> list = getlist(s);
+        /*List<String> list = getlist(s);
         Collections.sort(list);
         for(String str : list){
             System.out.println(str);
-        }
+        }*/
+
+        StringBuffer caseText = new StringBuffer("惊不惊喜,意不意外,您又有线上case啦!");
+        caseText.append(",\n点评商户ID:")
+                .append(",\n错误名称:")
+                .append(",\n错误描述")
+                .append(",\n请尽快处理!");
+        System.out.println(caseText.toString());
     }
 
     private static List<String> getlist(String s) {
