@@ -1,26 +1,26 @@
-package utils;
+package aes.utils;
 
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.TreeSet;
 import java.util.zip.Inflater;
-
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 
 
-public class MTGuardUtil {
-    public MTGuardUtil() {
+public class MTGuardUtils {
+    private static final Logger LOGGER = Logger.getLogger(MTGuardUtils.class);
+
+    public MTGuardUtils() {
     }
 
-    /**
-     * @deprecated
-     *//*
+   /* *//** @deprecated *//*
     @Deprecated
     public static String decryptReportData(byte[] data) {
         return decryptReportData(data, "meituan0sankuai1");
-    }*/
-/*
+    }
+
     public static String decryptReportData(byte[] data, String key) {
         if(data != null && data.length != 0 && key != null && !key.isEmpty()) {
             byte[] encrypt = Base64.decodeBase64(data);
@@ -41,9 +41,9 @@ public class MTGuardUtil {
         } else {
             return null;
         }
-    }*/
+    }
 
-    /*public static JSONObject parseReportData2JsonByConfigString(String[] data, String configString) {
+    public static JSONObject parseReportData2JsonByConfigString(String[] data, String configString) {
         if(data != null && data.length != 0 && configString != null && !configString.isEmpty()) {
             JSONObject configJson = JSONObject.parseObject(configString);
             return parseData2JSON(data, configJson);
@@ -51,8 +51,8 @@ public class MTGuardUtil {
             return null;
         }
     }
-*/
-   /* private static JSONObject parseData2JSON(String[] sections, JSONObject config) {
+
+    private static JSONObject parseData2JSON(String[] sections, JSONObject config) {
         JSONObject jsonObject = new JSONObject();
         TreeSet keySet = new TreeSet(config.keySet());
         String[] keys = new String[keySet.size()];
@@ -77,19 +77,49 @@ public class MTGuardUtil {
         }
 
         return jsonObject;
-    }*/
-    public static String encrypt(String data, String key) {
-        if (StringUtils.isNotBlank(data) && StringUtils.isNotBlank(key) ) {
-            return  AESUtils.encrypt(data, key);
+    }
+*/
+    public static byte[] encrypt(byte[] data, String key, String algorithm) {
+        if(data != null && data.length != 0 && key != null && !key.isEmpty() && algorithm != null && !algorithm.isEmpty()) {
+            byte[] result = null;
+            if(algorithm.equalsIgnoreCase("AES")) {
+                result = AESUtils.encrypt(data, key);
+            }
+
+            return result;
         } else {
             return null;
         }
     }
 
-    public static String decrypt(String data, String key) {
-        if (StringUtils.isNotBlank(data) && StringUtils.isNotBlank(key)) {
-            return AESUtils.decrypt(data, key);
+    public static byte[] decrypt(byte[] data, String key, String algorithm) {
+        if(data != null && data.length != 0 && key != null && !key.isEmpty() && algorithm != null && !algorithm.isEmpty()) {
+            byte[] result = null;
+            if(algorithm.equalsIgnoreCase("AES")) {
+                result = AESUtils.decrypt(data, key);
+            }
+
+            return result;
         } else {
+            return null;
+        }
+    }
+
+    //自己新增的方法
+    public static byte[] encrypt1(String data, String key) {
+        if(StringUtils.isNotBlank(data) && StringUtils.isNotBlank(key)) {
+            return AESUtils.encrypt1(data, key);
+        } else {
+            LOGGER.info("加密数据或秘钥为空");
+            return null;
+        }
+    }
+
+    public static byte[] decrypt1(String data, String key) {
+        if(StringUtils.isNotBlank(data) && StringUtils.isNotBlank(key)) {
+            return AESUtils.decrypt1(data, key);
+        } else {
+            LOGGER.info("加密数据或秘钥为空");
             return null;
         }
     }

@@ -30,6 +30,8 @@ public class EncryptUtil {
             e.init(128, secureRandom);
             SecretKey original_key = e.generateKey();
             byte[] raw = original_key.getEncoded();
+
+
             SecretKeySpec key = new SecretKeySpec(raw, "AES");
             Cipher cipher = Cipher.getInstance("AES");
             cipher.init(1, key);
@@ -51,10 +53,13 @@ public class EncryptUtil {
         try {
             KeyGenerator e = KeyGenerator.getInstance("AES");
             SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
-            secureRandom.setSeed(encodeRules.getBytes("utf-8"));
+            //secureRandom.setSeed(encodeRules.getBytes("utf-8"));
             e.init(128, secureRandom);
             SecretKey original_key = e.generateKey();
             byte[] raw = original_key.getEncoded();
+
+
+
             SecretKeySpec key = new SecretKeySpec(raw, "AES");
             Cipher cipher = Cipher.getInstance("AES");
             cipher.init(2, key);
