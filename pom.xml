@@ -18,6 +18,7 @@
         <module>saber-utils-collection-date-string</module>
         <module>saber-utils-test</module>
         <module>saber-utils-encryption</module>
+        <module>saber-utils-dianping</module>
 
     </modules>
 

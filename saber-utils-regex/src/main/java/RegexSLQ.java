@@ -23,57 +23,61 @@ public class RegexSLQ {
 
     public static void main(String[] args) {
         //路径
-        String location = "if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[cy_bt_Menu_Info]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)\n" +
-                "drop table [dbo].[cy_bt_Menu_Info]\n" +
-                "GO\n" +
-                "\n" +
-                "CREATE TABLE [dbo].[cy_bt_Menu_Info] (\n" +
-                "\t[Recipes_id] [char] (20) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Recipes_Name] [char] (60) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Menu_Id] [char] (20) COLLATE Chinese_PRC_CI_AS NOT NULL ,\n" +
-                "\t[Menu_Name] [char] (60) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Menu_English_name] [char] (60) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Menu_Japanese_name] [char] (60) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Menu_PyCode] [char] (50) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Menu_PyCode_bx] [char] (50) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Sale_Price] [numeric](18, 4) NULL ,\n" +
-                "\t[Sale_Price2] [numeric](18, 4) NULL ,\n" +
-                "\t[Sale_Price3] [numeric](18, 4) NULL ,\n" +
-                "\t[Sale_Price_hy] [numeric](18, 4) NULL ,\n" +
-                "\t[Sale_Price_hy2] [numeric](18, 4) NULL ,\n" +
-                "\t[Sale_Price_hy3] [numeric](18, 4) NULL ,\n" +
-                "\t[Percentage_price] [numeric](18, 4) NULL ,\n" +
-                "\t[Cost_Price] [numeric](18, 4) NULL ,\n" +
-                "\t[Warehousing] [numeric](18, 4) NULL ,\n" +
-                "\t[Menu_Unit] [char] (20) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Type_Id] [char] (20) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Type_Id_bx] [char] (20) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Type_Code] [char] (20) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[IsSaleCode] [char] (10) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Timing_Sale] [char] (10) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Weighing_whether] [char] (10) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Discount] [char] (10) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Pack_Tag] [char] (10) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Cook_Name] [char] (30) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Hide] [char] (10) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[Image_x] [image] NULL ,\n" +
-                "\t[Image_d] [image] NULL ,\n" +
-                "\t[Menu_PX] [char] (100) COLLATE Chinese_PRC_CI_AS NOT NULL ,\n" +
-                "\t[Menu_bz] [varchar] (500) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[KCCJ] [char] (10) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[F_DeptUp] [char] (30) COLLATE Chinese_PRC_CI_AS NOT NULL ,\n" +
-                "\t[F_DeptDown] [char] (30) COLLATE Chinese_PRC_CI_AS NOT NULL ,\n" +
-                "\t[换算数量] [numeric](18, 4) NULL ,\n" +
-                "\t[仓库调用单位] [char] (20) COLLATE Chinese_PRC_CI_AS NOT NULL ,\n" +
-                "\t[换算单位] [char] (20) COLLATE Chinese_PRC_CI_AS NOT NULL ,\n" +
-                "\t[仓库备注] [varchar] (500) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[拼菜] [char] (10) COLLATE Chinese_PRC_CI_AS NULL ,\n" +
-                "\t[出品部门] [char] (50) COLLATE Chinese_PRC_CI_AS NOT NULL ,\n" +
-                "\t[财务类别] [char] (50) COLLATE Chinese_PRC_CI_AS NOT NULL ,\n" +
-                "\t[录入数量] [char] (50) COLLATE Chinese_PRC_CI_AS NOT NULL \n" +
-                ") ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]\n" +
-                "GO\n" +
-                "\n";
+        String location = "CREATE TABLE [dbo].[xs_rb] (\n" +
+                "\t[xsrq] [T_RQ] NOT NULL ,\n" +
+                "\t[yyje] [T_JG] NOT NULL ,\n" +
+                "\t[xsje] [T_JG] NOT NULL ,\n" +
+                "\t[jycs] [int] NOT NULL ,\n" +
+                "\t[jdxf] [T_JG] NOT NULL ,\n" +
+                "\t[zts] [int] NOT NULL ,\n" +
+                "\t[mzxf] [T_JG] NOT NULL ,\n" +
+                "\t[rs] [int] NOT NULL ,\n" +
+                "\t[rjxf] [T_JG] NOT NULL ,\n" +
+                "\t[xsyh] [T_JG] NOT NULL ,\n" +
+                "\t[mlje] [T_JG] NOT NULL ,\n" +
+                "\t[czje] [T_JG] NOT NULL ,\n" +
+                "\t[yczje] [T_JG] NOT NULL ,\n" +
+                "\t[fdnm] [int] NOT NULL ,\n" +
+                "\t[bcje] [T_JG] NOT NULL ,\n" +
+                "\t[fsrq] [T_RQ] NOT NULL ,\n" +
+                "\t[jsrq] [T_RQ] NOT NULL ,\n" +
+                "\t[bxje] [T_JG] NOT NULL ,\n" +
+                "\t[thsl] [T_JG] NOT NULL ,\n" +
+                "\t[thje] [T_JG] NOT NULL ,\n" +
+                "\t[jyqxsl] [T_JG] NOT NULL ,\n" +
+                "\t[jyqxje] [T_JG] NOT NULL ,\n" +
+                "\t[zcje] [T_JG] NOT NULL ,\n" +
+                "\t[hkje] [T_JG] NOT NULL ,\n" +
+                "\t[wmsl] [T_JG] NOT NULL ,\n" +
+                "\t[wmje] [T_JG] NOT NULL ,\n" +
+                "\t[xdsl] [T_JG] NOT NULL ,\n" +
+                "\t[xdje] [T_JG] NOT NULL ,\n" +
+                "\t[yywsrje] [T_JG] NOT NULL ,\n" +
+                "\t[fyzcje] [T_JG] NOT NULL ,\n" +
+                "\t[sjje] [T_JG] NOT NULL ,\n" +
+                "\t[wcje] [T_JG] NOT NULL ,\n" +
+                "\t[gz] [decimal](15, 2) NOT NULL ,\n" +
+                "\t[lsqkje] [T_JG] NOT NULL ,\n" +
+                "\t[yhkczje] [T_JG] NOT NULL ,\n" +
+                "\t[yhkzcje] [T_JG] NOT NULL ,\n" +
+                "\t[wdsl] [int] NOT NULL ,\n" +
+                "\t[wdje] [T_JG] NOT NULL ,\n" +
+                "\t[czzsje] [T_JG] NOT NULL ,\n" +
+                "\t[ktkje] [T_JG] NOT NULL ,\n" +
+                "\t[khsje] [T_JG] NOT NULL ,\n" +
+                "\t[mtwmds] [int] NOT NULL ,\n" +
+                "\t[mtwmje] [decimal](15, 2) NOT NULL ,\n" +
+                "\t[mtwmpsf] [decimal](15, 2) NOT NULL ,\n" +
+                "\t[zzdcds] [int] NOT NULL ,\n" +
+                "\t[zzdcje] [decimal](15, 2) NOT NULL ,\n" +
+                "\t[dbf] [decimal](15, 2) NOT NULL ,\n" +
+                "\t[wxczje] [decimal](15, 2) NOT NULL ,\n" +
+                "\t[zfbczje] [decimal](15, 2) NOT NULL ,\n" +
+                "\t[zsje] [decimal](15, 2) NOT NULL ,\n" +
+                "\t[jfksl] [int] NOT NULL ,\n" +
+                "\t[jfksysl] [int] NOT NULL ,\n" +
+                "\t[hdaczje] [T_JG] NOT NULL \n" +
+                ") ON [PRIMARY]";
         //logger.info("配置文件路径:" + location);
         /*//读取文件
         File file = new File(location);
@@ -85,7 +89,7 @@ public class RegexSLQ {
                 System.out.println("数据库名称:\n" + list.get(i));
                 System.out.println("字段名称:\n");
             } else {
-                System.out.println(list.get(i));
+                System.out.println(list.get(i)+",");
             }
         }
     }
@@ -191,7 +195,11 @@ public class RegexSLQ {
         list.add("binary");
         list.add("varbinary");
         list.add("image");
+        list.add("T_JG");
         list.add("PRIMARY");
+        list.add("T_ZK");
+        list.add("T_RQ");
+        list.add("T_JG");
         list.add("");
         return list;
     }

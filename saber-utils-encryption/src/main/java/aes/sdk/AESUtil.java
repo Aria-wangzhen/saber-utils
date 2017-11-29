@@ -51,7 +51,7 @@ public class AESUtil {
             Cipher cipher = Cipher.getInstance(CBC);
             cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key.getBytes("utf-8"), KEY_ALGORITHM), new IvParameterSpec(key.getBytes()));
             byte[] bytes = cipher.doFinal(content.getBytes("utf-8"));
-            return parseByte2HexStr(bytes);
+            return new BASE64Encoder().encode(bytes);
         }
         Cipher cipher = Cipher.getInstance(DEFAULT_CIPHER_ALGORITHM);
         cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key.getBytes("utf-8"), KEY_ALGORITHM));
@@ -67,8 +67,8 @@ public class AESUtil {
         if (mode.equals("CBC")) {
             Cipher cipher = Cipher.getInstance(CBC);
             cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(key.getBytes("utf-8"), KEY_ALGORITHM), new IvParameterSpec(key.getBytes()));
-            //byte[] bytes = new BASE64Decoder().decodeBuffer(content);
-            byte[] bytes= parseHexStr2Byte(content);
+            byte[] bytes = new BASE64Decoder().decodeBuffer(content);
+
             bytes = cipher.doFinal(bytes);
             return new String(bytes, "utf-8");
         }
