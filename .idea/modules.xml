@@ -10,7 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/saber-utils-readFile/saber-utils-readFile.iml" filepath="$PROJECT_DIR$/saber-utils-readFile/saber-utils-readFile.iml" />
       <module fileurl="file://$PROJECT_DIR$/saber-utils-regex/saber-utils-regex.iml" filepath="$PROJECT_DIR$/saber-utils-regex/saber-utils-regex.iml" />
       <module fileurl="file://$PROJECT_DIR$/saber-utils-springmvc-param/saber-utils-springmvc-param.iml" filepath="$PROJECT_DIR$/saber-utils-springmvc-param/saber-utils-springmvc-param.iml" />
-      <module fileurl="file://$PROJECT_DIR$/saber-utils-test/saber-utils-test.iml" filepath="$PROJECT_DIR$/saber-utils-test/saber-utils-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/saber-utils-frame/saber-utils-frame.iml" filepath="$PROJECT_DIR$/saber-utils-frame/saber-utils-frame.iml" />
     </modules>
   </component>
 </project>

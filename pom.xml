@@ -12,14 +12,11 @@
         <module>saber-utils-mybatis</module>
         <module>saber-utils-interview</module>
         <module>saber-utils-springmvc-param</module>
-        <module>saber-utils-dianping</module>
         <module>saber-utils-readFile</module>
         <module>saber-utils-regex</module>
         <module>saber-utils-collection-date-string</module>
-        <module>saber-utils-test</module>
+        <module>saber-utils-frame</module>
         <module>saber-utils-encryption</module>
-        <module>saber-utils-dianping</module>
-
     </modules>
 
     <dependencies>
