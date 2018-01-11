@@ -9,6 +9,7 @@
         <module name="saber-utils-collection-date-string" />
         <module name="saber-utils-dianping" />
         <module name="saber-utils-encryption" />
+        <module name="saber-utils-frame" />
         <module name="saber-utils-interview" />
         <module name="saber-utils-mybatis" />
         <module name="saber-utils-readFile" />
