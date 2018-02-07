@@ -23,7 +23,7 @@
       <module name="saber-utils-collection-date-string" target="1.5" />
       <module name="saber-utils-dianping" target="1.5" />
       <module name="saber-utils-encryption" target="1.7" />
-      <module name="saber-utils-frame" target="1.5" />
+      <module name="saber-utils-frame" target="1.6" />
       <module name="saber-utils-interview" target="1.6" />
       <module name="saber-utils-mybatis" target="1.5" />
       <module name="saber-utils-readFile" target="1.5" />
