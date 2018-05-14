@@ -1,4 +1,4 @@
-package netty;
+package netty.server;
 
 /**
  * @author Aria E-mail:wangzhen36@meituan.com
