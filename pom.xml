@@ -17,6 +17,7 @@
         <module>saber-utils-collection-date-string</module>
         <module>saber-utils-frame</module>
         <module>saber-utils-encryption</module>
+        <module>saber-utils-coding</module>
     </modules>
 
     <dependencies>
