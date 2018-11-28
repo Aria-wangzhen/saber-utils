@@ -6,16 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="saber-utils-collection-date-string" />
         <module name="saber-utils-dianping" />
-        <module name="saber-utils-encryption" />
         <module name="saber-utils-frame" />
         <module name="saber-utils-interview" />
         <module name="saber-utils-readFile" />
-        <module name="saber-utils-regex" />
         <module name="saber-utils-regexp (1)" />
         <module name="saber-utils-spring" />
-        <module name="saber-utils-springmvc-param" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -32,7 +28,7 @@
       <module name="saber-utils-regexp" target="1.5" />
       <module name="saber-utils-regexp (1)" target="1.5" />
       <module name="saber-utils-regexp (1) (saber-utils-regexp)" target="1.5" />
-      <module name="saber-utils-spring" target="1.5" />
+      <module name="saber-utils-spring" target="1.7" />
       <module name="saber-utils-springmvc-param" target="1.7" />
       <module name="sader-utils-springmvc-param" target="1.5" />
       <module name="string" target="1.5" />

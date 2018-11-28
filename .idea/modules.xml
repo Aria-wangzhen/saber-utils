@@ -3,14 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/saber-utils.iml" filepath="$PROJECT_DIR$/saber-utils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/saber-utils-collection-date-string/saber-utils-collection-date-string.iml" filepath="$PROJECT_DIR$/saber-utils-collection-date-string/saber-utils-collection-date-string.iml" />
-      <module fileurl="file://$PROJECT_DIR$/saber-utils-encryption/saber-utils-encryption.iml" filepath="$PROJECT_DIR$/saber-utils-encryption/saber-utils-encryption.iml" />
       <module fileurl="file://$PROJECT_DIR$/saber-utils-frame/saber-utils-frame.iml" filepath="$PROJECT_DIR$/saber-utils-frame/saber-utils-frame.iml" />
       <module fileurl="file://$PROJECT_DIR$/saber-utils-interview/saber-utils-interview.iml" filepath="$PROJECT_DIR$/saber-utils-interview/saber-utils-interview.iml" />
       <module fileurl="file://$PROJECT_DIR$/saber-utils-readFile/saber-utils-readFile.iml" filepath="$PROJECT_DIR$/saber-utils-readFile/saber-utils-readFile.iml" />
-      <module fileurl="file://$PROJECT_DIR$/saber-utils-regex/saber-utils-regex.iml" filepath="$PROJECT_DIR$/saber-utils-regex/saber-utils-regex.iml" />
       <module fileurl="file://$PROJECT_DIR$/saber-utils-spring/saber-utils-spring.iml" filepath="$PROJECT_DIR$/saber-utils-spring/saber-utils-spring.iml" />
-      <module fileurl="file://$PROJECT_DIR$/saber-utils-springmvc-param/saber-utils-springmvc-param.iml" filepath="$PROJECT_DIR$/saber-utils-springmvc-param/saber-utils-springmvc-param.iml" />
     </modules>
   </component>
 </project>
