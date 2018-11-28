@@ -16,7 +16,7 @@ public class ThreadPoolManager {
 
     //private static final Logger LOGGER = LoggerFactory.getLogger(ThreadPoolManager.class);
 
-    private static final Map<String, ExecutorService> CACHE = new HashMap<>(16);
+    private static final Map<String, ExecutorService> CACHE = new HashMap<String, ExecutorService>(16);
 
     private static final int DEFAULT_CORE_POOL_SIZE;
     private static final int DEFAULT_MAXIMUM_POOL_SIZE;
@@ -102,7 +102,7 @@ public class ThreadPoolManager {
                 service = CACHE.get(name);
 
                 if (service == null) {
-                    BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(queueCapacity);
+                    BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<Runnable>(queueCapacity);
                     ThreadPoolExecutor threadPoolExecutor = new DefaultThreadPoolExecutor(
                             coreSize, maxCoreSize, keepAliveTime, unit,
                             workQueue, threadFactory, handler);

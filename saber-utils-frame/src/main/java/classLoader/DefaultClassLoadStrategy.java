@@ -44,6 +44,7 @@ public class DefaultClassLoadStrategy implements IClassLoadStrategy {
     // 判断anotherLoader是否是oneLoader的child
     private boolean isChild(ClassLoader oneLoader, ClassLoader anotherLoader){
         //...
+        return true;
     }
 
     // ... more methods

@@ -10,6 +10,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 public class SimpleChatClientHandler extends SimpleChannelInboundHandler<String> {
     /**
      * 每当从服务端读到客户端写入信息时,将信息转发给其他客户端的Channel.
+     *
      * @param ctx
      * @param msg
      * @throws Exception
@@ -17,7 +18,8 @@ public class SimpleChatClientHandler extends SimpleChannelInboundHandler<String>
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
 
-        System.out.println(msg);
+        System.out.println("MAC汇报" + msg);
+        //ctx.writeAndFlush("我是mac");
 
     }
 

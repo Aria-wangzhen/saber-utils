@@ -1,7 +1,6 @@
 package readpeizhi;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
-import org.apache.log4j.Logger;
+
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -21,7 +20,6 @@ import java.math.RoundingMode;
 public class readDat {
 
 
-    private static final Logger logger = Logger.getLogger(readDat.class);
     //关键进程名
     private static final String[] PROCESS_NAMES = {"吧台收银.exe", "后台管理.exe", "后厨打印.exe", "电子菜谱.exe", "连锁云服务.exe"};
     //配置文件名
@@ -41,13 +39,13 @@ public class readDat {
             document = reader.read(new File(cfgLocation));
         } catch (DocumentException e) {
 
-            logger.error("读取配置文件出错", e);
+            //logger.error("读取配置文件出错", e);
             return null;
         }
 
         Element root = document.getRootElement();
         if (null == root) {
-            logger.info("获取节点错误");
+            //logger.info("获取节点错误");
             return null;
         }
         String configLine = root.getText().replace(" ", "");
@@ -64,23 +62,23 @@ public class readDat {
             String value = connectionArr[i].substring(from + 1);
             if (name.equals("UserID")) {
                 userName = value;
-                logger.info("获取数据库userName成功, userName=" + value);
+                //logger.info("获取数据库userName成功, userName=" + value);
             }
             if (name.equals("Password")) {
                 pwd = value;
-                logger.info("获取数据库pwd成功, pwd=" + value);
+                //logger.info("获取数据库pwd成功, pwd=" + value);
 
             }
             if (name.equals("InitialCatalog")) {
                 db = value;
-                logger.info("获取数据库db名称成功, db=" + value);
+               // logger.info("获取数据库db名称成功, db=" + value);
 
             }
             if (name.equals("DataSource")) {
                 String[] ipAndPort = value.split(",");
                 hostName = ipAndPort[0];
                 port = ipAndPort[ipAndPort.length - 1];
-                logger.info(String.format("获取数据库ip和port成功, ip = %s and port = %s", ipAndPort[0], ipAndPort[ipAndPort.length - 1]));
+               // logger.info(String.format("获取数据库ip和port成功, ip = %s and port = %s", ipAndPort[0], ipAndPort[ipAndPort.length - 1]));
             }
         }
 
@@ -89,7 +87,7 @@ public class readDat {
                 .append(hostName)
                 .append(":" + port + "/")
                 .append(db);
-        logger.info("数据库Url拼装成功" + sb.toString());
+       // logger.info("数据库Url拼装成功" + sb.toString());
 
 
         return sb.toString();
@@ -140,21 +138,21 @@ public class readDat {
                     String value = connectionArr[i].substring(from + 1);
                     if (name.equals("UserID")) {
                         userName = value;
-                        logger.info("获取数据库userName成功, userName=" + value);
+                       // logger.info("获取数据库userName成功, userName=" + value);
                     }
                     if (name.equals("Password")) {
                         pwd = value;
-                        logger.info("获取数据库pwd成功, pwd=" + value);
+                       // logger.info("获取数据库pwd成功, pwd=" + value);
                     }
                     if (name.equals("InitialCatalog")) {
                         db = value;
-                        logger.info("获取数据库db名称成功, db=" + value);
+                       // logger.info("获取数据库db名称成功, db=" + value);
                     }
                     if (name.equals("DataSource")) {
                         String[] ipAndPort = value.split(",");
                         hostName = ipAndPort[0];
                         port = ipAndPort[ipAndPort.length - 1];
-                        logger.info(String.format("获取数据库ip和port成功, ip = %s and port = %s", ipAndPort[0], ipAndPort[ipAndPort.length - 1]));
+                       // logger.info(String.format("获取数据库ip和port成功, ip = %s and port = %s", ipAndPort[0], ipAndPort[ipAndPort.length - 1]));
                     }
                 }
 
@@ -165,14 +163,14 @@ public class readDat {
                     .append(hostName)
                     .append(":" + port + "/")
                     .append(db);
-            logger.info("数据库Url拼装成功" + sb.toString());
+            //logger.info("数据库Url拼装成功" + sb.toString());
 
         } else {
-            logger.warn("未找到数据库配置文件");
+            //logger.warn("未找到数据库配置文件");
         }
 
 
-        logger.info("获取数据库配置成功");
+        //logger.info("获取数据库配置成功");
 
         return sb.toString();
     }
