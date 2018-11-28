@@ -13,6 +13,8 @@
       <set>
         <option value="$PROJECT_DIR$/saber-utils-coding/pom.xml" />
         <option value="$PROJECT_DIR$/saber-utils-dianping/pom.xml" />
+        <option value="$PROJECT_DIR$/saber-utils-jdk8/pom.xml" />
+        <option value="$PROJECT_DIR$/saber-utils-mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/sader-utils-springmvc-param/pom.xml" />
       </set>
     </option>

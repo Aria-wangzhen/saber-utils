@@ -116,7 +116,7 @@ public class readDat {
     //应用于直接是文字的类型如:Provider=SQLOLEDB.1;Password=admin;Persist Security Info=True;UserID=sa;InitialCatalog=cyerp;DataSource=127.0.0.1,7788
     public static String get() throws IOException {
         StringBuilder sb = new StringBuilder();
-        String configAddress = "/Users/wangzhen/dianping/" + CFG_NAME;
+        String configAddress = "/Users/" + CFG_NAME;
 
         File file = new File(configAddress);
         if (file.isFile() && file.exists()) {

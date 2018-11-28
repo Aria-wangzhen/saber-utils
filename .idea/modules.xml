@@ -7,8 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/saber-utils-encryption/saber-utils-encryption.iml" filepath="$PROJECT_DIR$/saber-utils-encryption/saber-utils-encryption.iml" />
       <module fileurl="file://$PROJECT_DIR$/saber-utils-frame/saber-utils-frame.iml" filepath="$PROJECT_DIR$/saber-utils-frame/saber-utils-frame.iml" />
       <module fileurl="file://$PROJECT_DIR$/saber-utils-interview/saber-utils-interview.iml" filepath="$PROJECT_DIR$/saber-utils-interview/saber-utils-interview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/saber-utils-jdk8/saber-utils-jdk8.iml" filepath="$PROJECT_DIR$/saber-utils-jdk8/saber-utils-jdk8.iml" />
-      <module fileurl="file://$PROJECT_DIR$/saber-utils-mybatis/saber-utils-mybatis.iml" filepath="$PROJECT_DIR$/saber-utils-mybatis/saber-utils-mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/saber-utils-readFile/saber-utils-readFile.iml" filepath="$PROJECT_DIR$/saber-utils-readFile/saber-utils-readFile.iml" />
       <module fileurl="file://$PROJECT_DIR$/saber-utils-regex/saber-utils-regex.iml" filepath="$PROJECT_DIR$/saber-utils-regex/saber-utils-regex.iml" />
       <module fileurl="file://$PROJECT_DIR$/saber-utils-spring/saber-utils-spring.iml" filepath="$PROJECT_DIR$/saber-utils-spring/saber-utils-spring.iml" />
