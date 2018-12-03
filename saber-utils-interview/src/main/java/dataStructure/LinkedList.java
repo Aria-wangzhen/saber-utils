@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Stack;
 
 /**
+ * 来源：https://blog.csdn.net/fightforyourdream/article/details/16353519
  * http://blog.csdn.net/luckyxiaoqiang/article/details/7393134 轻松搞定面试中的链表题目
  * http://www.cnblogs.com/jax/archive/2009/12/11/1621504.html 算法大全（1）单链表
  * <p>
@@ -133,7 +134,7 @@ public class LinkedList {
     // 递归的精髓在于你就默认reverseListRec已经成功帮你解决了子问题了！但别去想如何解决的
     // 现在只要处理当前node和子问题之间的关系。最后就能圆满解决整个问题。
     /*
-		 head
+         head
 			1 -> 2 -> 3 -> 4
 
 		  head
