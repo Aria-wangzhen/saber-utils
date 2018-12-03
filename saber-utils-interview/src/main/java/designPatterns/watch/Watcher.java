@@ -1,4 +1,4 @@
-package watch;
+package designPatterns.watch;
 
 /**
  * 抽象观察者角色

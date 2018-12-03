@@ -1,4 +1,4 @@
-package singleton;
+package designPatterns.singleton;
 
 /**
  * Created by wangzhen on 2017/5/17.

@@ -1,4 +1,4 @@
-package producerconsumer;
+package designPatterns.producerconsumer;
 
 
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package watch;
+package designPatterns.watch;
 
 /**
  * 抽象主題角色

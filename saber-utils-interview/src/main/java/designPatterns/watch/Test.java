@@ -1,4 +1,4 @@
-package watch;
+package designPatterns.watch;
 
 /**
  * @author Aria

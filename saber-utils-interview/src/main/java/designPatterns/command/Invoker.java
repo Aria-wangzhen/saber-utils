@@ -1,4 +1,4 @@
-package command;
+package designPatterns.command;
 
 /**请求者(Invoker)角色：负责调用命令对象执行请求，相关的方法叫做行动方法。
  * @author Aria E-mail:wangzhen36@meituan.com

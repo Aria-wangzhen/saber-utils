@@ -1,4 +1,4 @@
-package watch;
+package designPatterns.watch;
 
 import java.util.ArrayList;
 import java.util.List;

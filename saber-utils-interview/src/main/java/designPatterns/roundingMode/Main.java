@@ -1,4 +1,4 @@
-package roundingMode;
+package designPatterns.roundingMode;
 
 
 import java.math.BigDecimal;

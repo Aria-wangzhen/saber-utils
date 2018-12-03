@@ -1,4 +1,4 @@
-package watch;
+package designPatterns.watch;
 
 /**
  * 具体观察者角色具体观察者角色

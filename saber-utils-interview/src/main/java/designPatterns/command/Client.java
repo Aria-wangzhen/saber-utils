@@ -1,4 +1,4 @@
-package command;
+package designPatterns.command;
 
 /**
  * 客户端(Client)角色：创建一个具体命令(ConcreteCommand)对象并确定其接收者

@@ -1,4 +1,4 @@
-package singleton;
+package designPatterns.singleton;
 
 /**
  * 根据jvm规范，当某对象第一次调用LazyInitHolderSingleton.getInstance()时，LazyInitHolderSingleton类被首次主动使用，jvm对其进行初始化（此时并不会调用LazyInitHolderSingleton()构造方法;进行LazyInitHolderSingleton的类加载，初始化静态变量），然后LazyInitHolderSingleton调用getInstance()方法，该方法中，又首次主动使用了SingletonHolder类，所以要对SingletonHolder类进行初始化（类的静态变量首先加载，进行初始化），初始化中，INSTANCE常量被赋值时才调用了 LazyInitHolderSingleton的构造方法LazyInitHolderSingleton()，完成了实例化并返回该实例。
