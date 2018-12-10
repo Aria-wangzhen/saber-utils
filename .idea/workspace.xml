@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90802e21-d101-47f0-9223-ead6ace34e04" name="Default" comment="pom">
+    <list default="true" id="90802e21-d101-47f0-9223-ead6ace34e04" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/BinarytTree.java" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/BinarytTree.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/LinkedList.java" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/LinkedList.java" />
@@ -49,7 +49,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2461">
               <caret line="118" column="38" lean-forward="false" selection-start-line="118" selection-start-column="38" selection-end-line="118" selection-end-column="38" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,11 +68,17 @@
       </file>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/saber-utils-spring/pom.xml">
+          <provider editor-type-id="YarmPluginDependencyUpdater">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1541">
               <caret line="67" column="37" lean-forward="false" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="YarmPluginDependencyAnalyzer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -79,7 +87,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="529">
               <caret line="42" column="32" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1217#1218#0" expanded="false" />
+                <element signature="e#1257#1258#0" expanded="false" />
+                <element signature="e#1544#1545#0" expanded="false" />
+                <element signature="e#1584#1585#0" expanded="false" />
+                <element signature="e#2743#2744#0" expanded="false" />
+                <element signature="e#2780#2781#0" expanded="false" />
+                <element signature="e#3981#3982#0" expanded="false" />
+                <element signature="e#3996#3997#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,7 +117,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="322">
               <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#526#527#0" expanded="false" />
+                <element signature="e#558#559#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,7 +131,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="253">
               <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="e#2787#2788#0" expanded="false" />
+                <element signature="e#2823#2824#0" expanded="false" />
+                <element signature="e#2976#2977#0" expanded="false" />
+                <element signature="e#3026#3027#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,29 +144,10 @@
       <file leaf-file-name="BinarytTree.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/BinarytTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="70" lean-forward="false" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
+            <state relative-caret-position="276">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4431#4441#0" expanded="true" />
-                <element signature="e#5703#5713#0" expanded="true" />
-                <element signature="e#7141#7151#0" expanded="true" />
-                <element signature="e#8366#8376#0" expanded="true" />
-                <element signature="e#9407#9417#0" expanded="true" />
-                <element signature="e#9497#9507#0" expanded="true" />
-                <element signature="e#10366#10376#0" expanded="true" />
-                <element signature="e#11130#11150#0" expanded="true" />
-                <element signature="e#13303#13313#0" expanded="true" />
-                <element signature="e#15040#15050#0" expanded="true" />
-                <element signature="e#16649#16659#0" expanded="true" />
-                <element signature="e#18323#18333#0" expanded="true" />
-                <element signature="e#18375#18385#0" expanded="true" />
-                <element signature="e#20974#20984#0" expanded="true" />
-                <element signature="e#21597#21607#0" expanded="true" />
-                <element signature="e#21655#21665#0" expanded="true" />
-                <element signature="e#24760#24770#0" expanded="true" />
-                <element signature="e#24870#24880#0" expanded="true" />
-                <element signature="e#29587#29597#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,12 +156,10 @@
       <file leaf-file-name="LinkedList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/LinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="70" lean-forward="false" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
+            <state relative-caret-position="184">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6373#6379#0" expanded="true" />
-                <element signature="e#12853#12868#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -179,6 +185,7 @@
       <find>httpConn</find>
       <find>setIfAbsent</find>
       <find>checkNewProxyPermission</find>
+      <find>求单链表中结点的个数</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -327,8 +334,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -502,6 +507,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1206,7 +1213,11 @@
       <workItem from="1541399532602" duration="2000" />
       <workItem from="1543377005449" duration="1350000" />
       <workItem from="1543817636225" duration="1413000" />
-      <workItem from="1543819757586" duration="48000" />
+      <workItem from="1543819757586" duration="158000" />
+      <workItem from="1543820415641" duration="21000" />
+      <workItem from="1544424204688" duration="404000" />
+      <workItem from="1544425535795" duration="399000" />
+      <workItem from="1544442055394" duration="1609000" />
     </task>
     <task id="LOCAL-00001" summary="pom">
       <created>1501584275832</created>
@@ -1306,11 +1317,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543818506317</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="pom">
+      <created>1543819813149</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1543819813149</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116346000" />
+    <option name="totallyTimeSpent" value="118889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -1332,12 +1350,12 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26104417" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26104417" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24785867" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26070663" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1736,94 +1754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3703">
           <caret line="214" column="0" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35612#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#3517#3518#0" expanded="false" />
-            <element signature="e#3558#3559#0" expanded="false" />
-            <element signature="e#3613#3614#0" expanded="false" />
-            <element signature="e#3644#3645#0" expanded="false" />
-            <element signature="e#3697#3698#0" expanded="false" />
-            <element signature="e#3753#3754#0" expanded="false" />
-            <element signature="e#3984#3985#0" expanded="false" />
-            <element signature="e#4011#4012#0" expanded="false" />
-            <element signature="e#4432#4597#0" expanded="false" />
-            <element signature="e#4596#4597#0" expanded="false" />
-            <element signature="e#5372#5539#0" expanded="false" />
-            <element signature="e#5538#5539#0" expanded="false" />
-            <element signature="e#6353#6514#0" expanded="false" />
-            <element signature="e#6513#6514#0" expanded="false" />
-            <element signature="e#7261#7424#0" expanded="false" />
-            <element signature="e#7423#7424#0" expanded="false" />
-            <element signature="e#8288#8476#0" expanded="false" />
-            <element signature="e#8475#8476#0" expanded="false" />
-            <element signature="e#9890#10061#0" expanded="false" />
-            <element signature="e#10060#10061#0" expanded="false" />
-            <element signature="e#10954#11114#0" expanded="false" />
-            <element signature="e#11113#11114#0" expanded="false" />
-            <element signature="e#12016#12200#0" expanded="false" />
-            <element signature="e#12199#12200#0" expanded="false" />
-            <element signature="e#13197#13387#0" expanded="false" />
-            <element signature="e#13386#13387#0" expanded="false" />
-            <element signature="e#13881#13882#0" expanded="false" />
-            <element signature="e#13936#13937#0" expanded="false" />
-            <element signature="e#14015#14016#0" expanded="false" />
-            <element signature="e#14074#14075#0" expanded="false" />
-            <element signature="e#14309#14310#0" expanded="false" />
-            <element signature="e#14356#14357#0" expanded="false" />
-            <element signature="e#14406#14407#0" expanded="false" />
-            <element signature="e#14448#14449#0" expanded="false" />
-            <element signature="e#14503#14504#0" expanded="false" />
-            <element signature="e#14550#14551#0" expanded="false" />
-            <element signature="e#15146#15319#0" expanded="false" />
-            <element signature="e#15318#15319#0" expanded="false" />
-            <element signature="e#16604#16795#0" expanded="false" />
-            <element signature="e#16794#16795#0" expanded="false" />
-            <element signature="e#18085#18421#0" expanded="false" />
-            <element signature="e#18420#18421#0" expanded="false" />
-            <element signature="e#19281#19441#0" expanded="false" />
-            <element signature="e#19440#19441#0" expanded="false" />
-            <element signature="e#20297#20462#0" expanded="false" />
-            <element signature="e#20461#20462#0" expanded="false" />
-            <element signature="e#21274#21443#0" expanded="false" />
-            <element signature="e#21442#21443#0" expanded="false" />
-            <element signature="e#21878#21879#0" expanded="false" />
-            <element signature="e#21925#21926#0" expanded="false" />
-            <element signature="e#23342#23512#0" expanded="false" />
-            <element signature="e#23511#23512#0" expanded="false" />
-            <element signature="e#25453#25454#0" expanded="false" />
-            <element signature="e#25508#25509#0" expanded="false" />
-            <element signature="e#26919#26920#0" expanded="false" />
-            <element signature="e#26990#26991#0" expanded="false" />
-            <element signature="e#29556#29557#0" expanded="false" />
-            <element signature="e#29602#29603#0" expanded="false" />
-            <element signature="e#29633#29634#0" expanded="false" />
-            <element signature="e#29671#29672#0" expanded="false" />
-            <element signature="e#29700#29701#0" expanded="false" />
-            <element signature="e#29736#29737#0" expanded="false" />
-            <element signature="e#30270#30271#0" expanded="false" />
-            <element signature="e#30314#30315#0" expanded="false" />
-            <element signature="e#30362#30363#0" expanded="false" />
-            <element signature="e#30408#30409#0" expanded="false" />
-            <element signature="e#30479#30480#0" expanded="false" />
-            <element signature="e#30521#30522#0" expanded="false" />
-            <element signature="e#30590#30591#0" expanded="false" />
-            <element signature="e#30635#30636#0" expanded="false" />
-            <element signature="e#31114#31115#0" expanded="false" />
-            <element signature="e#31195#31196#0" expanded="false" />
-            <element signature="e#32131#32132#0" expanded="false" />
-            <element signature="e#32168#32169#0" expanded="false" />
-            <element signature="e#33716#33717#0" expanded="false" />
-            <element signature="e#33751#33752#0" expanded="false" />
-            <element signature="e#34089#34278#0" expanded="false" />
-            <element signature="e#34277#34278#0" expanded="false" />
-            <element signature="e#34601#34602#0" expanded="false" />
-            <element signature="e#34638#34639#0" expanded="false" />
-            <element signature="e#34785#35006#0" expanded="false" />
-            <element signature="e#35005#35006#0" expanded="false" />
-            <element signature="e#35362#35363#0" expanded="false" />
-            <element signature="e#35399#35400#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1841,7 +1771,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2461">
           <caret line="118" column="38" lean-forward="false" selection-start-line="118" selection-start-column="38" selection-end-line="118" selection-end-column="38" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1855,11 +1787,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/saber-utils-springmvc-param/pom.xml" />
     <entry file="file://$PROJECT_DIR$/saber-utils-spring/pom.xml">
+      <provider editor-type-id="YarmPluginDependencyUpdater">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1541">
           <caret line="67" column="37" lean-forward="false" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="YarmPluginDependencyAnalyzer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/saber-utils-collection-date-string/src/main/java/constant/CommonConstants.java" />
@@ -1874,7 +1812,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
           <caret line="42" column="32" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1217#1218#0" expanded="false" />
+            <element signature="e#1257#1258#0" expanded="false" />
+            <element signature="e#1544#1545#0" expanded="false" />
+            <element signature="e#1584#1585#0" expanded="false" />
+            <element signature="e#2743#2744#0" expanded="false" />
+            <element signature="e#2780#2781#0" expanded="false" />
+            <element signature="e#3981#3982#0" expanded="false" />
+            <element signature="e#3996#3997#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1890,7 +1838,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#526#527#0" expanded="false" />
+            <element signature="e#558#559#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1898,48 +1850,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#2787#2788#0" expanded="false" />
+            <element signature="e#2823#2824#0" expanded="false" />
+            <element signature="e#2976#2977#0" expanded="false" />
+            <element signature="e#3026#3027#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/swordForOffer.java" />
     <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/LinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="70" lean-forward="false" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
+        <state relative-caret-position="184">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6373#6379#0" expanded="true" />
-            <element signature="e#12853#12868#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/BinarytTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="70" lean-forward="false" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
+        <state relative-caret-position="276">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4431#4441#0" expanded="true" />
-            <element signature="e#5703#5713#0" expanded="true" />
-            <element signature="e#7141#7151#0" expanded="true" />
-            <element signature="e#8366#8376#0" expanded="true" />
-            <element signature="e#9407#9417#0" expanded="true" />
-            <element signature="e#9497#9507#0" expanded="true" />
-            <element signature="e#10366#10376#0" expanded="true" />
-            <element signature="e#11130#11150#0" expanded="true" />
-            <element signature="e#13303#13313#0" expanded="true" />
-            <element signature="e#15040#15050#0" expanded="true" />
-            <element signature="e#16649#16659#0" expanded="true" />
-            <element signature="e#18323#18333#0" expanded="true" />
-            <element signature="e#18375#18385#0" expanded="true" />
-            <element signature="e#20974#20984#0" expanded="true" />
-            <element signature="e#21597#21607#0" expanded="true" />
-            <element signature="e#21655#21665#0" expanded="true" />
-            <element signature="e#24760#24770#0" expanded="true" />
-            <element signature="e#24870#24880#0" expanded="true" />
-            <element signature="e#29587#29597#0" expanded="true" />
           </folding>
         </state>
       </provider>
