@@ -21,7 +21,7 @@ import java.util.Stack;
  * 10. 已知一个单链表中存在环，求进入环中的第一个节点: getFirstNodeInCycle, getFirstNodeInCycleHashMap
  * 11. 给出一单链表头指针pHead和一节点指针pToBeDeleted，O(1)时间复杂度删除节点pToBeDeleted: delete
  */
-public class LinkedList {
+public class LinkedListDemo {
 
     public static void main(String[] args) {
         Node n1 = new Node(1);
