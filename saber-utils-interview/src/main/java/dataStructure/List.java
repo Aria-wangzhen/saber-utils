@@ -7,7 +7,8 @@ package dataStructure;
 
 import java.util.Stack;
 
-/**来源：https://blog.csdn.net/sheepmu/article/details/38282457
+/**
+ * 来源：https://blog.csdn.net/sheepmu/article/details/38282457
  * 1.链表长度
  * 2.得到链表倒数第k个节点的值
  * 3.删除链表的倒数第k个节点
@@ -62,10 +63,16 @@ public class List {
 
     }
 
-    //1.链表长度
+    /**
+     * 1.链表长度
+     *
+     * @param head
+     * @return
+     */
     public static int getLen(ListNode head) {
-        if (head == null)
+        if (head == null) {
             return 0;
+        }
         int len = 1;
         while (head.next != null) {
             len++;
@@ -74,153 +81,175 @@ public class List {
         return len;
     }
 
-    //1.链表长度                -----递归------
+    /**
+     * 1.链表长度                -----递归------
+     *
+     * @param head
+     * @return
+     */
     public static int getLenRec(ListNode head) {
-        if (head == null)
+        if (head == null) {
             return 0;
+        }
         return getLenRec(head.next) + 1;
     }
 
-    //2.得到链表倒数第k个节点的值
-
     /**
+     * 2.得到链表倒数第k个节点的值
      * 思路：因为倒数第k个和最后一个相距k-1个节点，故采用前后指针，第一个先走k-1步，即走到第k个，链表我习惯从1开始计算，
      * 然后两个指针在同时走，当前指针p走到末尾时，后指针q的位置刚好是倒数第k个节点。
      */
     public static int getLastK(ListNode head, int k) {
-        if (head == null || k <= 0)
+        if (head == null || k <= 0) {
             return -1;
-        ListNode p = head;
-        ListNode q = head;
+        }
+        ListNode fastNode = head;
+        ListNode slowNode = head;
         while (--k > 0)//让p先走k-1步，即p走到第k个节点，从1开始计数哈~
         {
-            p = p.next;
-            if (p.next == null)
-                break;  //防止输入的倒数k值特别大的异常情况
+            fastNode = fastNode.next;
+            if (fastNode.next == null) {
+                break;//防止输入的倒数k值特别大的异常情况
+            }
         }
-        if (p.next == null)//说明输入的k超出链表长度范围or等于链表长度，即删除第一个。一定要特别注意这些特别情况，代码的鲁棒性~~
+        if (fastNode.next == null)//说明输入的k超出链表长度范围or等于链表长度，即删除第一个。一定要特别注意这些特别情况，代码的鲁棒性~~
         {
             return head.value;
         } else {
-            while (p.next != null) {
-                p = p.next;
-                q = q.next;
+            while (fastNode.next != null) {
+                fastNode = fastNode.next;
+                slowNode = slowNode.next;
             }
-            return q.value;
+            return slowNode.value;
         }
 
     }
 
-    //3.删除链表的倒数第k个节点
-
     /**
+     * 3.删除链表的倒数第k个节点
      * 思路：和上面相比就是要删除倒数第k个，那么就需要记录后指针的前一节点，因为删除链表的本质就是它的前一节点指向它的后一节点
      */
+
     public static ListNode moveLastK(ListNode head, int k) {
-        if (head == null || k <= 0)
+        if (head == null || k <= 0) {
             return null;
-        ListNode p = head;
-        ListNode q = head;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
         while (--k > 0)//让p先走k-1步，即p走到第k个节点，从1开始计数哈~
         {
-            p = p.next;
-            if (p.next == null)
-                break;  //防止输入的倒数k值特别大的异常情况
+            fast = fast.next;
+            if (fast.next == null) {
+                break;
+            } //防止输入的倒数k值特别大的异常情况
         }
-        if (p.next == null)//说明输入的k超出链表长度范围or等于链表长度，即删除第一个。
+        if (fast.next == null)//说明输入的k超出链表长度范围or等于链表长度，即删除第一个。
         {
             return head.next;
         } else {
-            ListNode pre = q;//用于记录删除节点的前一节点
-            while (p.next != null) {
-                pre = q;
-                p = p.next;
-                q = q.next;
+            ListNode pre = slow;//用于记录删除节点的前一节点
+            while (fast.next != null) {
+                pre = slow;
+                fast = fast.next;
+                slow = slow.next;
             }
-            pre.next = q.next;
+            pre.next = slow.next;
             return head;
         }
     }
 
-    //4.求单链表的中间节点
-
     /**
+     * 4.求单链表的中间节点
      * 前后指针，一个每次走2步一个每次走1步，若链表长度为奇数返回中间值，为偶数返回中间2者的前一者
      */
     public static int getMid(ListNode head) {
-        if (head == null || head.next == null)//0个节点和1个节点时
+        //0个节点和1个节点时
+        if (head == null || head.next == null) {
             return -1;
-        if (head.next.next == null)//两个节点时
-            return head.value;
-        ListNode p = head;
-        ListNode q = head;
-        while (p.next != null && p.next.next != null)//若只有 一个节点 和 两个节点 时while条件不满足
-        {
-            p = p.next.next;
-            q = q.next;
         }
-        return q.value;
+        //两个节点时
+        if (head.next.next == null) {
+            return head.value;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        //若只有 一个节点 和 两个节点 时while条件不满足
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow.value;
     }
 
-    //5.判断链表是否有环
-
     /**
+     * 5.判断链表是否有环
      * 思路：前后指针，一个每次走两步一个每次走一步，若两指针相遇了则说明链表有环
      */
     public static boolean isHaveC(ListNode head) {
-        if (head == null || head.next == null || head.next.next == null) //只有两个节点时也无环吧？
+        //只有两个节点时也无环吧
+        if (head == null || head.next == null || head.next.next == null) {
             return false;
-        ListNode p = head;
-        ListNode q = head;
-        while (p.next != null && p.next.next != null) {
-            p = p.next.next;
-            q = q.next;
-            if (p == q)
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
                 return true;
+            }
         }
         return false;
     }
 
-    //6.找出有环链表的环的入口
-
     /**
+     * 6.找出有环链表的环的入口
      * 思路：若有环肯定会在环中相遇第一次相遇的位置到环开始的位置的距离（按环的方向）与头节点到环的开始的距离相等。
      * 故当相遇时，让节点q置于头节点，让后两个节点同时走，再次相遇处就是环开始的位置。
      */
+
     public static ListNode getFirstC(ListNode head) {
-        if (head == null || head.next == null || head.next.next == null)
+        if (head == null || head.next == null || head.next.next == null) {
             return null;
-        ListNode p = head;
-        ListNode q = head;
-        while (p.next != null && p.next.next != null) {
-            p = p.next.next;
-            q = q.next;
-            if (p == q)
-                break;    //pq相遇后break
         }
-        if (p.next == null || p.next.next == null)//无环
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                //pq相遇后break
+                break;
+            }
+        }
+        //无环
+        if (fast.next == null || fast.next.next == null) {
             return null;
-        q = head;//把q置于头节点
-        while (p != q) {
-            p = p.next;
-            q = q.next;
         }
-        return q;
+        //把q置于头节点
+        slow = head;
+        while (fast != slow) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
     }
 
-    //7.判断两个单链表是否相交
-
     /**
+     * 7.判断两个单链表是否相交
      * 思路：若两链表相交，则两链表的尾节点肯定是同一节点
      */
+
     public boolean isXJ(ListNode head1, ListNode head2) {
-        if (head1 == null || head2 == null)
+        if (head1 == null || head2 == null) {
             return false;
+        }
 
         ListNode tail1 = head1;
-        while (tail1.next != null)//不包含只有一个节点的情况 ,所以上面需要考虑只有一个节点的情况，但是此时虽只有一个节点都不进入入while,就return时比较就可以了
-        {
-            tail1 = tail1.next;//得到head1的尾巴
+        //不包含只有一个节点的情况 ,所以上面需要考虑只有一个节点的情况，但是此时虽只有一个节点都不进入入while,就return时比较就可以了
+        while (tail1.next != null) {
+            //得到head1的尾巴
+            tail1 = tail1.next;
         }
         ListNode tail2 = head2;
         while (tail2.next != null) {
@@ -229,14 +258,14 @@ public class List {
         return tail1 == tail2;
     }
 
-    //8.找出两个相交链表的第一个交点
-
     /**
+     * 8.找出两个相交链表的第一个交点
      * 思路:先让长的链表的指针先走长度差的距离，然后两个指针一起走，相遇的地方便是交点的开始处。
      */
     public static ListNode getFirstJD(ListNode head1, ListNode head2) {
-        if (head1 == null || head2 == null)
+        if (head1 == null || head2 == null) {
             return null;
+        }
 
         ListNode tail1 = head1;
         int len1 = 1;
@@ -254,12 +283,15 @@ public class List {
         ListNode n2 = head2;
         if (len1 > len2) {
             int k = len1 - len2;
-            while (k-- > 0)//这样写更精妙~~~~
+            //这样写更精妙~~~~
+            while (k-- > 0) {
                 n1 = n1.next;
+            }
         } else {
             int k = len2 - len1;
-            while (k-- > 0)
+            while (k-- > 0) {
                 n2 = n2.next;
+            }
         }
         while (n1 != n2) {
             n1 = n1.next;
