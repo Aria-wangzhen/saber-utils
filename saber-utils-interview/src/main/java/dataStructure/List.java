@@ -300,14 +300,14 @@ public class List {
         return n1;
     }
 
-    //9.从尾到头打印单链表
-
     /**
+     * 9.从尾到头打印单链表
      * 思路：逆序的问题首先想到栈，先进后出，要么用Stack，要么让系统使用栈，即递归~~
      */
     public static void reversePrintListStack(ListNode head) {
-        if (head == null)
+        if (head == null) {
             return;
+        }
         Stack<ListNode> stack = new Stack<ListNode>();
         ListNode cur = head;
         while (cur != null) {
@@ -321,23 +321,28 @@ public class List {
         System.out.println();
     }
 
-    //9.从尾到头打印单链表                    -----递归------
+    /**
+     * 9.从尾到头打印单链表                    -----递归------
+     *
+     * @param head
+     */
     public static void reversePrintListRec(ListNode head) {
-        if (head == null)
+        if (head == null) {
             return;
+        }
         reversePrintListRec(head.next);  //默认已经把子问题解决了，即已经输出了6-->5-->3-->2,后面只需要再输出头节点的值
         System.out.print(head.value + " ");  //这样理解会方便我们很快写出递归，但是还是要知道递归真正的实现过程~
     }
 
-    //10.逆置单链表
-
     /**
+     * 10.逆置单链表 --- 遍历 ----
      * 思路：把每次遍历到的都放到新链表的尾巴的前一个
      */
     public static ListNode reverseList(ListNode head) {
         // 如果链表为空或只有一个节点，无需反转，直接返回原链表表头
-        if (head == null || head.next == null)
+        if (head == null || head.next == null) {
             return head;
+        }
         ListNode newTail = null;  //新链表的尾巴
         ListNode cur = head;
 
@@ -351,19 +356,24 @@ public class List {
         return newTail;
     }
 
-    //10.逆置单链表                          ----递归-----
+    /**
+     * 10.逆置单链表                          ----递归-----
+     *
+     * @param head
+     * @return
+     */
     public static ListNode reverseListRec(ListNode head) {
-        if (head == null || head.next == null)
+        if (head == null || head.next == null) {
             return head;
+        }
         ListNode reHead = reverseListRec(head.next); //默认为已经逆置好了6-->5-->3-->2,即只需要在2的后面接1，因为2是head.next.所以 head.next.next = head;
         head.next.next = head;
         head.next = null;               // 防止循环链表
         return reHead;
     }
 
-    //11.合并两个有序链表，使合并后的链表依然有序
-
     /**
+     * 11.合并两个有序链表，使合并后的链表依然有序
      * 思路：先确定合并后的头节点，然后对比两个链表的每一个节点值，若有个链表没有合并完就直接加在后面就可以了
      */
     public static ListNode mergeSortedList(ListNode head1, ListNode head2) {
