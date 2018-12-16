@@ -430,38 +430,41 @@ public class List {
         return mergeHead;
     }
 
-    //12.在o(1)的时间复杂度删除单链表中指定的某一节点
-
     /**
+     * 12.在o(1)的时间复杂度删除单链表中指定的某一节点
      * 对于删除节点，我们普通的思路就是让该节点的前一个节点指向该节点的下一个节点
      * ，这种情况需要遍历找到该节点的前一个节点，时间复杂度为O(n)。对于链表，
      * 链表中的每个节点结构都是一样的，所以我们可以把该节点的下一个节点的数据复制到该节点
      * ，然后删除下一个节点即可。要注意最后一个节点的情况，这个时候只能用常见的方法来操作，先找到前一个节点，但总体的平均时间复杂度还是O(1)
      */
     public void delete(ListNode head, ListNode toDelete) {
-        if (toDelete == null)
+        if (toDelete == null) {
             return;
-        if (toDelete.next != null)//带删除的不是尾巴！！！~~~~~~~~~
-        {
+        }
+        //带删除的不是尾巴！！！~~~~~~~~~
+        if (toDelete.next != null) {
             toDelete.value = toDelete.next.value;
             toDelete.next = toDelete.next.next;
         } else {
             if (head == toDelete)//只有一个节点时
+            {
                 head = null;
-            else {
+            } else {
                 ListNode node = head;
-                while (node.next != toDelete)
-                    node = node.next;   // 找到倒数第二个节点
+                while (node.next != toDelete) {
+                    // 找到倒数第二个节点
+                    node = node.next;
+                }
                 node.next = null;
             }
         }
     }
 
-    //14.无序链表排序
-
     /**
+     * 14.无序链表排序
      * 采用归并排序，先分成两段分别排序，再合并两段已排序的。O(nlgn)
      */
+
     public static ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {  // 链表没有元素或是只有一个元素的情况直接返回
             return head;
