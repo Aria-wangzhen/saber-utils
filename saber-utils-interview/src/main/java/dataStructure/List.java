@@ -529,12 +529,12 @@ public class List {
 
         ListNode preReverse = slow; // preReverse不用翻转，因为它永远在最后一个
         if (preReverse == null)
-            return;
+        {return;}
 
         // 翻转后半段
         ListNode reHead = preReverse.next;
         if (reHead == null)
-            return;
+        {return;}
 
         ListNode preCur = reHead.next;
         ListNode cur = reHead.next;
