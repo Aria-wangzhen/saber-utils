@@ -10,8 +10,8 @@ public class BinarySearch {
      * 不使用递归的二分查找
      * title:commonBinarySearch
      *
-     * @param arr
-     * @param key
+     * @param arr 有序数组
+     * @param key 待查找关键字
      * @return 关键字位置
      */
     public static int commonBinarySearch(int[] arr, int key) {
