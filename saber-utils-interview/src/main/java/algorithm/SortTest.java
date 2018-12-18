@@ -11,10 +11,12 @@ public class SortTest {
         System.out.print("排序前：");
         printArr(numbers);
 
-        BubbleSort.bubbleSort(numbers);
+       /* BubbleSort.bubbleSort(numbers);
         System.out.print("冒泡排序后：");
+        printArr(numbers);*/
+        MergeSort.sort(numbers, 0, numbers.length - 1);
+        System.out.print("归并排序后：");
         printArr(numbers);
-
 
         QuickSort.quick(numbers);
         System.out.print("快速排序后：");
