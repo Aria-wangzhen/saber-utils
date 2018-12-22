@@ -1,5 +1,8 @@
 package algorithm;
 
+
+import org.springframework.util.CollectionUtils;
+
 /**
  * 快排
  * 　　把整个序列看做一个数组，把第零个位置看做中轴，
@@ -17,8 +20,8 @@ public class QuickSort {
      * @param numbers 带排序数组
      */
     public static void quick(int[] numbers) {
-        if (numbers.length > 0)   //查看数组是否为空
-        {
+        //查看数组是否为空
+        if (numbers.length > 0) {
             quickSort(numbers, 0, numbers.length - 1);
         }
     }
@@ -35,6 +38,7 @@ public class QuickSort {
     private static int getMiddle(int[] numbers, int low, int high) {
         int temp = numbers[low]; //数组的第一个作为中轴
         while (low < high) {
+            //直到找到一个比中轴值小的，或者都比他大
             while (low < high && numbers[high] > temp) {
                 high--;
             }
@@ -45,6 +49,7 @@ public class QuickSort {
             numbers[high] = numbers[low]; //比中轴大的记录移到高端
         }
         numbers[low] = temp; //中轴记录到尾
+        //numbers[high] = temp; //王振
         return low; // 返回中轴的位置
     }
 

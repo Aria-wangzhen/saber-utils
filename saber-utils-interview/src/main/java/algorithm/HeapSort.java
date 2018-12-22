@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class HeapSort {
     public static void main(String[] args) {
-        int[] a = {49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64};
+        int[] a = {49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12,0,0, 64};
         int arrayLength = a.length;
         //循环建堆
         for (int i = 0; i < arrayLength - 1; i++) {
@@ -20,7 +20,12 @@ public class HeapSort {
         }
     }
 
-    //对data数组从0到lastIndex建大顶堆
+    /**
+     * http://www.cnblogs.com/chengxiao/p/6129630.html
+     * https://www.jianshu.com/p/be966804a2fa
+     * 对data数组从0到lastIndex建大顶堆
+     */
+
     public static void buildMaxHeap(int[] data, int lastIndex) {
         //从lastIndex处节点（最后一个节点）的父节点开始
         for (int i = (lastIndex - 1) / 2; i >= 0; i--) {

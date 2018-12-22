@@ -4,19 +4,21 @@ package algorithm;
  * @author Aria
  * @time on 2018/12/17.
  */
-public class SortTest {
+public class TestSort {
 
     public static void main(String[] args) {
-        int[] numbers = {10, 20, 15, 0, 6, 7, 2, 1, -5, 55};
+      int[] numbers = {10, 20, 15, 0, 6, 7, 2, 1, -5, 55};
+
+        //int[] numbers = {1, 2, 3, 4, 10};
         System.out.print("排序前：");
         printArr(numbers);
 
        /* BubbleSort.bubbleSort(numbers);
         System.out.print("冒泡排序后：");
         printArr(numbers);*/
-        MergeSort.sort(numbers, 0, numbers.length - 1);
+        /*MergeSort.sort(numbers, 0, numbers.length - 1);
         System.out.print("归并排序后：");
-        printArr(numbers);
+        printArr(numbers);*/
 
         QuickSort.quick(numbers);
         System.out.print("快速排序后：");

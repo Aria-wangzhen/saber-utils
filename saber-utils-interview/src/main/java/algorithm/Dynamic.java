@@ -1,7 +1,5 @@
 package algorithm;
 
-import com.alibaba.fastjson.JSON;
-import com.sun.xml.internal.bind.v2.util.EditDistance;
 
 import java.util.Scanner;
 
@@ -13,47 +11,75 @@ import java.util.Scanner;
  */
 public class Dynamic {
 
-    /**
-     * 数塔取数问题
-     *
-     * @return
-     */
-    public static void getNumberFomPyramid() {
-        Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
-        long max = 0;
-        int[][] dp = new int[n][n];
-        dp[0][0] = scan.nextInt();
-
-        for (int i = 1; i < n; i++) {
-            for (int j = 0; j <= i; j++) {
-                int num = scan.nextInt();
-                if (j == 0) {
-                    dp[i][j] = dp[i - 1][j] + num;
-                } else {
-                    dp[i][j] = Math.max(dp[i - 1][j - 1], dp[i - 1][j]) + num;
-                }
-                max = Math.max(dp[i][j], max);
-            }
-            System.out.println(max);
-        }
+    public static void main(String[] args) {
+        //int[][] tower = {{13}, {11, 8}, {12, 7, 26}, {6, 14, 15, 8}, {12, 7, 13, 24, 11}};
+        //int result = dataTower(tower);
+        //editDistance();
+        matrixFetch();
     }
 
     /**
+     * 来源：https://blog.csdn.net/tterminator/article/details/50951137?utm_source=blogxgwz3
+     *
+     * @param tower
+     * @return
+     */
+    public static int dataTower(int tower[][]) {
+        int heigh = tower.length;//数塔高度
+        int len = tower[heigh - 1].length;//数塔底部宽度
+        int[][] resultTower = new int[heigh][len];//结果数塔，存放路径数值和
+        int[][] path = new int[heigh][len];//计算结果数塔生成路径
+
+        //初始化结果数塔
+        for (int i = 0; i < len; i++) {
+            resultTower[heigh - 1][i] = tower[heigh - 1][i];
+        }
+
+        //开始计算结果数塔及路径
+        for (int i = heigh - 2; i >= 0; i--) {
+            for (int j = 0; j <= i; j++) {
+                if (resultTower[i + 1][j] > resultTower[i + 1][j + 1]) {
+                    resultTower[i][j] = tower[i][j] + resultTower[i + 1][j];
+                    path[i][j] = j;
+                } else {
+                    resultTower[i][j] = tower[i][j] + resultTower[i + 1][j + 1];
+                    path[i][j] = j + 1;
+                }
+            }
+        }
+
+        //打印路径
+        System.out.println("最大数值和为" + resultTower[0][0] + "\n最大数值和路径:");
+        System.out.println("第0层数值：" + tower[0][0]);
+        int j = path[0][0];
+        for (int i = 1; i <= heigh - 1; i++) {
+            System.out.println("第" + i + "层数值：" + tower[i][j]);
+            j = path[i][j];
+        }
+        System.out.println();
+
+        return resultTower[0][0];
+    }
+
+
+    /**
      * 编辑距离
+     * http://www.cnblogs.com/BlackStorm/p/5400809.html
      *
      * @return
      */
     public static void editDistance() {
-        Scanner scan = new Scanner(System.in);
-        String aStr = scan.nextLine();
-        String bStr = scan.nextLine();
-        int aLen = aStr.length();
+        //Scanner scan = new Scanner(System.in);
+        String aStr = "qbcde";
+        String bStr = "qbcdw";
+        int aLen = aStr.length();//
         int bLen = bStr.length();
-        int[][] dp = new int[aLen + 1][bLen + 1];
+        int[][] dp = new int[aLen + 1][bLen + 1];//存储结果集
+        //初始化
         for (int i = 0; i < aLen + 1; i++) {
             dp[i][0] = i;
         }
+        //初始化
         for (int i = 0; i < bLen + 1; i++) {
             dp[0][i] = i;
         }
@@ -62,8 +88,10 @@ public class Dynamic {
                 if (aStr.charAt(i - 1) == bStr.charAt(j - 1)) {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
+                    //修改，删除，插入的代价
                     dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1])) + 1;
                 }
+                System.out.println( dp[i][j]);
             }
         }
         System.out.println(dp[aLen][bLen]);
