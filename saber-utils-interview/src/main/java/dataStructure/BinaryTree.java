@@ -128,26 +128,37 @@ public class BinaryTree {
 
     /**
      * 求二叉树的最低高度,若有左or右子树为null的情况，则最小高度是另一非null子树的最小高度 --递归--
+     * 王振：最小深度是从根节点到最近的叶节点的最短路径上的节点数
      *
      * @param root
      * @return
      */
     public int getMinHigh(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return 0;
-        if (root.left == null && root.right == null)
+        }
+        if (root.left == null && root.right == null) {
             return 1;
-        if (root.left == null)
+        }
+        if (root.left == null) {
             return 1 + getMinHigh(root.right);
-        if (root.right == null)
+        }
+        if (root.right == null) {
             return 1 + getMinHigh(root.left);
+        }
         return 1 + Math.min(getMinHigh(root.right), getMinHigh(root.left));
     }
 
-    //4.二叉树的节点个数   --递归--
+    /**
+     * 4.二叉树的节点个数   --递归--
+     *
+     * @param root
+     * @return
+     */
     public int getNodesNumRec(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return 0;
+        }
         return getNodesNumRec(root.left) + getNodesNumRec(root.right) + 1;
     }
 
