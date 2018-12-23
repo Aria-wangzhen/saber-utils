@@ -9,6 +9,7 @@ import java.util.Stack;
 
 /**
  * 来源：https://blog.csdn.net/sheepmu/article/details/38282457
+ * 附加参考：https://blog.csdn.net/fightforyourdream/article/details/16353519
  * 1.链表长度
  * 2.得到链表倒数第k个节点的值
  * 3.删除链表的倒数第k个节点
@@ -27,15 +28,6 @@ import java.util.Stack;
  *
  * @author sheepmu
  */
-class ListNode {
-    int value;
-    ListNode next;
-
-    public ListNode(int value) {
-        this.value = value;
-        this.next = null;
-    }
-}
 
 public class List {
     public static void main(String[] args) {
@@ -528,13 +520,15 @@ public class List {
         }
 
         ListNode preReverse = slow; // preReverse不用翻转，因为它永远在最后一个
-        if (preReverse == null)
-        {return;}
+        if (preReverse == null) {
+            return;
+        }
 
         // 翻转后半段
         ListNode reHead = preReverse.next;
-        if (reHead == null)
-        {return;}
+        if (reHead == null) {
+            return;
+        }
 
         ListNode preCur = reHead.next;
         ListNode cur = reHead.next;

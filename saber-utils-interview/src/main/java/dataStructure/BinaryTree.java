@@ -5,6 +5,7 @@ import java.util.Stack;
 
 /**
  * 来源：https://blog.csdn.net/sheepmu/article/details/38474687
+ * 附加参考：https://blog.csdn.net/fightforyourdream/article/details/16843303
  * 1.二叉树的遍历，前序中序后序，递归和非递归
  * http://blog.csdn.net/sheepmu/article/details/28941285
  * 2.二叉树的层序遍历
@@ -24,16 +25,6 @@ import java.util.Stack;
  * 16.二叉树中和为某一值的路径
  * 17.求二叉树中两个节点的最低公共祖先节点
  */
-class TreeNode {
-    String value;
-    TreeNode left;
-    TreeNode right;
-
-    public TreeNode(String value) {
-        this.value = value;
-    }
-
-}
 
 public class BinaryTree {
     //2.二叉树的层序遍历
