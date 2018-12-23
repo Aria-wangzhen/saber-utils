@@ -27,20 +27,48 @@ import java.util.Stack;
  */
 
 public class BinaryTree {
+
+    /**
+     * 根节点
+     */
+    private TreeNode root;
+
+    public BinaryTree() {
+    }
+
+    public BinaryTree(TreeNode root) {
+        this.root = root;
+    }
+
+    public TreeNode getRoot() {
+        return root;
+    }
+
+    public void setRoot(TreeNode root) {
+        this.root = root;
+
+    }
+
+
+
+
     //2.二叉树的层序遍历
     //思路：利用队列实现二叉树的层序遍历。
     public void cx(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return;
+        }
         LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
         queue.addLast(root);
         while (!queue.isEmpty()) {
             TreeNode cur = queue.removeFirst();
             System.out.print(cur.value + " ");
-            if (cur.left != null)
+            if (cur.left != null) {
                 queue.addLast(cur.left);
-            if (cur.right != null)
+            }
+            if (cur.right != null) {
                 queue.addLast(cur.right);
+            }
 
         }
     }
