@@ -1,9 +1,12 @@
 package dataStructure;
 
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * 来源：https://blog.csdn.net/sheepmu/article/details/28941285
+ * 遍历次序：https://www.cnblogs.com/fly-me/p/wei-ti-jiaoer-cha-shu-de-si-zhong-bian-li-fang-fa.html
+ * https://blog.csdn.net/aa8568849/article/details/70243956
  *
  * @author Aria
  * @time on 2018/12/23.
@@ -27,7 +30,7 @@ public class BinaryBaseTree {
     }
 
     /**
-     * 递归 前续遍历
+     * 递归 前续遍历：
      */
     public void preOrder(TreeNode node) {
         if (node != null) {
@@ -60,28 +63,35 @@ public class BinaryBaseTree {
     }
 
     /**
-     * 非递归 前续遍历
+     * 非递归 前续遍历：中左右
+     * 思路：对于任意节点T，访问这个节点并压入栈中，然后访问节点的左子树，
+     * 遍历完左子树后，取出栈顶的节点T，再先序遍历T的右子树
      */
     public void preOrderNoRecursion() {
-        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
         stack.push(root);
         TreeNode current = null;
         while (!stack.isEmpty()) {
             current = stack.pop();
             System.out.print(current.getValue() + "  ");
-            if (current.getRight() != null)
+            if (current.getRight() != null) {
                 stack.push(current.getRight());
-            if (current.getLeft() != null)
+            }
+            if (current.getLeft() != null) {
                 stack.push(current.getLeft());
+            }
         }
         System.out.println();
     }
 
     /**
-     * 非递归 中续遍历
+     * 非递归 中续遍历：左中右
+     * 思路：先将T入栈，遍历左子树；遍历完左子树返回时，栈顶元素应为T，
+     * 出栈，访问T->data，再中序遍历T的右子树。
      */
+
     public void inorderNoRecursion() {
-        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
         TreeNode current = root;
         while (current != null || !stack.isEmpty()) {
             while (current != null) {
@@ -98,12 +108,12 @@ public class BinaryBaseTree {
     }
 
     /**
-     * 非递归 后续遍历
+     * 非递归 后续遍历：左右中  一个栈
      */
     public void postorderNoRecursion() {
         TreeNode rNode = null;
         TreeNode current = root;
-        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
         while (current != null || !stack.isEmpty()) {
             while (current != null) {
                 stack.push(current);
@@ -123,6 +133,31 @@ public class BinaryBaseTree {
             current = current.getRight();
         }
     }
+
+    /**
+     * 非递归 后续遍历：左右中 两个栈
+     *
+     * @param root
+     */
+    public void thePostOrderTraversal_Stack(TreeNode root) {   //后序遍历
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Stack<TreeNode> output = new Stack<TreeNode>();//构造一个中间栈来存储逆后序遍历的结果
+        TreeNode node = root;
+        while (node != null || stack.size() > 0) {
+            if (node != null) {
+                output.push(node);
+                stack.push(node);
+                node = node.getRight();
+            } else {
+                node = stack.pop();
+                node = node.getLeft();
+            }
+        }
+        while (output.size() > 0) {
+            System.out.print(output.pop().getValue() + " ");
+        }
+    }
+
 
     public static void main(String[] args) {
         TreeNode l2 = new TreeNode("E", null, null);//这五行构造一棵二叉树
@@ -144,6 +179,9 @@ public class BinaryBaseTree {
         bt.postOrder(bt.getRoot());
         System.out.print(" 非递归 后序遍历------->");
         bt.postorderNoRecursion();
+        System.out.print(" 非递归 后序遍历------->");
+        bt.thePostOrderTraversal_Stack(bt.getRoot());
+
 
     }
 }

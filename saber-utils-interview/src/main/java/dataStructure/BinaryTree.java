@@ -8,7 +8,7 @@ import java.util.Stack;
  * 附加参考：https://blog.csdn.net/fightforyourdream/article/details/16843303
  * 1.二叉树的遍历，前序中序后序，递归和非递归
  * http://blog.csdn.net/sheepmu/article/details/28941285
- * 2.二叉树的层序遍历
+ * 2.二叉树的层序遍历（广度优先遍历）
  * 3.二叉树的高度/最小高度
  * 4.二叉树的节点个数
  * 5.求二叉树的镜像
@@ -52,7 +52,7 @@ public class BinaryTree {
 
 
 
-    //2.二叉树的层序遍历
+    //2.二叉树的层序遍历（广度优先遍历）
     //思路：利用队列实现二叉树的层序遍历。
     public void cx(TreeNode root) {
         if (root == null) {
