@@ -30,27 +30,6 @@ import java.util.Stack;
 
 public class BinaryTree {
 
-    /**
-     * 根节点
-     */
-    private TreeNode root;
-
-    public BinaryTree() {
-    }
-
-    public BinaryTree(TreeNode root) {
-        this.root = root;
-    }
-
-    public TreeNode getRoot() {
-        return root;
-    }
-
-    public void setRoot(TreeNode root) {
-        this.root = root;
-
-    }
-
 
     /**
      * 2.二叉树的层序遍历（广度优先遍历）
@@ -127,8 +106,8 @@ public class BinaryTree {
     }
 
     /**
-     * 求二叉树的最低高度,若有左or右子树为null的情况，则最小高度是另一非null子树的最小高度 --递归--
-     * 王振：最小深度是从根节点到最近的叶节点的最短路径上的节点数
+     * 求二叉树的最低高度(最小深度),若有左or右子树为null的情况，则最小高度是另一非null子树的最小高度 --递归--
+     * 最小深度是从根节点到最近的叶节点的最短路径上的节点数
      *
      * @param root
      * @return
@@ -162,11 +141,17 @@ public class BinaryTree {
         return getNodesNumRec(root.left) + getNodesNumRec(root.right) + 1;
     }
 
-    //4.二叉树的节点个数   --递归--
-    //思路:层序遍历记录个数
+    /**
+     * 4.二叉树的节点个数   --非递归--
+     * 思路:层序遍历记录个数
+     *
+     * @param root
+     * @return
+     */
     public int getNodesNum(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return 0;
+        }
         LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
         queue.addLast(root);
         int num = 1;
@@ -184,11 +169,17 @@ public class BinaryTree {
         return num;
     }
 
-    //5.求二叉树的镜像(直接把原树变为其镜像树，即破坏原树)   --递归--
-    //思路:把原树的左子树置为其右子树的镜像；把原树的右子树置为其左子树的镜像
+    /**
+     * 5.求二叉树的镜像(直接把原树变为其镜像树，即破坏原树)   --递归--
+     * 思路:把原树的左子树置为其右子树的镜像；把原树的右子树置为其左子树的镜像
+     *
+     * @param root
+     * @return
+     */
     public TreeNode getJXRec(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return null;
+        }
         TreeNode tleft = getJXRec(root.right);
         TreeNode tright = getJXRec(root.left);
         root.left = tleft;
@@ -196,11 +187,17 @@ public class BinaryTree {
         return root;
     }
 
-    //5.求二叉树的镜像(直接把原树变为其镜像树，即破坏原树)   --非递归--
-    //思路: 利用Stsck,让节点的子节点互相交换
+    /**
+     * 5.求二叉树的镜像(直接把原树变为其镜像树，即破坏原树)   --非递归--
+     * 思路: 利用Stsck,让节点的子节点互相交换
+     *
+     * @param root
+     * @return
+     */
     public TreeNode getJX(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return null;
+        }
         Stack<TreeNode> stack = new Stack<TreeNode>();
         stack.push(root);
         while (!stack.isEmpty()) {
@@ -208,18 +205,21 @@ public class BinaryTree {
             TreeNode temp = cur.right;
             cur.right = cur.left;
             cur.left = temp;
-            if (cur.right != null)
+            if (cur.right != null) {
                 stack.push(cur.right);
-            if (cur.left != null)
+            }
+            if (cur.left != null) {
                 stack.push(cur.left);
+            }
         }
         return root;
     }
 
     //5.求二叉树的镜像（生成一颗新树，即不改变原树结构） --递归--
     public TreeNode newJXRec(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return null;
+        }
         TreeNode newTree = new TreeNode(root.value);
         newTree.left = newJXRec(root.right);
         newTree.right = newJXRec(root.left);
@@ -229,42 +229,52 @@ public class BinaryTree {
 
     //6.判断两个二叉树是否互为镜像树    --递归--
     public boolean isJXRec(TreeNode root1, TreeNode root2) {
-        if (root1 == null && root2 == null)
+        if (root1 == null && root2 == null) {
             return true;
-        if (root1 == null || root2 == null)
+        }
+        if (root1 == null || root2 == null) {
             return false;
-        if (root1.value != root2.value)
+        }
+        if (root1.value != root2.value) {
             return false;
+        }
         return isJXRec(root1.left, root2.right) && isJXRec(root1.right, root2.left);
     }
 
     //7.判断一颗二叉树本身是否为镜像树    --递归--
     public boolean isJXRec2(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return true;
+        }
         return isJXRec2(root.left) && isJXRec2(root.right);
 
     }
 
     //8.判断两颗二叉树是不是相同的树  --递归--
     public boolean isSameTreeRec(TreeNode root1, TreeNode root2) {
-        if (root1 == null && root2 == null)
+        if (root1 == null && root2 == null) {
             return true;
-        if (root1 == null || root2 == null)
+        }
+        if (root1 == null || root2 == null) {
             return false;
-        if (root1.value != root2.value)
+        }
+        if (root1.value != root2.value) {
             return false;
+        }
         return isSameTreeRec(root1.left, root2.left) && isSameTreeRec(root1.right, root2.right);
     }
 
     //8.判断两颗二叉树是不是相同的树  --非递归--
     public boolean isSameTree(TreeNode root1, TreeNode root2) {
-        if (root1 == null && root2 == null)
+        if (root1 == null && root2 == null) {
             return true;
-        if (root1 == null || root2 == null)
+        }
+        if (root1 == null || root2 == null) {
             return false;
-        if (root1.value != root2.value)
+        }
+        if (root1.value != root2.value) {
             return false;
+        }
         Stack<TreeNode> stack1 = new Stack<TreeNode>();
         Stack<TreeNode> stack2 = new Stack<TreeNode>();
         stack1.push(root1);
@@ -272,9 +282,9 @@ public class BinaryTree {
         while (!stack1.isEmpty() && !stack1.isEmpty()) {
             TreeNode cur1 = stack1.pop();
             TreeNode cur2 = stack2.pop();
-            if (cur1.value != cur2.value)
+            if (cur1.value != cur2.value) {
                 return false;
-            else {
+            } else {
                 if (cur1.right != null && cur2.right != null) {
                     stack1.push(cur1.right);
                     stack2.push(cur2.right);
@@ -283,10 +293,11 @@ public class BinaryTree {
                     stack1.push(cur1.left);
                     stack2.push(cur2.left);
                 }
-                if (cur1.left == null && cur1.right == null && cur2.left == null && cur2.right == null)
+                if (cur1.left == null && cur1.right == null && cur2.left == null && cur2.right == null) {
                     return true;
-                else
+                } else {
                     return false;
+                }
             }
         }
         return true;
@@ -296,10 +307,13 @@ public class BinaryTree {
 
     //10.判断二叉树是否是平衡二叉树    --递归--   但是这种方式虽然简洁，但是每个节点会被遍历多次，并不高效
     public boolean isBlanced(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return true;
+        }
         if (Math.abs(getHighRec(root.left) - getHighRec(root.right)) > 1)//先判断整个左右子树高度差
+        {
             return false;
+        }
         return isBlanced(root.left) && isBlanced(root.right);
     }
 
@@ -328,20 +342,24 @@ public class BinaryTree {
 
     //11.求二叉树第k层的节点个数  --递归--
     public int getNodesInKRec(TreeNode root, int k) {
-        if (root == null || k < 1)
+        if (root == null || k < 1) {
             return 0;
-        if (k == 1)
+        }
+        if (k == 1) {
             return 1;
+        }
         return getNodesInKRec(root.left, k - 1) + getNodesInKRec(root.right, k - 1);
     }
 
     //11.求二叉树第k层的节点个数  --非 递归--
     //思路:层序遍历，类似于非递归求高度
     public int getNodesInK(TreeNode root, int k) {
-        if (root == null || k < 1)
+        if (root == null || k < 1) {
             return 0;
-        if (k == 1)
+        }
+        if (k == 1) {
             return 1;
+        }
         LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
         queue.addLast(root);
         int curLevelNodes = 1;
@@ -369,19 +387,23 @@ public class BinaryTree {
 
     //12.求二叉树的叶子节点数   --递归--
     public int getYeNodesRec(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return 0;
-        if (root.left == null && root.right == null)
+        }
+        if (root.left == null && root.right == null) {
             return 1;
+        }
         return getYeNodesRec(root.left) + getYeNodesRec(root.right);
     }
 
     //12.求二叉树的叶子节点数   --非递归--
     public int getYeNodes(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return 0;
-        if (root.left == null && root.right == null)
+        }
+        if (root.left == null && root.right == null) {
             return 1;
+        }
         Stack<TreeNode> stack = new Stack<TreeNode>();
         stack.push(root);
         int num = 0;
@@ -393,8 +415,9 @@ public class BinaryTree {
             if (cur.left != null) {
                 stack.push(cur.left);
             }
-            if (cur.right == null && cur.left == null)
+            if (cur.right == null && cur.left == null) {
                 num++;
+            }
         }
         return num;
     }
@@ -402,17 +425,22 @@ public class BinaryTree {
     //13.由前序遍历和中序遍历重构二叉树  --递归--
     //先找到根节点，在分别找到左右子树的前序和中序，递归
     public TreeNode buildTreeRec(String pre, String mid) {
-        if (pre == null || mid == null)
+        if (pre == null || mid == null) {
             return null;
-        if (pre.length() == 0 || mid.length() == 0)
+        }
+        if (pre.length() == 0 || mid.length() == 0) {
             return null;
-        if (pre.length() != mid.length())
+        }
+        if (pre.length() != mid.length()) {
             return null;
+        }
         int len = pre.length();
         TreeNode root = new TreeNode(pre.charAt(0) + "");//先找到根节点，前序遍历的第一个是根节点
         int i = 0;
         while (mid.charAt(i) != pre.charAt(0))//找到中序遍历中根节点的位置，那么它前面的即是左树，后面的是右树
+        {
             i++;
+        }
 
         root.left = buildTreeRec(pre.substring(1, 1 + i), mid.substring(0, i));//由左树的前序和后序构造新左树
         root.right = buildTreeRec(pre.substring(i + 1, len), mid.substring(i + 1, len));//由右树的前序和后序构造新的右树
@@ -422,17 +450,22 @@ public class BinaryTree {
     //14.由中序遍历和后序遍历重构二叉树 --递归--
     //先找到根节点，在分别找到左右子树的中序和后序，递归
     public TreeNode buildTreeRec2(String mid, String pro) {
-        if (mid == null || pro == null)
+        if (mid == null || pro == null) {
             return null;
-        if (mid.length() == 0 || pro.length() == 0)
+        }
+        if (mid.length() == 0 || pro.length() == 0) {
             return null;
-        if (mid.length() != pro.length())
+        }
+        if (mid.length() != pro.length()) {
             return null;
+        }
         int len = mid.length();
         TreeNode root = new TreeNode(pro.charAt(len - 1) + "");//后序的最后一个是根节点
         int i = 0;
         while (mid.charAt(i) != pro.charAt(len - 1))//找到中序遍历中根节点的位置，那么它前面的即是左树，后面的是右树
+        {
             i++;
+        }
         root.left = buildTreeRec2(mid.substring(0, i), pro.substring(0, i));
         root.right = buildTreeRec2(mid.substring(i + 1, len), pro.substring(i, len - 1));
         return root;
@@ -479,19 +512,23 @@ public class BinaryTree {
 
     //16.最低公共祖先节点
     public TreeNode getLastCommonParentRec(TreeNode root, TreeNode n1, TreeNode n2) {
-        if (root == null)
+        if (root == null) {
             return null;
+        }
         // 如果有一个match，则说明当前node就是要找的最低公共祖先  注意递归条件！！！！！
-        if (root.equals(n1) || root.equals(n2))
+        if (root.equals(n1) || root.equals(n2)) {
             return root;
+        }
         TreeNode commonInLeft = getLastCommonParentRec(root.left, n1, n2);
         TreeNode commonInRight = getLastCommonParentRec(root.right, n1, n2);
         // 如果一个左子树找到，一个在右子树找到，则说明root是唯一可能的最低公共祖先
-        if (commonInLeft != null && commonInRight != null)
+        if (commonInLeft != null && commonInRight != null) {
             return root;
+        }
         // 其他情况是要不然在左子树要不然在右子树
-        if (commonInLeft != null)
+        if (commonInLeft != null) {
             return commonInLeft;
+        }
         return commonInRight;
     }
 
@@ -519,13 +556,13 @@ public class BinaryTree {
         n3.right = n6;
         TreeNode root = n1;
         BinaryTree bt = new BinaryTree();
-        System.out.print("层序遍历---->");
+        /*System.out.print("层序遍历---->");
         bt.cx(root);
         System.out.print("\n");
         System.out.println("递归高度---->" + bt.getHighRec(root));
         System.out.println("非递归高度---->" + bt.getHigh(root));
         System.out.println("递归节点个数---->" + bt.getNodesNumRec(root));
-        System.out.println("非递归节点个数---->" + bt.getNodesNum(root));
+        System.out.println("非递归节点个数---->" + bt.getNodesNum(root));*/
 
 //		 bt.getJXRec(root);
 //		 bt.cx(root);
@@ -533,7 +570,7 @@ public class BinaryTree {
 //		System.out.print("把树变为本身的镜像树后层序遍历---->" );
 //		 bt.getJX(root);
 //		 bt.cx(root);
-        System.out.println("是否是平衡二叉树---->" + bt.isBlanced(root));
+       /* System.out.println("是否是平衡二叉树---->" + bt.isBlanced(root));
         System.out.println("是否是平衡二叉树,每个节点只遍历一次的方法---->" + bt.isBlanced2(root));
         System.out.println("递归第 k层节点个数---->" + bt.getNodesInKRec(root, 3));
         System.out.println("非递归第 k层节点个数---->" + bt.getNodesInK(root, 3));
@@ -546,6 +583,9 @@ public class BinaryTree {
         bt.cx(bt.buildTreeRec2("DBEACF", "DEBFCA"));
         System.out.print("\n");
         System.out.println("最低公共祖先---->" + bt.getLastCommonParentRec(root, n4, n3).value);
+*/
+        System.out.println("最小高度---->" + bt.getMinHigh(root));
+        ;
     }
 }
 
