@@ -158,7 +158,41 @@ public class BinaryBaseTree {
         }
     }
 
+    /**
+     * 2.二叉树的层序遍历（广度优先遍历）
+     * 思路：利用队列实现二叉树的层序遍历。
+     *
+     * @param root
+     */
+    public void cx(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.addLast(root);
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.removeFirst();
+            System.out.print(cur.value + " ");
+            if (cur.left != null) {
+                queue.addLast(cur.left);
+            }
+            if (cur.right != null) {
+                queue.addLast(cur.right);
+            }
 
+        }
+    }
+
+    /**
+     *     A
+     *  /     \
+     *  B      C
+     *   \     /
+     *   D     E
+     *
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         TreeNode l2 = new TreeNode("E", null, null);//这五行构造一棵二叉树
         TreeNode r2 = new TreeNode("D", null, null);
@@ -181,6 +215,8 @@ public class BinaryBaseTree {
         bt.postorderNoRecursion();
         System.out.print(" 非递归 后序遍历------->");
         bt.thePostOrderTraversal_Stack(bt.getRoot());
+        System.out.print(" 非递归 层序遍历(广度优先遍历)------->");
+        bt.cx(bt.getRoot());
 
 
     }

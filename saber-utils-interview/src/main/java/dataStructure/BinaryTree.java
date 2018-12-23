@@ -7,6 +7,8 @@ import java.util.Stack;
  * 来源：https://blog.csdn.net/sheepmu/article/details/38474687
  * 附加参考：https://blog.csdn.net/fightforyourdream/article/details/16843303
  * 1.二叉树的遍历，前序中序后序，递归和非递归
+ *
+ * @see dataStructure.BinaryBaseTree
  * http://blog.csdn.net/sheepmu/article/details/28941285
  * 2.二叉树的层序遍历（广度优先遍历）
  * 3.二叉树的高度/最小高度
@@ -50,10 +52,12 @@ public class BinaryTree {
     }
 
 
-
-
-    //2.二叉树的层序遍历（广度优先遍历）
-    //思路：利用队列实现二叉树的层序遍历。
+    /**
+     * 2.二叉树的层序遍历（广度优先遍历）
+     * 思路：利用队列实现二叉树的层序遍历。
+     *
+     * @param root
+     */
     public void cx(TreeNode root) {
         if (root == null) {
             return;
@@ -73,18 +77,31 @@ public class BinaryTree {
         }
     }
 
-    //3.二叉树的高度  --递归--
+    /**
+     * 3.二叉树的高度  --递归--
+     *
+     * @param root
+     * @return
+     */
     public int getHighRec(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return 0;
+        }
+        //1是根
         return Math.max(getHighRec(root.left), getHighRec(root.right)) + 1;
     }
 
-    //3.二叉树的高度  --非 递归--
-    //思路：层序遍历，对当前层和下一层的节点数计数。
+    /**
+     * 3.二叉树的高度  --非 递归--
+     * 思路：层序遍历，对当前层和下一层的节点数计数。
+     *
+     * @param root
+     * @return
+     */
     public int getHigh(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return 0;
+        }
         LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
         queue.addLast(root);
         int high = 0;
@@ -109,7 +126,12 @@ public class BinaryTree {
         return high;
     }
 
-    //求二叉树的最低高度,若有左or右子树为null的情况，则最小高度是另一非null子树的最小高度 --递归--
+    /**
+     * 求二叉树的最低高度,若有左or右子树为null的情况，则最小高度是另一非null子树的最小高度 --递归--
+     *
+     * @param root
+     * @return
+     */
     public int getMinHigh(TreeNode root) {
         if (root == null)
             return 0;
