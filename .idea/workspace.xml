@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90802e21-d101-47f0-9223-ead6ace34e04" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBTree.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/SortTest.java" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/TestSort.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/RBTNode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/RBTree.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/Test.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBTree.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/HeapSort.java" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/HeapSort.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/QuickSort.java" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/QuickSort.java" />
     </list>
     <ignored path="saber-utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/TestSort.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="366">
-              <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+              <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -92,26 +91,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="356">
               <caret line="50" column="20" lean-forward="false" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Atest" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Atest">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dynamic.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -138,11 +117,59 @@
         </entry>
       </file>
       <file leaf-file-name="RBTree.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBTree.java">
+        <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/RBTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-              <folding />
+            <state relative-caret-position="1058">
+              <caret line="46" column="9" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+              <folding>
+                <element signature="e#302#303#0" expanded="true" />
+                <element signature="e#330#331#0" expanded="true" />
+                <element signature="e#382#383#0" expanded="true" />
+                <element signature="e#438#439#0" expanded="true" />
+                <element signature="e#486#487#0" expanded="true" />
+                <element signature="e#542#543#0" expanded="true" />
+                <element signature="e#588#589#0" expanded="true" />
+                <element signature="e#665#666#0" expanded="true" />
+                <element signature="e#713#714#0" expanded="true" />
+                <element signature="e#748#749#0" expanded="true" />
+                <element signature="e#1561#1562#0" expanded="true" />
+                <element signature="e#1592#1593#0" expanded="true" />
+                <element signature="e#1880#1881#0" expanded="true" />
+                <element signature="e#1910#1911#0" expanded="true" />
+                <element signature="e#2207#2208#0" expanded="true" />
+                <element signature="e#2239#2240#0" expanded="true" />
+                <element signature="e#2724#2725#0" expanded="true" />
+                <element signature="e#2765#2766#0" expanded="true" />
+                <element signature="e#3268#3269#0" expanded="true" />
+                <element signature="e#3318#3319#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RBTNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/RBTNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="597">
+              <caret line="33" column="1" lean-forward="false" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+              <folding>
+                <element signature="e#650#651#0" expanded="true" />
+                <element signature="e#676#677#0" expanded="true" />
+                <element signature="e#722#723#0" expanded="true" />
+                <element signature="e#789#790#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+              <folding>
+                <element signature="e#492#501#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -169,6 +196,7 @@
       <find>checkNewProxyPermission</find>
       <find>求单链表中结点的个数</find>
       <find>mergeSortedList</find>
+      <find>mRoot</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -190,10 +218,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/saber-utils-frame/src/main/java/classLoader/IClassLoadStrategy.java" />
-        <option value="$PROJECT_DIR$/saber-utils-frame/src/main/java/classLoader/ClassLoaderResolver.java" />
-        <option value="$PROJECT_DIR$/saber-utils-frame/src/main/java/classLoader/ResourceLoader.java" />
-        <option value="$PROJECT_DIR$/saber-utils-encryption/src/main/java/aes/Test.java" />
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/interfaces/TestService.java" />
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/interfaces/TestServiceImplA.java" />
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/interfaces/TestServiceImplB.java" />
@@ -239,8 +263,12 @@
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java" />
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/TestSort.java" />
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/QuickSort.java" />
-        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBTree.java" />
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/HeapSort.java" />
+        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBTree.java" />
+        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/RBNode.java" />
+        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/Test.java" />
+        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/RBTNode.java" />
+        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/RBTree.java" />
       </list>
     </option>
   </component>
@@ -533,6 +561,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dataStructure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saber-utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saber-utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saber-utils-interview" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataStructure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RBNode" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1298,7 +1360,7 @@
       <workItem from="1545308277739" duration="2389000" />
       <workItem from="1545311153627" duration="1193000" />
       <workItem from="1545360557409" duration="5453000" />
-      <workItem from="1545488906375" duration="2544000" />
+      <workItem from="1545488906375" duration="4057000" />
     </task>
     <task id="LOCAL-00001" summary="pom">
       <created>1501584275832</created>
@@ -1496,11 +1558,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545300076947</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="pom">
+      <created>1545496191527</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1545496191527</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148444000" />
+    <option name="totallyTimeSpent" value="149957000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1756,30 +1825,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/MergeSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="66" column="5" lean-forward="false" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/HeapSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="39" column="10" lean-forward="false" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/InsertSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/BinarySearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -2096,7 +2141,7 @@
     <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/TestSort.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
-          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -2141,11 +2186,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBTree.java">
+    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/RBNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+        <state relative-caret-position="644">
+          <caret line="29" column="45" lean-forward="false" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="e#492#501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/RBTNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="33" column="1" lean-forward="false" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+          <folding>
+            <element signature="e#650#651#0" expanded="true" />
+            <element signature="e#676#677#0" expanded="true" />
+            <element signature="e#722#723#0" expanded="true" />
+            <element signature="e#789#790#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/dataStructure/RBNode/RBTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1058">
+          <caret line="46" column="9" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+          <folding>
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#382#383#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#748#749#0" expanded="true" />
+            <element signature="e#1561#1562#0" expanded="true" />
+            <element signature="e#1592#1593#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1910#1911#0" expanded="true" />
+            <element signature="e#2207#2208#0" expanded="true" />
+            <element signature="e#2239#2240#0" expanded="true" />
+            <element signature="e#2724#2725#0" expanded="true" />
+            <element signature="e#2765#2766#0" expanded="true" />
+            <element signature="e#3268#3269#0" expanded="true" />
+            <element signature="e#3318#3319#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
