@@ -123,35 +123,43 @@ public class Dynamic {
 
     /**
      * 背包问题
+     * 参考：https://www.cnblogs.com/lfeng1205/p/5981198.html
      *
      * @return
      */
-    public static void packProblem() {
-        Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
-        int v = scan.nextInt();
-        int[] dp = new int[v + 1];
-        int[] price = new int[n + 1];
-        int[] weight = new int[n + 1];
-        long max = 0;
-        for (int i = 1; i < n + 1; i++) {
-            weight[i] = scan.nextInt();
-            price[i] = scan.nextInt();
+    /**
+     * @param m 表示背包的最大容量
+     * @param n 表示商品个数
+     * @param w 表示商品重量数组
+     * @param p 表示商品价值数组
+     */
+    public static int BackPack_Solution(int m, int n, int[] w, int[] p) {
+        //c[i][v]表示前i件物品恰放入一个重量为m的背包可以获得的最大价值
+        int c[][] = new int[n + 1][m + 1];
+        for (int i = 0; i < n + 1; i++) {
+            c[i][0] = 0;
         }
+        for (int j = 0; j < m + 1; j++) {
+            c[0][j] = 0;
+        }
+
         for (int i = 1; i < n + 1; i++) {
-            for (int j = v; j > 0; j--) {
-                if (j - weight[i] >= 0) {
-                    dp[j] = Math.max(dp[j], dp[j - weight[i]] + price[i]);
+            for (int j = 1; j < m + 1; j++) {
+                //当物品为i件重量为j时，如果第i件的重量(w[i-1])小于重量j时，c[i][j]为下列两种情况之一：
+                //(1)物品i不放入背包中，所以c[i][j]为c[i-1][j]的值
+                //(2)物品i放入背包中，则背包剩余重量为j-w[i-1],所以c[i][j]为c[i-1][j-w[i-1]]的值加上当前物品i的价值
+                if (w[i - 1] <= j) {
+                    if (c[i - 1][j] < (c[i - 1][j - w[i - 1]] + p[i - 1])) {
+                        c[i][j] = c[i - 1][j - w[i - 1]] + p[i - 1];
+                    } else {
+                        c[i][j] = c[i - 1][j];
+                    }
                 } else {
-                    dp[j] = dp[i];
+                    c[i][j] = c[i - 1][j];
                 }
             }
-
         }
-        for (int i = 0; i < v + 1; i++) {
-            max = max > dp[i] ? max : dp[i];
-        }
-        System.out.println(max);
+        return c[n][m];
     }
 
 
