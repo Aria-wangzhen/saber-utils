@@ -1,6 +1,7 @@
 package algorithm;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ public class Dynamic {
         //int result = dataTower(tower);
         //editDistance();
         //matrixFetch();
-
+        ArrayList<Integer> arrayList = null;
         //背包问题
         int m = 10;
         int n = 3;
@@ -133,19 +134,19 @@ public class Dynamic {
      * 背包问题
      * 参考：https://www.cnblogs.com/lfeng1205/p/5981198.html
      *
-     * @param m 表示背包的最大容量
-     * @param n 表示商品个数
-     * @param w 表示商品重量数组
-     * @param p 表示商品价值数组
+     * @param m 表示背包的最大容量 m = 10
+     * @param n 表示商品个数 n = 3
+     * @param w 表示商品重量数组 w[] = {3, 4, 5}
+     * @param p 表示商品价值数组 p[] = {4, 5, 6}
      */
     public static int BackPack_Solution(int m, int n, int[] w, int[] p) {
         //value[i][v]表示前i件物品恰放入一个重量为m的背包可以获得的最大价值
         int value[][] = new int[n + 1][m + 1];
-        //行初始化
+        //行初始化 --- n 个数
         for (int i = 0; i < n + 1; i++) {
             value[i][0] = 0;
         }
-        //列初始化
+        //列初始化 --- m 重量
         for (int j = 0; j < m + 1; j++) {
             value[0][j] = 0;
         }
