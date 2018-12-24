@@ -18,13 +18,14 @@ public class Dynamic {
         //editDistance();
         //matrixFetch();
         ArrayList<Integer> arrayList = null;
-        //背包问题
+       /* //背包问题
         int m = 10;
         int n = 3;
         int w[] = {3, 4, 5};
         int p[] = {4, 5, 6};
         int c = BackPack_Solution(m, n, w, p);
-        System.out.println(c);
+        System.out.println(c);*/
+        lcsChun("123","6");
     }
 
     /**
@@ -267,6 +268,65 @@ public class Dynamic {
             }
             System.out.println(sb.reverse().toString());
         }
+    }
+
+    /**
+     * 最长公共子序列
+     * https://blog.csdn.net/qq_31881469/article/details/77892324
+     *
+     * @param str1
+     * @param str2
+     * @return
+     */
+    public static int lcs(String str1, String str2) {
+        int len1 = str1.length();
+        int len2 = str2.length();
+        int c[][] = new int[len1 + 1][len2 + 1];
+        for (int i = 0; i <= len1; i++) {
+            for (int j = 0; j <= len2; j++) {
+                if (i == 0 || j == 0) {
+                    c[i][j] = 0;
+                } else if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+                    c[i][j] = c[i - 1][j - 1] + 1;
+                } else {
+                    c[i][j] = Math.max(c[i - 1][j], c[i][j - 1]);
+                }
+            }
+        }
+        return c[len1][len2];
+    }
+
+    /**
+     * 最长公共子串
+     *
+     * @param str1
+     * @param str2
+     * @return
+     */
+    public static int lcsChun(String str1, String str2) {
+        int len1 = str1.length();
+        int len2 = str2.length();
+        int result = 0;     //记录最长公共子串长度
+        int maxIndex = 0;
+        int c[][] = new int[len1 + 1][len2 + 1];
+        for (int i = 0; i <= len1; i++) {
+            for (int j = 0; j <= len2; j++) {
+                if (i == 0 || j == 0) {
+                    c[i][j] = 0;
+                } else if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+                    c[i][j] = c[i - 1][j - 1] + 1;
+                    //result = Math.max(c[i][j], result);
+                } else {
+                    c[i][j] = 0;
+                }
+                if (c[i][j] > result) {
+                    result = c[i][j];
+                    maxIndex = i;
+                }
+            }
+        }
+        System.out.println(str1.substring(maxIndex - result, maxIndex));
+        return result;
     }
 
     /**
