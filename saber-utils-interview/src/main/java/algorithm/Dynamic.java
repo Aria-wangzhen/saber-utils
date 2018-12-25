@@ -12,22 +12,6 @@ import java.util.Scanner;
  */
 public class Dynamic {
 
-    public static void main(String[] args) {
-        //int[][] tower = {{13}, {11, 8}, {12, 7, 26}, {6, 14, 15, 8}, {12, 7, 13, 24, 11}};
-        //int result = dataTower(tower);
-        //editDistance();
-        //matrixFetch();
-        ArrayList<Integer> arrayList = null;
-       /* //背包问题
-        int m = 10;
-        int n = 3;
-        int w[] = {3, 4, 5};
-        int p[] = {4, 5, 6};
-        int c = BackPack_Solution(m, n, w, p);
-        System.out.println(c);*/
-        lcsChun("123","6");
-    }
-
     /**
      * 数塔取数
      * 来源：https://blog.csdn.net/tterminator/article/details/50951137?utm_source=blogxgwz3
@@ -79,13 +63,12 @@ public class Dynamic {
      *
      * @return
      */
-    public static void editDistance() {
+    public static void editDistance(String str1, String str2) {
         //Scanner scan = new Scanner(System.in);
-        String aStr = "qbcde";
-        String bStr = "qbcdw";
-        int aLen = aStr.length();//
-        int bLen = bStr.length();
-        int[][] dp = new int[aLen + 1][bLen + 1];//存储结果集
+        int aLen = str1.length();
+        int bLen = str2.length();
+        //存储结果集
+        int[][] dp = new int[aLen + 1][bLen + 1];
         //初始化
         for (int i = 0; i < aLen + 1; i++) {
             dp[i][0] = i;
@@ -96,13 +79,13 @@ public class Dynamic {
         }
         for (int i = 1; i < aLen + 1; i++) {
             for (int j = 1; j < bLen + 1; j++) {
-                if (aStr.charAt(i - 1) == bStr.charAt(j - 1)) {
+                if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
                     //修改，删除，插入的代价
                     dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1])) + 1;
                 }
-                System.out.println(dp[i][j]);
+                // System.out.println(dp[i][j]);
             }
         }
         System.out.println(dp[aLen][bLen]);
@@ -174,43 +157,64 @@ public class Dynamic {
 
     /**
      * 最长递增子序列
+     * https://blog.csdn.net/lk274857347/article/details/72938050
      *
      * @return
      */
-    public static void longestIncreasingSubsequence() {
-        Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
-        int[] num = new int[n];
-        for (int i = 0; i < n; i++) {
-            num[i] = scan.nextInt();
+    public static int longestIncreasingSubsequence(int[] array) {
+        int length = array.length;
+        if (length == 0) {
+            return 0;
         }
-        double[] dou = new double[n + 1];
-        dou[0] = Integer.MIN_VALUE;
-        dou[1] = num[0];
-        int Len = 1;
-        int p, r, m;
-        for (int i = 1; i < n; i++) {
-            p = 0;
-            r = Len;
-            while (p <= r) {
-                m = (p + r) / 2;
-                if (dou[m] < num[i]) {
-                    p = m + 1;
-                } else {
-                    r = m - 1;
+
+        int maxCount = 0;
+        int[] dp = new int[length];
+        for (
+                int i = 0;
+                i < length; i++) {
+            dp[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (array[j] < array[i]) {
+                    dp[i] = dp[i] > dp[j] + 1 ? dp[i] : dp[j] + 1;
+                }
+                if (maxCount < dp[i]) {
+                    maxCount = dp[i];
                 }
             }
-            dou[p] = num[i];
-            if (p > Len) {
-                Len++;
-            }
         }
-        System.out.println(Len);
+        return maxCount;
     }
 
+    /**
+     * 最长递增连续子序列
+     * https://blog.csdn.net/boguesfei/article/details/82901414
+     *
+     * @param A
+     * @return
+     */
+    public static int getMaxlength(int[] A) {
+        int size = A.length;
+        if (size <= 0) {
+            return 0;
+        }
+
+        int res = 1;
+        int current = 1;
+        for (int i = 1; i < size; i++) {
+            if (A[i] > A[i - 1]) {
+                current++;
+            } else {
+                if (current > res) {
+                    res = current;
+                }
+                current = 1;
+            }
+        }
+        return res;
+    }
 
     /**
-     * 最大子段和
+     * 最大子段和,当全为负数时候合为0
      *
      * @return
      */
@@ -219,55 +223,16 @@ public class Dynamic {
         int nowSum = 0;
         for (int i = 0; i < a.length; i++) {
             nowSum = nowSum + a[i];
-            if (nowSum > maxSum) {//更新最大子段和
+            //更新最大子段和
+            if (nowSum > maxSum) {
                 maxSum = nowSum;
             }
-            if (nowSum < 0) {//当当前累加和为负数时舍弃，重置为0
+            ////当当前累加和为负数时舍弃，重置为0
+            if (nowSum < 0) {
                 nowSum = 0;
             }
         }
         return maxSum;
-    }
-
-    /**
-     * 最长公共子序列Lcs
-     *
-     * @return
-     */
-    public static void longestCommonSubsequence() {
-        Scanner scan = new Scanner(System.in);
-        String aStr = scan.nextLine();
-        String bStr = scan.nextLine();
-        int aLen = aStr.length();
-        int bLen = bStr.length();
-        int[][] dp = new int[aLen + 1][bLen + 1];
-        for (int i = 1; i < aLen + 1; i++) {
-            for (int j = 1; j < bLen + 1; j++) {
-                if (dp[i - 1][j] == dp[i][j - 1] && aStr.charAt(i - 1) == bStr.charAt(j - 1)
-                        && dp[i - 1][j] == dp[i - 1][j - 1]) {
-                    dp[i][j] = dp[i - 1][j] + 1;
-                } else {
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-                }
-            }
-        }
-        int max = dp[aLen][bLen];
-        StringBuilder sb = new StringBuilder(128);
-        while (max > 0) {
-            if (dp[aLen - 1][bLen] == dp[aLen][bLen - 1] && dp[aLen - 1][bLen] + 1 == dp[aLen][bLen]) {
-                sb.append(aStr.charAt(aLen - 1));
-                max--;
-                aLen--;
-                bLen--;
-            } else {
-                if (dp[aLen][bLen - 1] == dp[aLen][bLen]) {
-                    bLen--;
-                } else {
-                    aLen--;
-                }
-            }
-            System.out.println(sb.reverse().toString());
-        }
     }
 
     /**
