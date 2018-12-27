@@ -110,7 +110,7 @@ public class Problem_04_CoinsWay {
 
 	public static void main(String[] args) {
 		int[] coins = { 10, 5, 1, 25 };
-		int aim = 2000;
+		int aim = 20;
 
 		long start = 0;
 		long end = 0;
@@ -120,7 +120,7 @@ public class Problem_04_CoinsWay {
 		end = System.currentTimeMillis();
 		System.out.println("cost time : " + (end - start) + "(ms)");
 
-		aim = 20000;
+		aim = 29;
 
 		System.out.println("===========���������ķ���===========");
 		start = System.currentTimeMillis();

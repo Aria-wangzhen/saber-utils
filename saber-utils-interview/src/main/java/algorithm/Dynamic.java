@@ -1,6 +1,8 @@
 package algorithm;
 
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -169,9 +171,7 @@ public class Dynamic {
 
         int maxCount = 0;
         int[] dp = new int[length];
-        for (
-                int i = 0;
-                i < length; i++) {
+        for (int i = 0; i < length; i++) {
             dp[i] = 1;
             for (int j = 0; j < i; j++) {
                 if (array[j] < array[i]) {

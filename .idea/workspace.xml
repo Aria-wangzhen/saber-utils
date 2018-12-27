@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="saber-utils-springmvc-param:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="90802e21-d101-47f0-9223-ead6ace34e04" name="Default" comment="pom">
-      <change afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/DyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/DyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/DyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java" beforeDir="false" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/TestSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/TestSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_01_FibonacciProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_01_FibonacciProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_03_CoinsMin.java" beforeDir="false" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_03_CoinsMin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_04_CoinsWay.java" beforeDir="false" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_04_CoinsWay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_5_stringproblem/Problem_02_AllNumbersSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_5_stringproblem/Problem_02_AllNumbersSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saber-utils-spring/src/main/java/com/zhenwang/spring/springmvc/controller/RequestParamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/saber-utils-spring/src/main/java/com/zhenwang/spring/springmvc/controller/RequestParamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saber-utils-spring/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/saber-utils-spring/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <ignored path="saber-utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,11 +54,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_01_FibonacciProblem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1426">
+              <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3361">
-              <caret line="228" column="13" lean-forward="true" selection-start-line="228" selection-start-column="13" selection-end-line="228" selection-end-column="13" />
+            <state relative-caret-position="4140">
+              <caret line="183" column="9" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/TestSort.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_5_stringproblem/Problem_02_AllNumbersSum.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+            <state relative-caret-position="289">
+              <caret line="29" column="36" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -67,35 +87,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/DyTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+            <state relative-caret-position="782">
+              <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
+        <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_03_CoinsMin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49772">
-              <caret line="2217" column="26" selection-start-line="2217" selection-start-column="26" selection-end-line="2217" selection-end-column="26" />
+            <state relative-caret-position="2507">
+              <caret line="109" column="5" selection-start-line="85" selection-start-column="4" selection-end-line="109" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home/src.zip!/java/util/AbstractList.java">
+        <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_04_CoinsWay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12765">
-              <caret line="600" column="28" selection-start-line="600" selection-start-column="28" selection-end-line="600" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home/src.zip!/java/lang/Object.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+            <state relative-caret-position="736">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -165,6 +176,8 @@
       <find>curLevelNodes--</find>
       <find>深度</find>
       <find>getMinHigh</find>
+      <find>get2</find>
+      <find>user</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -181,12 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/watch/Watcher.java" />
-        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/watch/ConcreteWatcher.java" />
-        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/watch/Test.java" />
-        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/watch/ConcreteWatched.java" />
-        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/threadpool/ThreadPoolManager.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/saber-utils-jdk8/pom.xml" />
         <option value="$PROJECT_DIR$/saber-utils-jdk8/src/main/java/fuctions/FunctionTest.java" />
         <option value="$PROJECT_DIR$/saber-utils-frame/src/main/java/classLoader/DefaultClassLoadStrategy.java" />
@@ -230,10 +237,23 @@
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_1_stackandqueue/Problem_08_MaxTree.java" />
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/BackPack.java" />
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/TestSort.java" />
+        <option value="$PROJECT_DIR$/saber-utils-spring/src/main/java/com/zhenwang/spring/springmvc/controller/RequestParamController.java" />
+        <option value="$PROJECT_DIR$/saber-utils-spring/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_01_FibonacciProblem.java" />
+        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_04_CoinsWay.java" />
+        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_03_CoinsMin.java" />
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/DyTest.java" />
         <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java" />
+        <option value="$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_5_stringproblem/Problem_02_AllNumbersSum.java" />
       </list>
     </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -426,8 +446,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -472,6 +490,35 @@
             </path>
             <path>
               <item name="saber-utils" type="b2602c69:ProjectViewProjectNode" />
+              <item name="saber-utils" type="462c0819:PsiDirectoryNode" />
+              <item name="saber-utils-interview" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zuoChengYun" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="saber-utils" type="b2602c69:ProjectViewProjectNode" />
+              <item name="saber-utils" type="462c0819:PsiDirectoryNode" />
+              <item name="saber-utils-interview" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zuoChengYun" type="462c0819:PsiDirectoryNode" />
+              <item name="chapter_4_recursionanddp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="saber-utils" type="b2602c69:ProjectViewProjectNode" />
+              <item name="saber-utils" type="462c0819:PsiDirectoryNode" />
+              <item name="saber-utils-interview" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zuoChengYun" type="462c0819:PsiDirectoryNode" />
+              <item name="chapter_5_stringproblem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="saber-utils" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
@@ -512,12 +559,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545700854380" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545881945579" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -555,7 +604,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DyTest">
+  <component name="RunManager" selected="Application.Problem_02_AllNumbersSum">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="DEPLOY" value="true" />
@@ -608,48 +657,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BackPack" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="algorithm.BackPack" />
-      <module name="saber-utils-interview" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="algorithm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BinaryBaseTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dataStructure.BinaryBaseTree" />
-      <module name="saber-utils-interview" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataStructure.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BinaryTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dataStructure.BinaryTree" />
-      <module name="saber-utils-interview" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataStructure.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="algorithm.DyTest" />
       <module name="saber-utils-interview" />
@@ -671,6 +678,48 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="algorithm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Problem_02_AllNumbersSum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="zuoChengYun.chapter_5_stringproblem.Problem_02_AllNumbersSum" />
+      <module name="saber-utils-interview" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="zuoChengYun.chapter_5_stringproblem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Problem_03_CoinsMin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="zuoChengYun.chapter_4_recursionanddp.Problem_03_CoinsMin" />
+      <module name="saber-utils-interview" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="zuoChengYun.chapter_4_recursionanddp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Problem_04_CoinsWay" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="zuoChengYun.chapter_4_recursionanddp.Problem_04_CoinsWay" />
+      <module name="saber-utils-interview" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="zuoChengYun.chapter_4_recursionanddp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -781,6 +830,78 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tomcat 8.0.53" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.53" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="saber-utils-springmvc-param:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_saber-utils" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="61982" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="saber-utils-springmvc-param:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -800,19 +921,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.BinaryBaseTree" />
-      <item itemvalue="Application.BinaryTree" />
-      <item itemvalue="Application.BackPack" />
       <item itemvalue="Application.Dynamic" />
       <item itemvalue="Application.DyTest" />
+      <item itemvalue="Application.Problem_03_CoinsMin" />
+      <item itemvalue="Application.Problem_04_CoinsWay" />
+      <item itemvalue="Application.Problem_02_AllNumbersSum" />
+      <item itemvalue="Tomcat Server.Tomcat 8.0.53" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Problem_02_AllNumbersSum" />
         <item itemvalue="Application.DyTest" />
+        <item itemvalue="Application.Problem_04_CoinsWay" />
+        <item itemvalue="Application.Problem_03_CoinsMin" />
         <item itemvalue="Application.Dynamic" />
-        <item itemvalue="Application.BackPack" />
-        <item itemvalue="Application.BinaryTree" />
-        <item itemvalue="Application.BinaryBaseTree" />
       </list>
     </recent_temporary>
   </component>
@@ -960,7 +1082,13 @@
       <workItem from="1545615370866" duration="4039000" />
       <workItem from="1545623079038" duration="4595000" />
       <workItem from="1545655245876" duration="204000" />
-      <workItem from="1545655679000" duration="3773000" />
+      <workItem from="1545655679000" duration="3888000" />
+      <workItem from="1545713646183" duration="1108000" />
+      <workItem from="1545719407689" duration="597000" />
+      <workItem from="1545720035183" duration="306000" />
+      <workItem from="1545788417140" duration="858000" />
+      <workItem from="1545826351197" duration="6872000" />
+      <workItem from="1545879479985" duration="1010000" />
     </task>
     <task id="LOCAL-00001" summary="pom">
       <created>1501584275832</created>
@@ -1242,17 +1370,24 @@
       <option name="project" value="LOCAL" />
       <updated>1545656872557</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="pom">
+      <created>1545700955067</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1545700955067</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171336000" />
+    <option name="totallyTimeSpent" value="182202000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23233405" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28104925" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -1263,8 +1398,8 @@
       <window_info id="Palette&#9;" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.27811244" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.259334" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39556003" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.21190716" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.48335016" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1278,6 +1413,7 @@
       <window_info anchor="bottom" id="Version Control" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Application Servers" order="17" weight="0.32996973" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1462,39 +1598,75 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java</url>
-          <line>38</line>
+          <line>40</line>
           <properties />
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java</url>
-          <line>58</line>
+          <line>60</line>
           <properties />
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java</url>
-          <line>79</line>
+          <line>81</line>
           <properties />
           <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java</url>
-          <line>77</line>
+          <line>79</line>
           <properties />
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java</url>
-          <line>73</line>
+          <line>75</line>
           <properties />
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java</url>
-          <line>100</line>
+          <line>102</line>
           <properties />
           <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_03_CoinsMin.java</url>
+          <line>19</line>
+          <properties />
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_03_CoinsMin.java</url>
+          <line>5</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_03_CoinsMin.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_04_CoinsWay.java</url>
+          <line>32</line>
+          <properties />
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_04_CoinsWay.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_04_CoinsWay.java</url>
+          <line>46</line>
+          <properties />
+          <option name="timeStamp" value="104" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1503,15 +1675,45 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>charArr[i] - '0'</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>charArr[i]</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>cur = charArr[i] - '0'</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>j - arr[0]</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>JSON.toJSONString(dp)</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>com.alibaba.fastjson.JSON</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/saber-utils-spring/pom.xml">
+      <provider editor-type-id="YarmPluginDependencyAnalyzer" />
       <provider editor-type-id="YarmPluginDependencyUpdater" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1541">
           <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
         </state>
       </provider>
-      <provider editor-type-id="YarmPluginDependencyAnalyzer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/SelectSort.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1646,6 +1848,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/TestSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="49772">
@@ -1660,10 +1869,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-spring/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-spring/src/main/webapp/WEB-INF/views/request/get1.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-spring/src/main/java/com/zhenwang/spring/springmvc/utils/CookieUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-spring/src/main/java/com/zhenwang/spring/springmvc/controller/RequestParamController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="64" column="30" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-spring/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-spring/src/main/webapp/WEB-INF/views/request/user.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-spring/src/main/webapp/WEB-INF/views/request/get0.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-spring/src/main/webapp/WEB-INF/views/request/get2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_01_FibonacciProblem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1426">
+          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4140">
+          <caret line="183" column="9" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/DyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_03_CoinsMin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2507">
+          <caret line="109" column="5" selection-start-line="85" selection-start-column="4" selection-end-line="109" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_4_recursionanddp/Problem_04_CoinsWay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
@@ -1695,27 +1986,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/TestSort.java">
+    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/zuoChengYun/chapter_5_stringproblem/Problem_02_AllNumbersSum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/DyTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saber-utils-interview/src/main/java/algorithm/Dynamic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3361">
-          <caret line="228" column="13" lean-forward="true" selection-start-line="228" selection-start-column="13" selection-end-line="228" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="29" column="36" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="36" />
         </state>
       </provider>
     </entry>
