@@ -16,22 +16,10 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="saber-utils" target="1.5" />
-      <module name="saber-utils-collection-date-string" target="1.5" />
-      <module name="saber-utils-dianping" target="1.5" />
-      <module name="saber-utils-encryption" target="1.7" />
       <module name="saber-utils-frame" target="1.6" />
-      <module name="saber-utils-interview" target="1.6" />
-      <module name="saber-utils-jdk8" target="1.8" />
-      <module name="saber-utils-mybatis" target="1.5" />
+      <module name="saber-utils-interview" target="8" />
       <module name="saber-utils-readFile" target="1.5" />
-      <module name="saber-utils-regex" target="1.5" />
-      <module name="saber-utils-regexp" target="1.5" />
-      <module name="saber-utils-regexp (1)" target="1.5" />
-      <module name="saber-utils-regexp (1) (saber-utils-regexp)" target="1.5" />
       <module name="saber-utils-spring" target="1.7" />
-      <module name="saber-utils-springmvc-param" target="1.7" />
-      <module name="sader-utils-springmvc-param" target="1.5" />
-      <module name="string" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

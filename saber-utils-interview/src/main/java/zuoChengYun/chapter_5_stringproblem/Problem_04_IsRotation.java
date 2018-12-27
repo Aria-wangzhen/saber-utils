@@ -7,7 +7,8 @@ public class Problem_04_IsRotation {
 			return false;
 		}
 		String b2 = b + b;
-		return getIndexOf(b2, a) != -1;
+		//return getIndexOf(b2, a) != -1;
+		return b2.contains(a);
 	}
 
 	// KMP Algorithm
@@ -56,7 +57,7 @@ public class Problem_04_IsRotation {
 
 	public static void main(String[] args) {
 		String str1 = "yunzuocheng";
-		String str2 = "zuochengyun";
+		String str2 = "yuochengyun";
 		System.out.println(isRotation(str1, str2));
 
 	}
