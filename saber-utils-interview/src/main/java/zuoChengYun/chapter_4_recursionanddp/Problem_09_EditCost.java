@@ -1,5 +1,8 @@
 package zuoChengYun.chapter_4_recursionanddp;
 
+/**
+ * 最小编辑代价
+ */
 public class Problem_09_EditCost {
 
 	public static int minCost1(String str1, String str2, int ic, int dc, int rc) {
