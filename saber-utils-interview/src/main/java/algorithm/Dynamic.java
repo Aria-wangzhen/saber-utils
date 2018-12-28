@@ -58,6 +58,50 @@ public class Dynamic {
         return resultTower[0][0];
     }
 
+    /**
+     * https://blog.csdn.net/afei__/article/details/83214042
+     * 最长回文字符串
+     * 这道题本质是求字符串中的最大回文字串的长度
+     * 动态规划法，
+     * 假设dp[ i ][ j ]的值为true，表示字符串s中下标从 i 到 j 的字符组成的子串是回文串。那么可以推出：
+     * dp[ i ][ j ] = dp[ i + 1][ j - 1] && s[ i ] == s[ j ]。
+     * 这是一般的情况，由于需要依靠i+1, j -1，所以有可能 i + 1 = j -1, i +1 = (j - 1) -1，
+     * 因此需要求出基准情况才能套用以上的公式：
+     * a. i + 1 = j -1，即回文长度为1时，dp[ i ][ i ] = true;
+     * b. i +1 = (j - 1) -1，即回文长度为2时，dp[ i ][ i + 1] = （s[ i ] == s[ i + 1]）。
+     * 有了以上分析就可以写出代码了。需要注意的是动态规划需要额外的O(n^2)的空间。
+     *
+     * @param s
+     * @return
+     */
+    public static String getLPS(String s) {
+        char[] chars = s.toCharArray();
+        int length = chars.length;
+        // 第一维参数表示起始位置坐标，第二维参数表示终点坐标
+        // lps[j][i] 表示以 j 为起始坐标，i 为终点坐标是否为回文子串
+        boolean[][] lps = new boolean[length][length];
+        // 记录最长回文子串最长长度
+        int maxLen = 1;
+        // 记录最长回文子串起始位置
+        int start = 0;
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j <= i; j++) {
+                if (i - j < 2) {
+                    // 子字符串长度小于 2 的时候单独处理
+                    lps[j][i] = (chars[i] == chars[j]);
+                } else {
+                    // 如果 [i, j] 是回文子串，那么一定有 [j+1, i-1] 也是回子串
+                    lps[j][i] = lps[j + 1][i - 1] && (chars[i] == chars[j]);
+                }
+                if (lps[j][i] && (i - j + 1) > maxLen) {
+                    // 如果 [i, j] 是回文子串，并且长度大于 max，则刷新最长回文子串
+                    maxLen = i - j + 1;
+                    start = j;
+                }
+            }
+        }
+        return s.substring(start, start + maxLen);
+    }
 
     /**
      * 编辑距离
@@ -91,6 +135,41 @@ public class Dynamic {
             }
         }
         System.out.println(dp[aLen][bLen]);
+    }
+
+    /**
+     * 编辑距离的代价
+     * http://www.cnblogs.com/BlackStorm/p/5400809.html
+     *
+     * @return
+     */
+    public static int minCost1(String str1, String str2, int ic, int dc, int rc) {
+        if (str1 == null || str2 == null) {
+            return 0;
+        }
+        char[] chs1 = str1.toCharArray();
+        char[] chs2 = str2.toCharArray();
+        int row = chs1.length + 1;
+        int col = chs2.length + 1;
+        int[][] dp = new int[row][col];
+        for (int i = 1; i < row; i++) {
+            dp[i][0] = dc * i;
+        }
+        for (int j = 1; j < col; j++) {
+            dp[0][j] = ic * j;
+        }
+        for (int i = 1; i < row; i++) {
+            for (int j = 1; j < col; j++) {
+                if (chs1[i - 1] == chs2[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] = dp[i - 1][j - 1] + rc;
+                }
+                dp[i][j] = Math.min(dp[i][j], dp[i][j - 1] + ic);
+                dp[i][j] = Math.min(dp[i][j], dp[i - 1][j] + dc);
+            }
+        }
+        return dp[row - 1][col - 1];
     }
 
 
@@ -236,30 +315,28 @@ public class Dynamic {
     }
 
     /**
-     * 最长公共子序列
-     * https://blog.csdn.net/qq_31881469/article/details/77892324
-     *
-     * @param str1
-     * @param str2
-     * @return
+     * 最长公共子序列路径长度
      */
-    public static int lcs(String str1, String str2) {
-        int len1 = str1.length();
-        int len2 = str2.length();
-        int c[][] = new int[len1 + 1][len2 + 1];
-        for (int i = 0; i <= len1; i++) {
-            for (int j = 0; j <= len2; j++) {
-                if (i == 0 || j == 0) {
-                    c[i][j] = 0;
-                } else if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
-                    c[i][j] = c[i - 1][j - 1] + 1;
-                } else {
-                    c[i][j] = Math.max(c[i - 1][j], c[i][j - 1]);
+    public static int[][] getdp(char[] str1, char[] str2) {
+        int[][] dp = new int[str1.length][str2.length];
+        dp[0][0] = str1[0] == str2[0] ? 1 : 0;
+        for (int i = 1; i < str1.length; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], str1[i] == str2[0] ? 1 : 0);
+        }
+        for (int j = 1; j < str2.length; j++) {
+            dp[0][j] = Math.max(dp[0][j - 1], str1[0] == str2[j] ? 1 : 0);
+        }
+        for (int i = 1; i < str1.length; i++) {
+            for (int j = 1; j < str2.length; j++) {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                if (str1[i] == str2[j]) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i - 1][j - 1] + 1);
                 }
             }
         }
-        return c[len1][len2];
+        return dp;
     }
+
 
     /**
      * 最长公共子串
@@ -268,30 +345,53 @@ public class Dynamic {
      * @param str2
      * @return
      */
-    public static int lcsChun(String str1, String str2) {
-        int len1 = str1.length();
-        int len2 = str2.length();
-        int result = 0;     //记录最长公共子串长度
-        int maxIndex = 0;
-        int c[][] = new int[len1 + 1][len2 + 1];
-        for (int i = 0; i <= len1; i++) {
-            for (int j = 0; j <= len2; j++) {
-                if (i == 0 || j == 0) {
-                    c[i][j] = 0;
-                } else if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
-                    c[i][j] = c[i - 1][j - 1] + 1;
-                    //result = Math.max(c[i][j], result);
-                } else {
-                    c[i][j] = 0;
-                }
-                if (c[i][j] > result) {
-                    result = c[i][j];
-                    maxIndex = i;
+    public static int[][] lcsChun1(char[] str1, char[] str2) {
+        int[][] dp = new int[str1.length][str2.length];
+        for (int i = 0; i < str1.length; i++) {
+            if (str1[i] == str2[0]) {
+                dp[i][0] = 1;
+            }
+        }
+        for (int j = 1; j < str2.length; j++) {
+            if (str1[0] == str2[j]) {
+                dp[0][j] = 1;
+            }
+        }
+        for (int i = 1; i < str1.length; i++) {
+            for (int j = 1; j < str2.length; j++) {
+                if (str1[i] == str2[j]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
                 }
             }
         }
-        System.out.println(str1.substring(maxIndex - result, maxIndex));
-        return result;
+        return dp;
+    }
+
+    /**
+     * 最长公共子串路径
+     *
+     * @param str1
+     * @param str2
+     * @return
+     */
+    public static String lcst1(String str1, String str2) {
+        if (str1 == null || str2 == null || str1.equals("") || str2.equals("")) {
+            return "";
+        }
+        char[] chs1 = str1.toCharArray();
+        char[] chs2 = str2.toCharArray();
+        int[][] dp = lcsChun1(chs1, chs2);
+        int end = 0;
+        int max = 0;
+        for (int i = 0; i < chs1.length; i++) {
+            for (int j = 0; j < chs2.length; j++) {
+                if (dp[i][j] > max) {
+                    end = i;
+                    max = dp[i][j];
+                }
+            }
+        }
+        return str1.substring(end - max + 1, end + 1);
     }
 
     /**

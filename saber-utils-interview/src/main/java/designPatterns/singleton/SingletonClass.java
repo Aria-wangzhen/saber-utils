@@ -8,7 +8,7 @@ package designPatterns.singleton;
 public enum SingletonClass {
     INSTANCE;
 
-    /*private String name;
+    private String name;
 
     public void test() {
         System.out.println("The Test!");
@@ -22,5 +22,5 @@ public enum SingletonClass {
     public String getName() {
 
         return name;
-    }*/
+    }
 }
