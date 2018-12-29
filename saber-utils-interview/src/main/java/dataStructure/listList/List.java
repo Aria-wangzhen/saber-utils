@@ -10,6 +10,7 @@ import java.util.Stack;
 /**
  * 来源：https://blog.csdn.net/sheepmu/article/details/38282457
  * 附加参考：https://blog.csdn.net/fightforyourdream/article/details/16353519
+ * 环相关的：https://www.cnblogs.com/xudong-bupt/p/3667729.html
  * 1.链表长度
  * 2.得到链表倒数第k个节点的值
  * 3.删除链表的倒数第k个节点
@@ -197,7 +198,7 @@ public class List {
     /**
      * 6.找出有环链表的环的入口
      * 思路：若有环肯定会在环中相遇第一次相遇的位置到环开始的位置的距离（按环的方向）与头节点到环的开始的距离相等。
-     * 故当相遇时，让节点q置于头节点，让后两个节点同时走，再次相遇处就是环开始的位置。
+     * 故当相遇时，让节点slow置于头节点，让后两个节点同时走，再次相遇处就是环开始的位置。
      */
 
     public static ListNode getFirstC(ListNode head) {
@@ -312,8 +313,7 @@ public class List {
         }
         System.out.println();
     }
-    String sumStr = "123";
-    char[] arr = sumStr.toCharArray();
+
     /**
      * 9.从尾到头打印单链表                    -----递归------
      *

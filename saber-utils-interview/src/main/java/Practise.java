@@ -1,3 +1,7 @@
+import dataStructure.listList.ListNode;
+
+import java.util.Stack;
+
 import static algorithm.TestSort.printArr;
 
 /**
@@ -6,32 +10,7 @@ import static algorithm.TestSort.printArr;
  */
 public class Practise {
 
-    public static void main(String[] args) {
-        int[] numbers = {10, 20, 15, 0, 6, 7, 2, 1, -5, 55};
 
-        /*---------------------------------------------------排序和查找---------------------------------------------------*/
-
-        System.out.print("排序前：");
-        printArr(numbers);
-        //快排
-       /* quickSort(numbers);
-        System.out.print("快速排序后：");
-        printArr(numbers);*/
-        //归并
-        mergeSort(numbers);
-        System.out.print("快速排序后：");
-        printArr(numbers);
-        //二分查找
-        System.out.print("二分查找：" + twoSearch(numbers, 2));
-    }
-
-    public static void printArr(int[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + ",");
-        }
-        System.out.println("");
-
-    }
     /*---------------------------------------------------排序和查找---------------------------------------------------*/
 
     /**
@@ -138,7 +117,7 @@ public class Practise {
         int low = 0;
         int high = arr.length - 1;
         while (low <= high) {
-            int mid = low + ((high - low) >> 1);
+            int mid = low + (high - low) / 2;
             if (key < arr[mid]) {
                 high = mid - 1;
             }
@@ -155,21 +134,323 @@ public class Practise {
 
     /*---------------------------------------------------链表---------------------------------------------------*/
 
-    // 1.链表长度
-    //  2.得到链表倒数第k个节点的值
-    // 3.删除链表的倒数第k个节点
-    //  4.求单链表的中间节点
-    //  5.判断链表是否有环
-    //  6.找出有环链表的环的入口
-    //  7.判断两个单链表是否相交
-    //  8.找出两个相交链表的第一个交点
-    //  9.从尾到头打印单链表
-    // 10.逆置单链表
-    //  11.合并两个有序链表，使合并后的链表依然有序
-    //  12.在o(1)的时间复杂度删除单链表中指定的某一节点
-    //  13.在指定节点前插入一个节点
-    //  14.无序链表排序
-    //  15.链表首尾交叉排序
+    /**
+     * 1.链表长度
+     */
+    public static int linkLength(ListNode head) {
+        if (head == null) {
+            return 0;
+        }
+        int length = 0;
+        ListNode temp = head;
+        while (temp != null) {
+            temp = temp.getNext();
+            length++;
+        }
+        return length;
+    }
+
+    /**
+     * 1.链表长度
+     */
+    public static int linkLengthRec(ListNode head) {
+        if (head == null) {
+            return 0;
+        }
+        return linkLengthRec(head.getNext()) + 1;
+    }
+
+    /**
+     * 2.得到链表倒数第k个节点的值
+     */
+    public static ListNode getKNode(ListNode head, int k) {
+        if (head == null || k <= 0) {
+            return new ListNode();
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while (--k != 0) {
+            fast = fast.getNext();
+            if (fast == null) {
+                return new ListNode();
+            }
+        }
+        while (fast.getNext() != null) {
+            fast = fast.getNext();
+            slow = slow.getNext();
+        }
+        return slow;
+
+    }
+
+
+    /**
+     * 3.删除链表的倒数第k个节点
+     */
+    public static ListNode deleteK(ListNode head, int k) {
+        if (head == null || k <= 0) {
+            return new ListNode();
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while (--k != 0) {
+            fast = fast.getNext();
+            if (fast == null) {
+                return new ListNode();
+            }
+        }
+        ListNode pre = slow;
+        while (fast.getNext() != null) {
+            pre = slow;
+            fast = fast.getNext();
+            slow = slow.getNext();
+        }
+
+        pre.setNext(slow.getNext());
+        return head;
+    }
+
+
+    /**
+     * 4.求单链表的中间节点
+     */
+    public static int getMid(ListNode head) {
+        //0个节点和1个节点时
+        if (head == null || head.getNext() == null) {
+            return -1;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        //若只有 一个节点 和 两个节点 时while条件不满足
+        while (fast.getNext() != null && fast.getNext().getNext() != null) {
+            fast = fast.getNext().getNext();
+            slow = slow.getNext();
+        }
+        return slow.getValue();
+    }
+
+    /**
+     * 5.判断链表是否有环
+     */
+    public static boolean isHaveC(ListNode head) {
+        if (head == null || head.getNext() == null) {
+            return false;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        //若只有 一个节点 和 两个节点 时while条件不满足
+        while (fast.getNext() != null && fast.getNext().getNext() != null) {
+            fast = fast.getNext().getNext();
+            slow = slow.getNext();
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 6.找出有环链表的环的入口
+     * 思路：若有环肯定会在环中相遇第一次相遇的位置到环开始的位置的距离（按环的方向）与头节点到环的开始的距离相等。
+     * 故当相遇时，让节点slow置于头节点，让后两个节点同时走，再次相遇处就是环开始的位置。
+     */
+    public static ListNode isFirstC(ListNode head) {
+        if (head == null || head.getNext() == null) {
+            return null;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        //若只有 一个节点 和 两个节点 时while条件不满足
+        boolean isHave = false;
+        while (fast.getNext() != null && fast.getNext().getNext() != null) {
+            fast = fast.getNext().getNext();
+            slow = slow.getNext();
+            if (fast == slow) {
+                isHave = true;
+                break;
+            }
+        }
+        if (!isHave) {
+            return null;
+        }
+        slow = head;
+        while (slow != fast) {
+            slow = slow.getNext();
+            fast = fast.getNext();
+        }
+        return slow;
+    }
+
+    /**
+     * 7.有环链表环的长度
+     */
+    public static int isCLength(ListNode head) {
+        if (head == null || head.getNext() == null) {
+            return 0;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        //若只有 一个节点 和 两个节点 时while条件不满足
+        boolean isHave = false;
+        while (fast.getNext() != null && fast.getNext().getNext() != null) {
+            fast = fast.getNext().getNext();
+            slow = slow.getNext();
+            if (fast == slow) {
+                isHave = true;
+                break;
+            }
+        }
+        if (!isHave) {
+            return 0;
+        }
+        int length = 0;
+        while (fast.getNext() != null && fast.getNext().getNext() != null) {
+            length++;
+            fast = fast.getNext().getNext();
+            slow = slow.getNext();
+            if (fast == slow) {
+                break;
+            }
+        }
+        return length;
+    }
+
+    /**
+     * 8.判断两个单链表是否相交
+     */
+    public static boolean isXJ(ListNode head1, ListNode head2) {
+        if (head1 == null || head2 == null) {
+            return true;
+        }
+        ListNode tmp1 = head1;
+        while (tmp1.getNext() != null) {
+            tmp1 = tmp1.getNext();
+        }
+        ListNode tmp2 = head2;
+        while (tmp2.getNext() != null) {
+            tmp2 = tmp2.getNext();
+        }
+        return tmp1 == tmp2;
+    }
+
+
+    /**
+     * 9.找出两个相交链表的第一个交点
+     */
+    public static boolean getFirstXJ(ListNode head1, ListNode head2) {
+        if (head1 == null || head2 == null) {
+            return true;
+        }
+        ListNode tmp1 = head1;
+        int len1 = 0;
+        while (tmp1.getNext() != null) {
+            len1++;
+            tmp1 = tmp1.getNext();
+        }
+        ListNode tmp2 = head2;
+        int len2 = 0;
+        while (tmp2.getNext() != null) {
+            len2++;
+            tmp2 = tmp2.getNext();
+        }
+        if (len1 > len2) {
+            int k = len1 - len2;
+            while (--k >= 0) {
+            }
+        }
+        return tmp1 == tmp2;
+    }
+
+    /**
+     * 10.从尾到头打印单链表(遍历)
+     */
+    public static void reversePrintListStack(ListNode head) {
+        if (head == null) {
+            return;
+        }
+        Stack<ListNode> stack = new Stack<>();
+        ListNode tmp = head;
+        stack.push(tmp);
+        while (tmp.getNext() != null) {
+            tmp = tmp.getNext();
+            stack.push(tmp);
+        }
+        while (!stack.isEmpty()) {
+            System.out.println(stack.pop().getValue());
+        }
+    }
+
+    /**
+     * 10.从尾到头打印单链表(递归)
+     */
+    public static void reversePrintListStackRec(ListNode head) {
+        if (head == null) {
+            return;
+        }
+        reversePrintListStackRec(head.getNext());
+        System.out.println(head.getValue());
+    }
+
+    /**
+     * 11.逆置单链表(遍历 - 栈)
+     */
+    public static ListNode reverseListStack(ListNode head) {
+        if(head == null){
+            return null;
+        }
+        Stack<ListNode> stack = new Stack<>();
+        ListNode tmp = head;
+        while (tmp != null) {
+            stack.push(tmp);
+            tmp = tmp.getNext();
+        }
+        ListNode head1 = stack.pop();
+        ListNode tmp2 =  head1;
+
+        while (!stack.isEmpty()) {
+            ListNode tmp3 = stack.pop();
+            tmp2.setNext(tmp3);
+            tmp2 = tmp3;
+
+        }
+        head.setNext(null);
+        return head1;
+
+    }
+
+    /**
+     * 11.逆置单链表(遍历 - 尾巴迁移)
+     */
+    public static ListNode reverseList(ListNode head) {
+        if(head == null || head.getNext() == null){
+            return head;
+        }
+        ListNode tail = null;
+        ListNode cur = head;
+        while (cur != null){
+            ListNode pre = cur;   //新链表尾巴的前一个
+            cur = cur.getNext();    // cur更新到下一个节点
+            pre.setNext(tail);//尾巴前一个节点
+            tail = pre;   // 把尾巴的前一个设为新的尾巴
+
+        }
+        return tail;
+
+
+    }
+
+    /**
+     * 11.逆置单链表(递归)
+     */
+    public static ListNode reverseListRec(ListNode head) {
+       return null;
+    }
+
+    //  12.合并两个有序链表，使合并后的链表依然有序
+    //  13.在o(1)的时间复杂度删除单链表中指定的某一节点
+    //  14.在指定节点前插入一个节点
+    //  15.无序链表排序
+    //  16.链表首尾交叉排序
     /*---------------------------------------------------二叉树---------------------------------------------------*/
 
     //* 1.二叉树的遍历，前序中序后序，递归和非递归
