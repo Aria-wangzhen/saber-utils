@@ -1,4 +1,4 @@
-package dataStructure;
+package dataStructure.listList;
 
 /**
  * @author Aria
@@ -312,7 +312,8 @@ public class List {
         }
         System.out.println();
     }
-
+    String sumStr = "123";
+    char[] arr = sumStr.toCharArray();
     /**
      * 9.从尾到头打印单链表                    -----递归------
      *

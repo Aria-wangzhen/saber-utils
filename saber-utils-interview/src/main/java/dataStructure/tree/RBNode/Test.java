@@ -1,4 +1,4 @@
-package dataStructure.RBNode;
+package dataStructure.tree.RBNode;
 
 /**
  * Java 语言: 二叉查找树

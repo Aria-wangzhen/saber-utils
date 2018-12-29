@@ -1,15 +1,159 @@
+import static algorithm.TestSort.printArr;
+
 /**
  * @author Aria
  * @time on 2018-12-28.
  */
 public class Practise {
 
-    //快排
+    public static void main(String[] args) {
+        int[] numbers = {10, 20, 15, 0, 6, 7, 2, 1, -5, 55};
 
-    //归并排序
+        /*---------------------------------------------------排序和查找---------------------------------------------------*/
 
-    //二分查找
+        System.out.print("排序前：");
+        printArr(numbers);
+        //快排
+       /* quickSort(numbers);
+        System.out.print("快速排序后：");
+        printArr(numbers);*/
+        //归并
+        mergeSort(numbers);
+        System.out.print("快速排序后：");
+        printArr(numbers);
+        //二分查找
+        System.out.print("二分查找：" + twoSearch(numbers, 2));
+    }
 
+    public static void printArr(int[] numbers) {
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + ",");
+        }
+        System.out.println("");
+
+    }
+    /*---------------------------------------------------排序和查找---------------------------------------------------*/
+
+    /**
+     * 快排
+     */
+    public static int[] quickSort(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return arr;
+        }
+        return quick(arr, 0, arr.length - 1);
+
+    }
+
+    private static int[] quick(int[] arr, int low, int high) {
+        if (low < high) {
+            int mid = getMid(arr, low, high);
+            quick(arr, 0, mid);
+            quick(arr, mid + 1, high);
+        }
+        return arr;
+
+    }
+
+    private static int getMid(int[] arr, int low, int high) {
+        int temp = arr[low];
+        while (low < high) {
+            while (low < high && arr[high] > temp) {
+                high--;
+            }
+            arr[low] = arr[high];
+            while (low < high && arr[high] < temp) {
+                low++;
+            }
+            arr[high] = arr[low];
+        }
+        arr[low] = temp;
+        return low;
+
+    }
+
+    /**
+     * 归并排序
+     *
+     * @param arr
+     * @return
+     */
+    public static int[] mergeSort(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return arr;
+        }
+        return mergeSort(arr, 0, arr.length - 1);
+
+    }
+
+    private static int[] mergeSort(int[] arr, int low, int high) {
+        int mid = (low + high) / 2;
+        if (low < high) {
+            mergeSort(arr, 0, mid);
+            mergeSort(arr, mid + 1, high);
+            twoMerge(arr, low, mid, high);
+        }
+        return arr;
+    }
+
+    private static void twoMerge(int[] arr, int low, int mid, int high) {
+        int[] newArr = new int[high - low + 1];
+        int left = low;
+        int right = mid + 1;
+        int k = 0;
+        while (left < mid && right < high) {
+            if (arr[left] < arr[right]) {
+                newArr[k++] = arr[left++];
+            } else {
+                newArr[k++] = arr[right++];
+            }
+        }
+        while (left <= mid) {
+            newArr[k++] = arr[left++];
+        }
+
+        while (right <= high) {
+            newArr[k++] = arr[right++];
+        }
+        for (int i = 0; i < newArr.length; i++) {
+            arr[i + low] = newArr[i];
+        }
+
+    }
+
+    /**
+     * 二分查找
+     *
+     * @param arr
+     * @return
+     */
+    public static Integer twoSearch(int[] arr, int key) {
+        if (arr == null || arr.length < 1) {
+            return null;
+        }
+        if (key < arr[0] || key > arr[arr.length - 1]) {
+            return null;
+        }
+
+        int low = 0;
+        int high = arr.length - 1;
+        while (low <= high) {
+            int mid = low + ((high - low) >> 1);
+            if (key < arr[mid]) {
+                high = mid - 1;
+            }
+            if (key > arr[mid]) {
+                low = mid + 1;
+            }
+            if (key == arr[mid]) {
+                return mid;
+            }
+        }
+        return null;
+    }
+
+
+    /*---------------------------------------------------链表---------------------------------------------------*/
 
     // 1.链表长度
     //  2.得到链表倒数第k个节点的值
@@ -26,7 +170,9 @@ public class Practise {
     //  13.在指定节点前插入一个节点
     //  14.无序链表排序
     //  15.链表首尾交叉排序
-   //* 1.二叉树的遍历，前序中序后序，递归和非递归
+    /*---------------------------------------------------二叉树---------------------------------------------------*/
+
+    //* 1.二叉树的遍历，前序中序后序，递归和非递归
     // *
     // * @see dataStructure.BinaryBaseTree
     // * http://blog.csdn.net/sheepmu/article/details/28941285
@@ -47,6 +193,10 @@ public class Practise {
     // * 16.二叉树中和为某一值的路径
     // * 17.求二叉树中两个节点的最低公共祖先节点
 
+    /*--------------------------------------------------红黑树---------------------------------------------------*/
+
+
+    /*---------------------------------------------------动态规划---------------------------------------------------*/
 
     //数塔取数
     //最长回文字符串

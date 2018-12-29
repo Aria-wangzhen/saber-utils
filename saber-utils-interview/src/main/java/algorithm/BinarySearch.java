@@ -26,7 +26,7 @@ public class BinarySearch {
         while (low <= high) {
             middle = (low + high) / 2;
             //优化
-            // middle = low+(high-low)>>2；
+            // middle = low+(high-low)>>1；
             if (arr[middle] > key) {
                 //比关键字大则关键字在左区域
                 high = middle - 1;

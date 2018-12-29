@@ -1,4 +1,4 @@
-package dataStructure.RBNode;
+package dataStructure.tree.RBNode;
 
 /**
  * @author Aria

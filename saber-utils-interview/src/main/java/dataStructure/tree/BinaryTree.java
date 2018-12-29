@@ -1,4 +1,4 @@
-package dataStructure;
+package dataStructure.tree;
 
 import java.util.LinkedList;
 import java.util.Stack;
@@ -8,7 +8,7 @@ import java.util.Stack;
  * 附加参考：https://blog.csdn.net/fightforyourdream/article/details/16843303
  * 1.二叉树的遍历，前序中序后序，递归和非递归
  *
- * @see dataStructure.BinaryBaseTree
+ * @see BinaryBaseTree
  * http://blog.csdn.net/sheepmu/article/details/28941285
  * 2.二叉树的层序遍历（广度优先遍历）
  * 3.二叉树的高度/最小高度
