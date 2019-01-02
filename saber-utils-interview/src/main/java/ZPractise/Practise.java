@@ -742,11 +742,44 @@ public class Practise {
     /**
      * 3.二叉树的高高度 - 递归
      */
+    public static int getTreeHighRec(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return Math.max(getTreeHighRec(root.left), getTreeHighRec(root.right)) + 1;
+    }
 
     /**
-     * 3.二叉树的高高度 - 遍历
+     * 3.二叉树的高高度 - 遍历（利用层序遍历[广度优先搜索]）
      */
-
+    public static int getTreeHigh(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int high = 0;
+        int curLevel = 0;
+        int nextLevel = 0;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.addLast(root);
+        curLevel++;
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.removeFirst();
+            curLevel--;
+            if (cur.left != null) {
+                nextLevel++;
+                queue.addLast(cur.left);
+            }
+            if (cur.right != null) {
+                nextLevel++;
+                queue.addLast(cur.right);
+            }
+            if (curLevel == 0) {
+                high++;
+                curLevel = nextLevel;
+            }
+        }
+        return high;
+    }
     /**
      * 4.二叉树的最小高度
      */

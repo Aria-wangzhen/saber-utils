@@ -114,8 +114,11 @@ public class PraTest {
         System.out.println("二叉树的后续序遍历 - 遍历 - 一个栈：");
         Practise.postOrderUnRecur2(root);*/
 
-        System.out.println("二叉树的层序遍历 - 遍历:");
-        Practise.cxTree(root);
+       /* System.out.println("二叉树的层序遍历 - 遍历:");
+        Practise.cxTree(root);*/
+
+        System.out.println("二叉树的高度 - 递归:" +  Practise.getTreeHighRec(root));
+        System.out.println("二叉树的高度 - 遍历:" +  Practise.getTreeHigh(root));
 
 
     }
