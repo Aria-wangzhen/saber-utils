@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="saber-utils-springmvc-param:war">
-    <output-path>$PROJECT_DIR$/saber-utils-springmvc-param/target</output-path>
-    <root id="archive" name="springmvc-param.war">
-      <element id="artifact" artifact-name="saber-utils-springmvc-param:war exploded" />
-    </root>
-  </artifact>
-</component>
