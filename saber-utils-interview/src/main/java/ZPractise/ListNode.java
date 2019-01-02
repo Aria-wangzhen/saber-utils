@@ -1,4 +1,4 @@
-package dataStructure.listList;
+package ZPractise;
 
 /**
  * @author Aria

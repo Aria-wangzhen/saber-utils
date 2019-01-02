@@ -43,7 +43,7 @@ public class List {
         n3.next = n4;
         n4.next = n5;
         n5.next = n6;
-        System.out.println("链表长度---->" + getLenRec(n1));
+        /*System.out.println("链表长度---->" + getLenRec(n1));
         System.out.println("链表倒数第三个节点的值---->" + getLastK(n1, 3));
         System.out.println("删除链表倒数第3个节点---->" + moveLastK(n1, 3));//此时链表已经是 1,2,3,5,6
         System.out.println("删除倒数第k个后的链表长度---->" + getLenRec(n1));
@@ -52,10 +52,21 @@ public class List {
         System.out.println("链表环的入口---->" + getFirstC(n1));
         System.out.println("从尾到头打印单链表---->");
         reversePrintListStack(n1);
-        System.out.println("逆置单链表后的头节点--->" + reverseList(n1).value);
+        System.out.println("逆置单链表后的头节点--->" + reverseList(n1).value);*/
+
+        printLinkList(sortList(n1));
 
     }
-
+    private static void printLinkList(ListNode head) {
+        if (head == null) {
+            return;
+        }
+        ListNode tmp = head;
+        while (tmp != null) {
+            System.out.println(tmp.value);
+            tmp = tmp.next;
+        }
+    }
     /**
      * 1.链表长度
      *
@@ -478,6 +489,7 @@ public class List {
 
         ListNode first = sortList(head);        // 得到以排序好的前半段
         ListNode second = sortList(slow);   // 得到以排序好的后半段
+
         ListNode dummy = new ListNode(-1);
         ListNode dummyCur = dummy;
         while (first != null && second != null) { // 合并两半段
