@@ -99,6 +99,7 @@ public class PraTest {
         t2.left = t4;
         t2.right = t5;
         t3.right = t6;
+        //t3.left = t4;
         TreeNode root = t1;
 
         TreeNode w1 = new TreeNode("A");
@@ -107,11 +108,11 @@ public class PraTest {
         TreeNode w4 = new TreeNode("D");
         TreeNode w5 = new TreeNode("E");
         TreeNode w6 = new TreeNode("F");
-        w1.left = w2;
-        w1.right = w3;
-        w2.left =w4;
-        w2.right = w5;
-        w3.right = w6;
+        w1.left = w3;
+        w1.right = w2;
+        w2.left = w5;
+        w2.right = w4;
+        w3.left = w6;
         TreeNode wroot = w1;
 
         /*System.out.println("二叉树的前序遍历 - 遍历：");
@@ -146,9 +147,12 @@ public class PraTest {
         //Practise.cxTree(Practise.getJXDes(root));
         //System.out.println("求二叉树的镜像(新建树) - 递归:");
         //Practise.cxTree(Practise.getJXNewRec(root));
-        //System.out.println("(暂未实现)求二叉树的镜像(新建树) - 遍历(先序遍历 + 新建树):");
+        //System.out.println("求二叉树的镜像(新建树) - 遍历(先序遍历 + 新建树):");
         //Practise.cxTree(Practise.getJXNew(root));
-        System.out.println("判断两颗二叉树是否互为镜像 - 递归:" + Practise.isJXTwoRec(wroot, root));
+        //System.out.println("判断两颗二叉树是否互为镜像 - 递归:" + Practise.isJXTwoRec(wroot, root));
+        //System.out.println("判断两颗二叉树是否互为镜像 -遍历(先序遍历):" + Practise.isJXSelfRec(root));
+
+        System.out.println("判断二叉树是否是平衡二叉树 -递归:" + Practise.isBalance(root));
 
     }
 

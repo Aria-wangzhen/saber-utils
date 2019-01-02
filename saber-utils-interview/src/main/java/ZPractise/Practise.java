@@ -886,8 +886,36 @@ public class Practise {
      * 6.求二叉树的镜像(新建树) - 遍历
      */
     public static TreeNode getJXNew(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
 
-        return null;
+        Stack<TreeNode> stack = new Stack<>();
+        Stack<TreeNode> newStack = new Stack<>();
+        stack.push(root);
+        //每一个节点必须是新的new出来的
+        TreeNode newRoot = new TreeNode(root.value);
+        newStack.push(newRoot);
+
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.pop();
+            TreeNode newCur = newStack.pop();
+
+            if (cur.right != null) {
+                stack.push(cur.right);
+                //每一个节点必须是新的new出来的
+                newCur.left = new TreeNode(cur.right.value);
+                newStack.push(newCur.left);
+            }
+            if (cur.left != null) {
+                stack.push(cur.left);
+                //每一个节点必须是新的new出来的
+                newCur.right = new TreeNode(cur.left.value);
+                newStack.push(newCur.right);
+            }
+        }
+
+        return newRoot;
 
     }
 
@@ -905,26 +933,82 @@ public class Practise {
             return false;
         }
         return isJXTwoRec(root1.left, root2.right) && isJXTwoRec(root1.right, root2.left);
-
     }
-
-    /**
-     * 7.判断两颗二叉树是否互为镜像 - 遍历(利用先序遍历)
-     */
 
     /**
      * 8.判断一棵树是否本身就是镜像树
      */
-    // * 9.判断两颗二叉树是不是相同的树
-    // * 10.判断树1是不是树2的子结构
-    // * 11.判断二叉树是否是平衡二叉树
-    // * 12.二叉树第k层的节点个数
-    // * 13.二叉树叶子节点的个数
-    // * 14.由前序遍历和中序遍历重构二叉树
-    // * 15.由中序遍历和后序遍历重构二叉树
-    // * 16.二叉树中两节点的最大距离
-    // * 17.二叉树中和为某一值的路径
-    // * 18.求二叉树中两个节点的最低公共祖先节点
+    public static boolean isJXSelfRec(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        return isJXSelf(root.left, root.right);
+    }
+
+    private static boolean isJXSelf(TreeNode left, TreeNode right) {
+        if (left == null && right == null) {
+            return true;
+        }
+        if (left == null || right == null) {
+            return false;
+        }
+        if (left.value != right.value) {
+            return false;
+        }
+        return isJXSelf(left.left, right.right) && isJXSelf(left.right, right.left);
+    }
+
+    /**
+     * 9.判断两颗二叉树是不是相同的树 - 递归
+     */
+
+    /**
+     * 9.判断两颗二叉树是不是相同的树 - 遍历(前序遍历)
+     */
+
+    /**
+     * 10.判断树1是不是树2的子结构
+     */
+
+    /**
+     * 11.判断二叉树是否是平衡二叉树
+     */
+    public static boolean isBalance(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        if (Math.abs(getTreeHighRec(root.left) - getTreeHighRec(root.right)) > 1) {
+            return false;
+        }
+        return isBalance(root.left) && isBalance(root.right);
+    }
+    /**
+     * 12.二叉树第k层的节点个数
+     */
+
+    /**
+     * 13.二叉树叶子节点的个数
+     */
+
+    /**
+     * 14.由前序遍历和中序遍历重构二叉树
+     */
+
+    /**
+     * 15.由中序遍历和后序遍历重构二叉树
+     */
+
+    /**
+     * 16.二叉树中两节点的最大距离
+     */
+
+    /**
+     * 17.二叉树中和为某一值的路径
+     */
+
+    /**
+     * 18.求二叉树中两个节点的最低公共祖先节点
+     */
 
     /*--------------------------------------------------红黑树---------------------------------------------------*/
 

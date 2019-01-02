@@ -206,7 +206,6 @@ public class BinaryTree {
             TreeNode temp = cur.right;
             cur.right = cur.left;
             cur.left = temp;
-
             if (cur.right != null) {
                 stack.push(cur.right);
             }
@@ -227,9 +226,39 @@ public class BinaryTree {
         newTree.right = newJXRec(root.left);
         return newTree;
     }
-    //5.求二叉树的镜像（生成一颗新树，即不改变原树结构） --非 递归--
 
-    //6.判断两个二叉树是否互为镜像树    --递归--
+    //5.求二叉树的镜像（生成一颗新树，即不改变原树结构） --非 递归--
+    public static TreeNode mirrorCopy(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Stack<TreeNode> newStack = new Stack<TreeNode>();
+        stack.push(root);
+        TreeNode newRoot = new TreeNode(root.value);
+        newStack.push(newRoot);
+
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.pop();
+            TreeNode newCur = newStack.pop();
+
+            if (cur.right != null) {
+                stack.push(cur.right);
+                newCur.left = new TreeNode(cur.right.value);
+                newStack.push(newCur.left);
+            }
+            if (cur.left != null) {
+                stack.push(cur.left);
+                newCur.right = new TreeNode(cur.left.value);
+                newStack.push(newCur.right);
+            }
+        }
+
+        return newRoot;
+    }
+
+    //6.判断两颗二叉树是否互为镜像    --递归--
     public boolean isJXRec(TreeNode root1, TreeNode root2) {
         if (root1 == null && root2 == null) {
             return true;
@@ -244,12 +273,24 @@ public class BinaryTree {
     }
 
     //7.判断一颗二叉树本身是否为镜像树    --递归--
-    public boolean isJXRec2(TreeNode root) {
+    public static boolean isJXSelfRec2(TreeNode root) {
         if (root == null) {
             return true;
         }
-        return isJXRec2(root.left) && isJXRec2(root.right);
+        return isJXSelf(root.left, root.right);
+    }
 
+    private static boolean isJXSelf(TreeNode left, TreeNode right) {
+        if (left == null && right == null) {
+            return true;
+        }
+        if (left == null || right == null) {
+            return false;
+        }
+        if (left.value != right.value) {
+            return false;
+        }
+        return isJXSelf(left.left, right.right) && isJXSelf(left.right, right.left);
     }
 
     //8.判断两颗二叉树是不是相同的树  --递归--
