@@ -391,6 +391,7 @@ public class BinaryTree {
         if (k == 1) {
             return 1;
         }
+
         return getNodesInKRec(root.left, k - 1) + getNodesInKRec(root.right, k - 1);
     }
 
