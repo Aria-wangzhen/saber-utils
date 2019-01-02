@@ -73,8 +73,49 @@ public class PraTest {
         //System.out.println("合并两个有序链表，使合并后的链表依然有序 -递归：");
         //printLinkList(Practise.mergeSortedListRec(n1, n21));
 
-        System.out.println("无序链表排序：");
-        printLinkList(Practise.sortList(n1));
+        /*System.out.println("无序链表排序：");
+        printLinkList(Practise.sortList(n1));*/
+
+        /*---------------------------------------------------二叉树---------------------------------------------------*/
+
+
+    /*
+                                 A
+                               /   \
+                             B      C
+                            / \        \
+                          D    E        F
+
+
+  */
+        TreeNode t1 = new TreeNode("A");
+        TreeNode t2 = new TreeNode("B");
+        TreeNode t3 = new TreeNode("C");
+        TreeNode t4 = new TreeNode("D");
+        TreeNode t5 = new TreeNode("E");
+        TreeNode t6 = new TreeNode("F");
+        t1.left = t2;
+        t1.right = t3;
+        t2.left = t4;
+        t2.right = t5;
+        t3.right = t6;
+        TreeNode root = t1;
+
+        /*System.out.println("二叉树的前序遍历 - 遍历：");
+        Practise.preTree(root);
+        System.out.println("二叉树的前序遍历 - 递归：");
+        Practise.preTreeRec(root);*/
+
+        /*System.out.println("二叉树的中序遍历 - 遍历：");
+        Practise.inOrderUnRecur(root);*/
+
+        /*System.out.println("二叉树的后续序遍历 - 遍历 - 两个栈：");
+        Practise.postOrderUnRecur(root);
+        System.out.println("二叉树的后续序遍历 - 遍历 - 一个栈：");
+        Practise.postOrderUnRecur2(root);*/
+
+        System.out.println("二叉树的层序遍历 - 遍历:");
+        Practise.cxTree(root);
 
 
     }

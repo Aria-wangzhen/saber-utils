@@ -1,8 +1,12 @@
 package ZPractise;
 
+import ZChengYun.chapter_3_binarytreeproblem.Problem_01_PreInPosTraversal;
 import ZPractise.ListNode;
 
+import java.util.LinkedList;
 import java.util.Stack;
+
+import static java.lang.System.out;
 
 /**
  * @author Aria
@@ -17,6 +21,8 @@ public class Practise {
      * 堆排序
      */
 
+    public static void heapSort(int[] arr) {
+    }
 
     /**
      * 快排
@@ -381,7 +387,7 @@ public class Practise {
             stack.push(tmp);
         }
         while (!stack.isEmpty()) {
-            System.out.println(stack.pop().value);
+            out.println(stack.pop().value);
         }
     }
 
@@ -393,7 +399,7 @@ public class Practise {
             return;
         }
         reversePrintListStackRec(head.next);
-        System.out.println(head.value);
+        out.println(head.value);
     }
 
     /**
@@ -607,26 +613,166 @@ public class Practise {
 
     /*---------------------------------------------------二叉树---------------------------------------------------*/
 
-    //* 1.二叉树的遍历，前序中序后序，递归和非递归
-    // *
-    // * @see dataStructure.BinaryBaseTree
-    // * http://blog.csdn.net/sheepmu/article/details/28941285
-    // * 2.二叉树的层序遍历（广度优先遍历）
-    // * 3.二叉树的高度/最小高度
-    // * 4.二叉树的节点个数
-    // * 5.求二叉树的镜像
-    // * 6.判断两颗二叉树是否互为镜像
-    // * 7.判断一棵树是否本身就是镜像树
-    // * 8.判断两颗二叉树是不是相同的树
-    // * 9.判断树1是不是树2的子结构
-    // * 10.判断二叉树是否是平衡二叉树
-    // * 11.二叉树第k层的节点个数
-    // * 12.二叉树叶子节点的个数
-    // * 13.由前序遍历和中序遍历重构二叉树
-    // * 14.由中序遍历和后序遍历重构二叉树
-    // * 15.二叉树中两节点的最大距离
-    // * 16.二叉树中和为某一值的路径
-    // * 17.求二叉树中两个节点的最低公共祖先节点
+    /**
+     * 1.二叉树的遍历，前序中序后序，递归和非递归
+     */
+
+    /**
+     * 1.1 前序遍历 -- 遍历
+     */
+    public static void preTree(TreeNode root) {
+        if (root != null) {
+            Stack<TreeNode> stack = new Stack<>();
+            stack.push(root);
+            while (!stack.isEmpty()) {
+                TreeNode node = stack.pop();
+                out.print(node.value + " ");
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+            }
+        }
+    }
+
+    /**
+     * 1.1 前序遍历 -- 递归
+     */
+    public static void preTreeRec(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        out.print(root.value + " ");
+        preTreeRec(root.left);
+        preTreeRec(root.right);
+
+    }
+
+    /**
+     * 1.2 中序遍历 -- 遍历
+     */
+    public static void inOrderUnRecur(TreeNode head) {
+        if (head != null) {
+            Stack<TreeNode> stack = new Stack<>();
+            while (head != null || !stack.isEmpty()) {
+                if (head != null) {
+                    stack.push(head);
+                    head = head.left;
+                } else {
+                    head = stack.pop();
+                    out.print(head.value + " ");
+                    head = head.right;
+                }
+            }
+            System.out.println();
+        }
+
+    }
+
+    /**
+     * 1.3 后续遍历 -- 两个栈
+     */
+    public static void postOrderUnRecur(TreeNode root) {
+        if (root != null) {
+            Stack<TreeNode> stack = new Stack<>();
+            Stack<TreeNode> out = new Stack<>();
+            while (root != null || !stack.isEmpty()) {
+                if (root != null) {
+                    out.push(root);
+                    stack.push(root);
+                    root = root.right;
+                } else {
+                    root = stack.pop();
+                    root = root.left;
+                }
+            }
+            while (!out.isEmpty()) {
+                System.out.print(out.pop().value + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     * 1.3 后续遍历 -- 一个栈
+     */
+    public static void postOrderUnRecur2(TreeNode root) {
+        if (root != null) {
+            Stack<TreeNode> stack = new Stack<>();
+            stack.push(root);
+            TreeNode cur = null;
+            while (!stack.isEmpty()) {
+                cur = stack.peek();
+                if (cur.left != null && cur.left != root && cur.right != root) {
+                    stack.push(cur.left);
+                } else if (cur.right != null && cur.right != root) {
+                    stack.push(cur.right);
+                } else {
+                    System.out.print(stack.pop().value + " ");
+                    root = cur;
+                }
+            }
+        }
+        System.out.println();
+    }
+
+    /**
+     * 2.二叉树的层序遍历（广度优先遍历）
+     */
+    public static void cxTree(TreeNode root) {
+        if (root != null) {
+            LinkedList<TreeNode> queue = new LinkedList<>();
+            queue.addLast(root);
+            while (!queue.isEmpty()) {
+                TreeNode cur = queue.removeFirst();
+                System.out.print(cur.value + " ");
+                if (cur.left != null) {
+                    queue.addLast(cur.left);
+                }
+                if (cur.right != null) {
+                    queue.addLast(cur.right);
+                }
+            }
+        }
+
+    }
+
+    /**
+     * 3.二叉树的高高度 - 递归
+     */
+
+    /**
+     * 3.二叉树的高高度 - 遍历
+     */
+
+    /**
+     * 4.二叉树的最小高度
+     */
+    /**
+     * 5.二叉树的节点个数
+     */
+    /**
+     * 6.求二叉树的镜像
+     */
+    /**
+     * 7.判断两颗二叉树是否互为镜像
+     */
+
+    /**
+     * 8.判断一棵树是否本身就是镜像树
+     */
+    // * 9.判断两颗二叉树是不是相同的树
+    // * 10.判断树1是不是树2的子结构
+    // * 11.判断二叉树是否是平衡二叉树
+    // * 12.二叉树第k层的节点个数
+    // * 13.二叉树叶子节点的个数
+    // * 14.由前序遍历和中序遍历重构二叉树
+    // * 15.由中序遍历和后序遍历重构二叉树
+    // * 16.二叉树中两节点的最大距离
+    // * 17.二叉树中和为某一值的路径
+    // * 18.求二叉树中两个节点的最低公共祖先节点
 
     /*--------------------------------------------------红黑树---------------------------------------------------*/
 
