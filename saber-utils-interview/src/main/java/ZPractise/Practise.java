@@ -1,7 +1,5 @@
 package ZPractise;
 
-import ZChengYun.chapter_3_binarytreeproblem.Problem_01_PreInPosTraversal;
-import ZPractise.ListNode;
 
 import java.util.LinkedList;
 import java.util.Stack;
@@ -736,6 +734,7 @@ public class Practise {
                 }
             }
         }
+        System.out.println();
 
     }
 
@@ -757,11 +756,10 @@ public class Practise {
             return 0;
         }
         int high = 0;
-        int curLevel = 0;
+        int curLevel = 1;
         int nextLevel = 0;
         LinkedList<TreeNode> queue = new LinkedList<>();
         queue.addLast(root);
-        curLevel++;
         while (!queue.isEmpty()) {
             TreeNode cur = queue.removeFirst();
             curLevel--;
@@ -776,21 +774,142 @@ public class Practise {
             if (curLevel == 0) {
                 high++;
                 curLevel = nextLevel;
+                nextLevel = 0;
             }
         }
         return high;
     }
+
     /**
-     * 4.二叉树的最小高度
+     * 4.二叉树的最小高度 - 递归
      */
+    public static int getTreeMinHighRec(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return Math.min(getTreeHighRec(root.left), getTreeHighRec(root.right)) + 1;
+    }
+
     /**
-     * 5.二叉树的节点个数
+     * 5.二叉树的节点个数 - 递归
      */
+    public static int getNodesNumRec(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return getNodesNumRec(root.left) + getNodesNumRec(root.right) + 1;
+    }
+
     /**
-     * 6.求二叉树的镜像
+     * 5.二叉树的节点个数 - 遍历(利用层序遍历[广度优先搜搜])
      */
+    public static int getNodesNum(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int num = 0;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.addLast(root);
+        num++;
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.removeFirst();
+            if (null != cur.left) {
+                queue.addLast(cur.left);
+                num++;
+            }
+            if (null != cur.right) {
+                queue.addLast(cur.right);
+                num++;
+            }
+        }
+        return num;
+    }
+
     /**
-     * 7.判断两颗二叉树是否互为镜像
+     * 6.求二叉树的镜像(破坏原树) - 递归
+     */
+    public static TreeNode getJXDesRec(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode tLeft = getJXDesRec(root.right);
+        TreeNode tRight = getJXDesRec(root.left);
+        root.left = tLeft;
+        root.right = tRight;
+        return root;
+    }
+
+    /**
+     * 6.求二叉树的镜像(破坏原树) - 遍历
+     */
+    public static TreeNode getJXDes(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.pop();
+
+            //交换
+            TreeNode tem = cur.right;
+            cur.right = cur.left;
+            cur.left = tem;
+
+            if (cur.right != null) {
+                stack.push(cur.right);
+            }
+            if (cur.left != null) {
+                stack.push(cur.left);
+            }
+        }
+
+        return root;
+    }
+
+    /**
+     * 6.求二叉树的镜像(新建树) - 递归
+     */
+    public static TreeNode getJXNewRec(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        //一定要走new 创建，不然是老树
+        TreeNode newRoot = new TreeNode(root.value);
+        newRoot.left = getJXNewRec(root.right);
+        newRoot.right = getJXNewRec(root.left);
+        return newRoot;
+
+    }
+
+    /**
+     * 6.求二叉树的镜像(新建树) - 遍历
+     */
+    public static TreeNode getJXNew(TreeNode root) {
+
+        return null;
+
+    }
+
+    /**
+     * 7.判断两颗二叉树是否互为镜像 - 递归
+     */
+    public static boolean isJXTwoRec(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null) {
+            return true;
+        }
+        if (root1 == null || root2 == null) {
+            return false;
+        }
+        if (root1.value != root2.value) {
+            return false;
+        }
+        return isJXTwoRec(root1.left, root2.right) && isJXTwoRec(root1.right, root2.left);
+
+    }
+
+    /**
+     * 7.判断两颗二叉树是否互为镜像 - 遍历(利用先序遍历)
      */
 
     /**

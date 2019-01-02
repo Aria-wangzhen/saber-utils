@@ -202,9 +202,11 @@ public class BinaryTree {
         stack.push(root);
         while (!stack.isEmpty()) {
             TreeNode cur = stack.pop();
+            //交换
             TreeNode temp = cur.right;
             cur.right = cur.left;
             cur.left = temp;
+
             if (cur.right != null) {
                 stack.push(cur.right);
             }

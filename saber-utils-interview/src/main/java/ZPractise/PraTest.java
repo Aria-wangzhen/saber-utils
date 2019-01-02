@@ -69,7 +69,7 @@ public class PraTest {
         //System.out.println("(重点)逆置单链表 - 递归 ：" );
         //printLinkList(Practise.reverseListRec(n1));
         //System.out.println("合并两个有序链表，使合并后的链表依然有序 - 遍历：");
-       // printLinkList(Practise.mergeSortedList1(n1, n21));
+        // printLinkList(Practise.mergeSortedList1(n1, n21));
         //System.out.println("合并两个有序链表，使合并后的链表依然有序 -递归：");
         //printLinkList(Practise.mergeSortedListRec(n1, n21));
 
@@ -101,6 +101,19 @@ public class PraTest {
         t3.right = t6;
         TreeNode root = t1;
 
+        TreeNode w1 = new TreeNode("A");
+        TreeNode w2 = new TreeNode("B");
+        TreeNode w3 = new TreeNode("C");
+        TreeNode w4 = new TreeNode("D");
+        TreeNode w5 = new TreeNode("E");
+        TreeNode w6 = new TreeNode("F");
+        w1.left = w2;
+        w1.right = w3;
+        w2.left =w4;
+        w2.right = w5;
+        w3.right = w6;
+        TreeNode wroot = w1;
+
         /*System.out.println("二叉树的前序遍历 - 遍历：");
         Practise.preTree(root);
         System.out.println("二叉树的前序遍历 - 递归：");
@@ -114,12 +127,28 @@ public class PraTest {
         System.out.println("二叉树的后续序遍历 - 遍历 - 一个栈：");
         Practise.postOrderUnRecur2(root);*/
 
-       /* System.out.println("二叉树的层序遍历 - 遍历:");
+       /* System.out.println("二叉树的层序遍历(广度优先搜索) - 遍历:");
         Practise.cxTree(root);*/
 
-        System.out.println("二叉树的高度 - 递归:" +  Practise.getTreeHighRec(root));
-        System.out.println("二叉树的高度 - 遍历:" +  Practise.getTreeHigh(root));
+        /*System.out.println("二叉树的高度 - 递归:" +  Practise.getTreeHighRec(root));
+        System.out.println("二叉树的高度 - 遍历 - 层序遍历(广度优先搜索):" +  Practise.getTreeHigh(root));*/
 
+        //System.out.println("二叉树的最小高度 - 遍历:" +  Practise.getTreeMinHighRec(root));
+
+       /* System.out.println("二叉树的节点的个数 - 递归:" + Practise.getNodesNumRec(root));
+        System.out.println("二叉树的节点的个数 - 遍历 - 层序遍历(广度优先搜索):" + Practise.getNodesNum(root));*/
+
+        System.out.println("原树:");
+        Practise.cxTree(root);
+        //System.out.println("求二叉树的镜像(破坏原树) - 递归:");
+        //Practise.cxTree(Practise.getJXDesRec(root));
+        //System.out.println("求二叉树的镜像(破坏原树) - 遍历(先序遍历 + 加交换):");
+        //Practise.cxTree(Practise.getJXDes(root));
+        //System.out.println("求二叉树的镜像(新建树) - 递归:");
+        //Practise.cxTree(Practise.getJXNewRec(root));
+        //System.out.println("(暂未实现)求二叉树的镜像(新建树) - 遍历(先序遍历 + 新建树):");
+        //Practise.cxTree(Practise.getJXNew(root));
+        System.out.println("判断两颗二叉树是否互为镜像 - 递归:" + Practise.isJXTwoRec(wroot, root));
 
     }
 
