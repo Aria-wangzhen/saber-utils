@@ -17,6 +17,14 @@ public class Dynamic {
     /**
      * 数塔取数
      * 来源：https://blog.csdn.net/tterminator/article/details/50951137?utm_source=blogxgwz3
+     * 一个高度为N的由正整数组成的三角形，从上走到下，求经过的数字和的最大值。
+     * 每次只能走到下一层相邻的数上，例如从第3层的6向下走，只能走到第4层的2或9上。
+     * 思路：考虑从底层的结点开始计算
+     * <p>
+     * 5
+     * 8 4
+     * 3 6 9
+     * 7 2 9 5
      *
      * @param tower
      * @return
