@@ -1,7 +1,11 @@
 package ZPractise;
 
 
+import apple.laf.JRSUIUtils;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 
 import static java.lang.System.out;
@@ -982,13 +986,95 @@ public class Practise {
         }
         return isBalance(root.left) && isBalance(root.right);
     }
-    /**
-     * 12.二叉树第k层的节点个数
-     */
 
     /**
-     * 13.二叉树叶子节点的个数
+     * 12.二叉树第k层的节点个数 -- 递归
      */
+    public static int getNodesKRec(TreeNode root, int k) {
+        if (root == null || k < 1) {
+            return 0;
+        }
+        if (k == 1) {
+            return 1;
+        }
+        return getNodesKRec(root.left, k - 1) + getNodesKRec(root.right, k - 1);
+    }
+
+    /**
+     * 12.二叉树第k层的节点个数 -- 遍历(层序遍历[广度优先搜索])
+     */
+    public static int getNodesK(TreeNode root, int k) {
+        if (root == null || k < 1) {
+            return 0;
+        }
+        if (k == 1) {
+            return 1;
+        }
+        int high = 1;
+        int curLevel = 0;
+        int nextLevel = 0;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.addLast(root);
+        curLevel++;
+        while (!queue.isEmpty() && high < k) {
+            TreeNode cur = queue.removeFirst();
+            curLevel--;
+            if (cur.left != null) {
+                queue.addLast(cur.left);
+                nextLevel++;
+            }
+            if (cur.right != null) {
+                queue.addLast(cur.right);
+                nextLevel++;
+            }
+            if (curLevel == 0) {
+                high++;
+                curLevel = nextLevel;
+                nextLevel = 0;
+            }
+
+        }
+        return curLevel;
+    }
+
+    /**
+     * 13.二叉树叶子节点的个数 - 递归
+     */
+    public static int getYeNodesRec(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        if (root.left == null && root.right == null) {
+            return 1;
+        }
+        return getYeNodesRec(root.left) + getYeNodesRec(root.right);
+    }
+
+    /**
+     * 13.二叉树叶子节点的个数 - 遍历(前序遍历)
+     */
+    public static int getYeNodes(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int num = 0;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.pop();
+            if (cur.right != null) {
+                stack.push(cur.right);
+            }
+            if (cur.left != null) {
+                stack.push(cur.left);
+            }
+
+            if (cur.right == null && cur.left == null) {
+                num++;
+            }
+        }
+        return num;
+    }
 
     /**
      * 14.由前序遍历和中序遍历重构二叉树
@@ -1000,25 +1086,120 @@ public class Practise {
 
     /**
      * 16.二叉树中两节点的最大距离
+     * 情况A: 路径经过左子树的最深节点，通过根节点，再到右子树的最深节点。
+     * * 情况B: 路径不穿过根节点，而是左子树或右子树的最大距离路径，取其大者。
+     * * 只需要计算这两个情况的路径距离，并取其大者，就是该二叉树的最大距离
      */
+    public static Result getMaxDistanceRec(TreeNode root) {
+        if (root == null) {
+            Result empty = new Result(0, -1);        // 目的是让调用方 +1 后，把当前的不存在的 (NULL) 子树当成最大深度为 0
+            return empty;
+        }
+
+        // 计算出左右子树分别最大距离
+        Result lmd = getMaxDistanceRec(root.left);
+        Result rmd = getMaxDistanceRec(root.right);
+
+        Result res = new Result();
+        res.maxDepth = Math.max(lmd.maxDepth, rmd.maxDepth) + 1;        // 当前最大深度
+        // 取情况A和情况B中较大值
+        res.maxDistance = Math.max(lmd.maxDepth + rmd.maxDepth, Math.max(lmd.maxDistance, rmd.maxDistance));
+
+        return res;
+    }
+
+
+    public static class Result {
+        public int maxDistance;
+        public int maxDepth;
+
+        public Result() {
+        }
+
+        public Result(int maxDistance, int maxDepth) {
+            this.maxDistance = maxDistance;
+            this.maxDepth = maxDepth;
+        }
+    }
+
 
     /**
      * 17.二叉树中和为某一值的路径
+     * <p>
+     * 输入一棵二叉树和一个整数， 打印出二叉树中结点值的和为输入整数的所有路径。
+     * 从树的根结点开始往下一直到叶销点所经过的结点形成一条路径。
      */
+    public static void findPath(TreeNode root, int expectedSum) {
+        if (root == null) {
+            return;
+        }
+        List<Integer> result = new ArrayList<>();
+        findPath(root, 0, expectedSum, result);
+    }
+
+    private static void findPath(TreeNode root, int curSum, int expectedSum, List<Integer> result) {
+        if (root != null) {
+            curSum += root.val;
+            result.add(root.val);
+            if (curSum < expectedSum) {
+                findPath(root.left, curSum, expectedSum, result);
+                findPath(root.right, curSum, expectedSum, result);
+            } else if (curSum == expectedSum) {
+                if (root.left == null && root.right == null) {
+                    System.out.println(result);
+                }
+
+            }
+            result.remove(result.size() - 1);
+        }
+    }
+
 
     /**
      * 18.求二叉树中两个节点的最低公共祖先节点
      */
+    public static TreeNode getLastCommonParentRec(TreeNode root, TreeNode n1, TreeNode n2) {
+        if (root == null) {
+            return null;
+        }
+
+        if (root.equals(n1) || root.equals(n2)) {
+            return root;
+        }
+        TreeNode commonInLeft = getLastCommonParentRec(root.left, n1, n2);
+        TreeNode commonInRight = getLastCommonParentRec(root.right, n1, n2);
+        if (commonInLeft != null && commonInRight != null) {
+            return root;
+        }
+
+        if(commonInLeft != null){
+            return commonInLeft;
+        }
+
+        return commonInRight;
+    }
+
 
     /*--------------------------------------------------红黑树---------------------------------------------------*/
 
 
     /*---------------------------------------------------动态规划---------------------------------------------------*/
 
-    //数塔取数
-    //最长回文字符串
-    //编辑距离
-    //编辑距离的代价
+    /**
+     * 数塔取数
+     */
+
+    /**
+     * 最长回文字符串
+     */
+
+    /**
+     * 编辑距离
+     */
+
+    /**
+     * 编辑距离的代价
+     */
     //矩阵取数问题
     //背包问题
     //最长递增子序列

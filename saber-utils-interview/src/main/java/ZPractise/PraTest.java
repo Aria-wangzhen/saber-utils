@@ -1,6 +1,8 @@
 package ZPractise;
 
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * @author Aria
  * @time on 2018-12-29.
@@ -99,7 +101,6 @@ public class PraTest {
         t2.left = t4;
         t2.right = t5;
         t3.right = t6;
-        //t3.left = t4;
         TreeNode root = t1;
 
         TreeNode w1 = new TreeNode("A");
@@ -114,6 +115,19 @@ public class PraTest {
         w2.right = w4;
         w3.left = w6;
         TreeNode wroot = w1;
+
+        TreeNode m1 = new TreeNode(10);
+        TreeNode m2 = new TreeNode(3);
+        TreeNode m3 = new TreeNode(5);
+        TreeNode m4 = new TreeNode(8);
+        TreeNode m5 = new TreeNode(9);
+        TreeNode m6 = new TreeNode(10);
+        m1.left = m2;
+        m1.right = m3;
+        m2.left = m4;
+        m2.right = m5;
+        m3.right = m6;
+        TreeNode mroot = m1;
 
         /*System.out.println("二叉树的前序遍历 - 遍历：");
         Practise.preTree(root);
@@ -152,7 +166,18 @@ public class PraTest {
         //System.out.println("判断两颗二叉树是否互为镜像 - 递归:" + Practise.isJXTwoRec(wroot, root));
         //System.out.println("判断两颗二叉树是否互为镜像 -遍历(先序遍历):" + Practise.isJXSelfRec(root));
 
-        System.out.println("判断二叉树是否是平衡二叉树 -递归:" + Practise.isBalance(root));
+        //System.out.println("判断二叉树是否是平衡二叉树 -递归:" + Practise.isBalance(root));
+        //System.out.println("二叉树第k层的节点个数 -- 递归:" + Practise.getNodesKRec(root, 4));
+        // System.out.println("二叉树第k层的节点个数 -- 遍历(层序遍历[广度优先搜索]):" + Practise.getNodesK(root, 4));
+
+        //System.out.println("二叉树叶子节点的个数 - 递归:" + Practise.getYeNodesRec(root));
+        //System.out.println("二叉树叶子节点的个数 - 遍历(前序遍历):" + Practise.getYeNodes(root));
+        //System.out.println("二叉树中两节点的最大距离:" + Practise.getMaxDistanceRec(root).maxDistance);
+
+       /* System.out.println("二叉树中和为某一值的路径:" );
+        Practise.findPath(mroot,25);*/
+        System.out.println("求二叉树中两个节点的最低公共祖先节点:" + Practise.getLastCommonParentRec(root, t4, t5).value);
+
 
     }
 

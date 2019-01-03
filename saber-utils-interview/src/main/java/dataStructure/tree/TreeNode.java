@@ -8,7 +8,10 @@ public class TreeNode {
     String value;
     TreeNode left;
     TreeNode right;
-
+    int val;
+    public TreeNode(int val) {
+        this.val = val;
+    }
     public TreeNode(String value) {
         this.value = value;
     }
