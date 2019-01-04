@@ -3,85 +3,46 @@ package ZPractise;
 
 import com.alibaba.fastjson.JSON;
 
+import static ZPractise.Practise.mergeSort;
+import static ZPractise.Practise.quickSort;
+import static ZPractise.Practise.twoSearch;
+
 /**
  * @author Aria
  * @time on 2018-12-29.
  */
 public class PraTest {
     public static void main(String[] args) {
-        int[] numbers = {10, 20, 15, 0, 6, 7, 2, 1, -5, 55};
+
 
         /*---------------------------------------------------排序和查找---------------------------------------------------*/
 
-       /* System.out.print("排序前：");
-        printArr(numbers);*/
-        //快排
-       /* quickSort(numbers);
-        System.out.print("快速排序后：");
-        printArr(numbers);*/
-        //归并
-       /* mergeSort(numbers);
-        System.out.print("快速排序后：");
-        printArr(numbers);*/
-        //二分查找
-        // System.out.print("二分查找：" + twoSearch(numbers, 2));
+        //algorithm();
 
         /*---------------------------------------------------链表---------------------------------------------------*/
 
-        ListNode n1 = new ListNode(1);
-        ListNode n2 = new ListNode(2);
-        ListNode n3 = new ListNode(3);
-        ListNode n4 = new ListNode(4);
-        ListNode n5 = new ListNode(5);
-        ListNode n6 = new ListNode(6);
-        n1.next = (n2);
-        n2.next = (n3);
-        n3.next = (n4);
-        n4.next = (n5);
-        n5.next = (n6);
-
-        ListNode n21 = new ListNode(1);
-        ListNode n22 = new ListNode(2);
-        ListNode n23 = new ListNode(3);
-        ListNode n24 = new ListNode(4);
-        ListNode n25 = new ListNode(5);
-        ListNode n26 = new ListNode(6);
-        n21.next = (n22);
-        n22.next = (n23);
-        n23.next = (n24);
-        n24.next = (n25);
-        n25.next = (n26);
-        //System.out.println("链表的长度 - 遍历：" + Practise.linkLength(n1));
-        //System.out.println("链表的长度 - 递归：" + Practise.linkLengthRec(n1));
-        //System.out.println("链表的倒数第K个节点 ：" + Practise.getKNode(n1,7).getValue());
-        //System.out.println("删除链表的倒数第K个节点 ：" + Practise.deleteK(n1,2).getValue());
-        //System.out.println("链表的中间节点 ：" + Practise.getMid(n1));
-        //System.out.println("链表是否有环 ：" + Practise.isHaveC(n1));
-        //System.out.println("链表环入口节点 ：" + (null == Practise.isFirstC(n1) ? "无环" : Practise.isFirstC(n1).getValue()));
-        //System.out.println("链表环,环的长度 ：" + (Practise.isCLength(n1)));
-        //System.out.println("两个单链表是否相交 ：" + (Practise.isXJ(n1,n1)));
-       /* System.out.println("从尾到头打印打单链表 - 遍历：");
-        Practise.reversePrintListStack(n1);
-        System.out.println("从尾到头打印打单链表 - 递归：");
-        Practise.reversePrintListStackRec(n1);*/
-        //System.out.println("逆置单链表 - 遍历 栈：" );
-        //printLinkList(Practise.reverseListStack(n1));
-        //System.out.println("(重点)逆置单链表 - 遍历 - 尾巴迁移)：" );
-        //printLinkList(Practise.reverseList(n1));
-        //System.out.println("(重点)逆置单链表 - 递归 ：" );
-        //printLinkList(Practise.reverseListRec(n1));
-        //System.out.println("合并两个有序链表，使合并后的链表依然有序 - 遍历：");
-        // printLinkList(Practise.mergeSortedList1(n1, n21));
-        //System.out.println("合并两个有序链表，使合并后的链表依然有序 -递归：");
-        //printLinkList(Practise.mergeSortedListRec(n1, n21));
-
-        /*System.out.println("无序链表排序：");
-        printLinkList(Practise.sortList(n1));*/
+        //linkList();
 
         /*---------------------------------------------------二叉树---------------------------------------------------*/
 
+        //tree();
 
-    /*
+        /*--------------------------------------------------红黑树---------------------------------------------------*/
+
+
+        /*---------------------------------------------------动态规划---------------------------------------------------*/
+        dynamic();
+
+    }
+
+    private static void dynamic() {
+        System.out.println("1.数塔取数 - 倒着走，二维数组：");
+        int[][] tower = {{13}, {11, 8}, {12, 7, 26}, {6, 14, 15, 8}, {12, 7, 13, 24, 11}};
+        Practise.dataTower(tower);
+    }
+
+    private static void tree() {
+        /*
                                  A
                                /   \
                              B      C
@@ -129,56 +90,125 @@ public class PraTest {
         m3.right = m6;
         TreeNode mroot = m1;
 
-        /*System.out.println("二叉树的前序遍历 - 遍历：");
+        System.out.println("二叉树的前序遍历 - 遍历：");
         Practise.preTree(root);
         System.out.println("二叉树的前序遍历 - 递归：");
-        Practise.preTreeRec(root);*/
+        Practise.preTreeRec(root);
 
-        /*System.out.println("二叉树的中序遍历 - 遍历：");
-        Practise.inOrderUnRecur(root);*/
+        System.out.println("二叉树的中序遍历 - 遍历：");
+        Practise.inOrderUnRecur(root);
 
-        /*System.out.println("二叉树的后续序遍历 - 遍历 - 两个栈：");
+        System.out.println("二叉树的后续序遍历 - 遍历 - 两个栈：");
         Practise.postOrderUnRecur(root);
         System.out.println("二叉树的后续序遍历 - 遍历 - 一个栈：");
-        Practise.postOrderUnRecur2(root);*/
+        Practise.postOrderUnRecur2(root);
 
-       /* System.out.println("二叉树的层序遍历(广度优先搜索) - 遍历:");
-        Practise.cxTree(root);*/
+        System.out.println("二叉树的层序遍历(广度优先搜索) - 遍历:");
+        Practise.cxTree(root);
 
-        /*System.out.println("二叉树的高度 - 递归:" +  Practise.getTreeHighRec(root));
-        System.out.println("二叉树的高度 - 遍历 - 层序遍历(广度优先搜索):" +  Practise.getTreeHigh(root));*/
+        System.out.println("二叉树的高度 - 递归:" + Practise.getTreeHighRec(root));
+        System.out.println("二叉树的高度 - 遍历 - 层序遍历(广度优先搜索):" + Practise.getTreeHigh(root));
 
-        //System.out.println("二叉树的最小高度 - 遍历:" +  Practise.getTreeMinHighRec(root));
+        System.out.println("二叉树的最小高度 - 遍历:" + Practise.getTreeMinHighRec(root));
 
-       /* System.out.println("二叉树的节点的个数 - 递归:" + Practise.getNodesNumRec(root));
-        System.out.println("二叉树的节点的个数 - 遍历 - 层序遍历(广度优先搜索):" + Practise.getNodesNum(root));*/
+        System.out.println("二叉树的节点的个数 - 递归:" + Practise.getNodesNumRec(root));
+        System.out.println("二叉树的节点的个数 - 遍历 - 层序遍历(广度优先搜索):" + Practise.getNodesNum(root));
 
         System.out.println("原树:");
         Practise.cxTree(root);
-        //System.out.println("求二叉树的镜像(破坏原树) - 递归:");
-        //Practise.cxTree(Practise.getJXDesRec(root));
-        //System.out.println("求二叉树的镜像(破坏原树) - 遍历(先序遍历 + 加交换):");
-        //Practise.cxTree(Practise.getJXDes(root));
-        //System.out.println("求二叉树的镜像(新建树) - 递归:");
-        //Practise.cxTree(Practise.getJXNewRec(root));
-        //System.out.println("求二叉树的镜像(新建树) - 遍历(先序遍历 + 新建树):");
-        //Practise.cxTree(Practise.getJXNew(root));
-        //System.out.println("判断两颗二叉树是否互为镜像 - 递归:" + Practise.isJXTwoRec(wroot, root));
-        //System.out.println("判断两颗二叉树是否互为镜像 -遍历(先序遍历):" + Practise.isJXSelfRec(root));
+        System.out.println("求二叉树的镜像(破坏原树) - 递归:");
+        Practise.cxTree(Practise.getJXDesRec(root));
+        System.out.println("求二叉树的镜像(破坏原树) - 遍历(先序遍历 + 加交换):");
+        Practise.cxTree(Practise.getJXDes(root));
+        System.out.println("求二叉树的镜像(新建树) - 递归:");
+        Practise.cxTree(Practise.getJXNewRec(root));
+        System.out.println("求二叉树的镜像(新建树) - 遍历(先序遍历 + 新建树):");
+        Practise.cxTree(Practise.getJXNew(root));
+        System.out.println("判断两颗二叉树是否互为镜像 - 递归:" + Practise.isJXTwoRec(wroot, root));
+        System.out.println("判断两颗二叉树是否互为镜像 -遍历(先序遍历):" + Practise.isJXSelfRec(root));
 
-        //System.out.println("判断二叉树是否是平衡二叉树 -递归:" + Practise.isBalance(root));
-        //System.out.println("二叉树第k层的节点个数 -- 递归:" + Practise.getNodesKRec(root, 4));
-        // System.out.println("二叉树第k层的节点个数 -- 遍历(层序遍历[广度优先搜索]):" + Practise.getNodesK(root, 4));
+        System.out.println("判断二叉树是否是平衡二叉树 -递归:" + Practise.isBalance(root));
+        System.out.println("二叉树第k层的节点个数 -- 递归:" + Practise.getNodesKRec(root, 4));
+        System.out.println("二叉树第k层的节点个数 -- 遍历(层序遍历[广度优先搜索]):" + Practise.getNodesK(root, 4));
 
-        //System.out.println("二叉树叶子节点的个数 - 递归:" + Practise.getYeNodesRec(root));
-        //System.out.println("二叉树叶子节点的个数 - 遍历(前序遍历):" + Practise.getYeNodes(root));
-        //System.out.println("二叉树中两节点的最大距离:" + Practise.getMaxDistanceRec(root).maxDistance);
+        System.out.println("二叉树叶子节点的个数 - 递归:" + Practise.getYeNodesRec(root));
+        System.out.println("二叉树叶子节点的个数 - 遍历(前序遍历):" + Practise.getYeNodes(root));
+        System.out.println("二叉树中两节点的最大距离:" + Practise.getMaxDistanceRec(root).maxDistance);
 
-       /* System.out.println("二叉树中和为某一值的路径:" );
-        Practise.findPath(mroot,25);*/
+        System.out.println("二叉树中和为某一值的路径:");
+        Practise.findPath(mroot, 25);
         System.out.println("求二叉树中两个节点的最低公共祖先节点:" + Practise.getLastCommonParentRec(root, t4, t5).value);
+    }
 
+    private static void linkList() {
+        ListNode n1 = new ListNode(1);
+        ListNode n2 = new ListNode(2);
+        ListNode n3 = new ListNode(3);
+        ListNode n4 = new ListNode(4);
+        ListNode n5 = new ListNode(5);
+        ListNode n6 = new ListNode(6);
+        n1.next = (n2);
+        n2.next = (n3);
+        n3.next = (n4);
+        n4.next = (n5);
+        n5.next = (n6);
 
+        ListNode n21 = new ListNode(1);
+        ListNode n22 = new ListNode(2);
+        ListNode n23 = new ListNode(3);
+        ListNode n24 = new ListNode(4);
+        ListNode n25 = new ListNode(5);
+        ListNode n26 = new ListNode(6);
+        n21.next = (n22);
+        n22.next = (n23);
+        n23.next = (n24);
+        n24.next = (n25);
+        n25.next = (n26);
+        System.out.println("链表的长度 - 遍历：" + Practise.linkLength(n1));
+        System.out.println("链表的长度 - 递归：" + Practise.linkLengthRec(n1));
+        System.out.println("链表的倒数第K个节点 ：" + Practise.getKNode(n1, 7).value);
+        System.out.println("删除链表的倒数第K个节点 ：" + Practise.deleteK(n1, 2).value);
+        System.out.println("链表的中间节点 ：" + Practise.getMid(n1));
+        System.out.println("链表是否有环 ：" + Practise.isHaveC(n1));
+        System.out.println("链表环入口节点 ：" + (null == Practise.isFirstC(n1) ? "无环" : Practise.isFirstC(n1).value));
+        System.out.println("链表环,环的长度 ：" + (Practise.isCLength(n1)));
+        System.out.println("两个单链表是否相交 ：" + (Practise.isXJ(n1, n1)));
+        System.out.println("从尾到头打印打单链表 - 遍历：");
+        Practise.reversePrintListStack(n1);
+        System.out.println("从尾到头打印打单链表 - 递归：");
+        Practise.reversePrintListStackRec(n1);
+        System.out.println("逆置单链表 - 遍历 栈：");
+        printLinkList(Practise.reverseListStack(n1));
+        System.out.println("(重点)逆置单链表 - 遍历 - 尾巴迁移)：");
+        printLinkList(Practise.reverseList(n1));
+        System.out.println("(重点)逆置单链表 - 递归 ：");
+        printLinkList(Practise.reverseListRec(n1));
+        System.out.println("合并两个有序链表，使合并后的链表依然有序 - 遍历：");
+        printLinkList(Practise.mergeSortedList(n1, n21));
+        System.out.println("合并两个有序链表，使合并后的链表依然有序 -递归：");
+        printLinkList(Practise.mergeSortedListRec(n1, n21));
+
+        System.out.println("无序链表排序：");
+        printLinkList(Practise.sortList(n1));
+    }
+
+    private static void algorithm() {
+        int[] numbers = {10, 20, 15, 0, 6, 7, 2, 1, -5, 55};
+        System.out.print("排序前：");
+        printArr(numbers);
+        //堆排序
+        System.out.print("堆排序后：");
+        Practise.heapSort(numbers);
+        //快排
+        Practise.quickSort(numbers);
+        System.out.print("快速排序后：");
+        printArr(numbers);
+        //归并
+        Practise.mergeSort(numbers);
+        System.out.print("快速排序后：");
+        printArr(numbers);
+        //二分查找
+        System.out.print("二分查找：" + Practise.twoSearch(numbers, 2));
     }
 
     private static void printLinkList(ListNode head) {

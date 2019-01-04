@@ -17,6 +17,7 @@ public class Dynamic {
     /**
      * 数塔取数
      * 来源：https://blog.csdn.net/tterminator/article/details/50951137?utm_source=blogxgwz3
+     * https://blog.csdn.net/u013575812/article/details/50241059
      * 一个高度为N的由正整数组成的三角形，从上走到下，求经过的数字和的最大值。
      * 每次只能走到下一层相邻的数上，例如从第3层的6向下走，只能走到第4层的2或9上。
      * 思路：考虑从底层的结点开始计算
@@ -30,10 +31,14 @@ public class Dynamic {
      * @return
      */
     public static int dataTower(int tower[][]) {
-        int heigh = tower.length;//数塔高度
-        int len = tower[heigh - 1].length;//数塔底部宽度
-        int[][] resultTower = new int[heigh][len];//结果数塔，存放路径数值和
-        int[][] path = new int[heigh][len];//计算结果数塔生成路径
+        //数塔高度
+        int heigh = tower.length;
+        //数塔底部宽度
+        int len = tower[heigh - 1].length;
+        //结果数塔，存放路径数值和
+        int[][] resultTower = new int[heigh][len];
+        //计算结果数塔生成路径
+        int[][] path = new int[heigh][len];
 
         //初始化结果数塔
         for (int i = 0; i < len; i++) {
@@ -71,12 +76,12 @@ public class Dynamic {
      * 最长回文字符串
      * 这道题本质是求字符串中的最大回文字串的长度
      * 动态规划法，
-     * 假设dp[ i ][ j ]的值为true，表示字符串s中下标从 i 到 j 的字符组成的子串是回文串。那么可以推出：
-     * dp[ i ][ j ] = dp[ i + 1][ j - 1] && s[ i ] == s[ j ]。
-     * 这是一般的情况，由于需要依靠i+1, j -1，所以有可能 i + 1 = j -1, i +1 = (j - 1) -1，
+     * 假设dp[ j ][ i ]的值为true，表示字符串s中下标从 j 到 i 的字符组成的子串是回文串。那么可以推出：
+     * dp[ j ][ i ] = dp[ j + 1][ i - 1] && s[ j ] == s[ i ]。
+     * 这是一般的情况，由于需要依靠j+1, i -1，所以有可能 j + 1 = i -1, j +1 = (i - 1) -1，
      * 因此需要求出基准情况才能套用以上的公式：
-     * a. i + 1 = j -1，即回文长度为1时，dp[ i ][ i ] = true;
-     * b. i +1 = (j - 1) -1，即回文长度为2时，dp[ i ][ i + 1] = （s[ i ] == s[ i + 1]）。
+     * a. j + 1 = i -1，即回文长度为1时，dp[ j ][ i ] = true;
+     * b. j +1 = (i - 1) -1，即回文长度为2时，dp[ j ][ j + 1] = （s[ j ] == s[ j + 1]）。
      * 有了以上分析就可以写出代码了。需要注意的是动态规划需要额外的O(n^2)的空间。
      *
      * @param s
@@ -94,6 +99,7 @@ public class Dynamic {
         int start = 0;
         for (int i = 0; i < length; i++) {
             for (int j = 0; j <= i; j++) {
+
                 if (i - j < 2) {
                     // 子字符串长度小于 2 的时候单独处理
                     lps[j][i] = (chars[i] == chars[j]);
@@ -107,6 +113,7 @@ public class Dynamic {
                     start = j;
                 }
             }
+
         }
         return s.substring(start, start + maxLen);
     }

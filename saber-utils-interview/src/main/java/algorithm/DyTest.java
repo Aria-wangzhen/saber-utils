@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class DyTest {
     public static void main(String[] args) {
         //数塔取数
-        /*int[][] tower = {{13}, {11, 8}, {12, 7, 26}, {6, 14, 15, 8}, {12, 7, 13, 24, 11}};
-        int result = Dynamic.dataTower(tower);*/
+        int[][] tower = {{13}, {11, 8}, {12, 7, 26}, {6, 14, 15, 8}, {12, 7, 13, 24, 11}};
+        int result = Dynamic.dataTower(tower);
         //编辑距离
        /* String aStr = "qbcde";
         String bStr = "qbcdw";
