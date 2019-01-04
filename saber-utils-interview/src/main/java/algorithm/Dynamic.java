@@ -119,9 +119,11 @@ public class Dynamic {
     }
 
     /**
-     * 编辑距离
+     * 编辑距离 - 二位数据，长度+1(涉及到空字符串编辑)
      * http://www.cnblogs.com/BlackStorm/p/5400809.html
-     *
+     * dp[i][j] 代表str1[0,...,i-1] 编辑成 str2[0,....,j-1]需要的最少次数
+     * dp[i][0] 代表str1[0,...,i-1] 编辑成空串的次数
+     * dp[0][j] 代表空串 编辑成str2[0,...,j-1]的次数
      * @return
      */
     public static void editDistance(String str1, String str2) {
@@ -149,7 +151,7 @@ public class Dynamic {
                 // System.out.println(dp[i][j]);
             }
         }
-        System.out.println(dp[aLen][bLen]);
+        System.out.println("最少编辑次数："+dp[aLen][bLen]);
     }
 
     /**

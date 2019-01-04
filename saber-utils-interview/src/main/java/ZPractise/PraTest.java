@@ -36,9 +36,23 @@ public class PraTest {
     }
 
     private static void dynamic() {
+        //先左到右，再从上到下 -- 即先循环行数，再循环列数
         System.out.println("1.数塔取数 - 倒着走，二维数组：");
         int[][] tower = {{13}, {11, 8}, {12, 7, 26}, {6, 14, 15, 8}, {12, 7, 13, 24, 11}};
         Practise.dataTower(tower);
+
+        String str = "1233215869";
+        System.out.println("2.最长回文字符串 - 二维数组表示是否:" + Practise.getMaxHW(str));
+
+        //编辑距离
+        System.out.println("3.最少编辑次数:");
+        String aStr = "qbcde146788148";
+        String bStr = "qbcdwewftwegtg";
+        Practise.editDistance(aStr, bStr);
+        System.out.println("4.最小编辑距离代价:");
+        String str1 = "ab12cd3";
+        String str2 = "abcdf";
+        Practise.editDistanceCost(str1, str2, 5, 3, 2);
     }
 
     private static void tree() {

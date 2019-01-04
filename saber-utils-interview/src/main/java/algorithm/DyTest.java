@@ -1,5 +1,7 @@
 package algorithm;
 
+import ZPractise.Practise;
+
 import java.util.ArrayList;
 
 /**
@@ -11,10 +13,13 @@ public class DyTest {
         //数塔取数
         int[][] tower = {{13}, {11, 8}, {12, 7, 26}, {6, 14, 15, 8}, {12, 7, 13, 24, 11}};
         int result = Dynamic.dataTower(tower);
+
+        String str = "1233215869";
+        System.out.println("2.最长回文字符串 - 二位数字表示是否:"+ Dynamic.getLPS(str));
         //编辑距离
-       /* String aStr = "qbcde";
-        String bStr = "qbcdw";
-        Dynamic.editDistance(aStr,bStr);*/
+        String aStr = "qbcde146788148";
+        String bStr = "qbcdwewftwegtg";
+        Dynamic.editDistance(aStr,bStr);
         //数组取数
         // Dynamic.matrixFetch();
         ArrayList<Integer> arrayList = null;

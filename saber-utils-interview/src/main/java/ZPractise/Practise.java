@@ -1,8 +1,6 @@
 package ZPractise;
 
 
-import apple.laf.JRSUIUtils;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -1190,7 +1188,7 @@ public class Practise {
      */
     public static void dataTower(int[][] arr) {
         if (arr == null || arr.length <= 0) {
-            return ;
+            return;
         }
         int high = arr.length;
         int len = arr[arr.length - 1].length;
@@ -1214,7 +1212,7 @@ public class Practise {
                 }
             }
         }
-        out.println("最大值："+  result[0][0]);
+        out.println("最大值：" + result[0][0]);
         int j = path[0][0];
         for (int i = 1; i <= high - 1; i++) {
             System.out.println("第" + i + "层数值：" + arr[i][j]);
@@ -1225,27 +1223,138 @@ public class Practise {
 
     /**
      * 2.最长回文字符串
-     * 二位数组：假设dp[ i ][ j ]的值为true，表示字符串s中下标从 i 到 j 的字符组成的子串是回文串
+     * 二位数组：lps[j][i] 表示以 j 为起始坐标，i 为终点坐标是否为回文子串
      */
-    public static String getMaxHW(String str){
-        if(str == null || str.length() <=0){
+    public static String getMaxHW(String str) {
+        if (str == null || str.length() <= 0) {
             return str;
         }
+
+        char[] chars = str.toCharArray();
+        int length = chars.length;
+        boolean[][] lps = new boolean[length][length];
+        int start = 0;
+        int maxLen = 1;
+        //终点下标
+        for (int i = 0; i < length; i++) {
+            //起点
+            for (int j = 0; j <= i; j++) {
+                //特殊情况处理
+                if (i - j < 2) {
+                    // 子字符串长度小于 2 的时候单独处理
+                    lps[j][i] = (chars[i] == chars[j]);
+                } else {
+                    // 如果 [i, j] 是回文子串，那么一定有 [j+1, i-1] 也是回子串
+                    lps[j][i] = lps[j + 1][i - 1] && (chars[i] == chars[j]);
+                }
+                if (lps[j][i] && (i - j + 1) > maxLen) {
+                    // 如果 [i, j] 是回文子串，并且长度大于 max，则刷新最长回文子串
+                    maxLen = i - j + 1;
+                    start = j;
+                }
+            }
+        }
+        return str.substring(start, start + maxLen);
     }
 
     /**
-     * 3.编辑距离
+     * 左程云：218
+     * 4.编辑距离 - 二位数据，长度+1(涉及到空字符串编辑)
+     * http://www.cnblogs.com/BlackStorm/p/5400809.html
+     * dp[i][j] 代表str1[0,...,i-1] 编辑成 str2[0,....,j-1]需要的最少次数
+     * dp[i][0] 代表str1[0,...,i-1] 编辑成空串的次数 - 删除
+     * dp[0][j] 代表空串 编辑成str2[0,...,j-1]的次数 - 新增
+     *
+     * @return
      */
+    public static void editDistance(String str1, String str2) {
+        int aLen = str1.length();
+        int bLen = str2.length();
+        int[][] dp = new int[aLen + 1][aLen + 1];
+        //初始化
+        for (int i = 0; i < aLen + 1; i++) {
+            dp[i][0] = i;
+        }
+        for (int j = 0; j < bLen + 1; j++) {
+            dp[0][j] = j;
+        }
+
+        for (int i = 1; i < aLen + 1; i++) {
+            for (int j = 1; j < bLen + 1; j++) {
+                if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    //1为次数
+                    dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1])) + 1;
+                }
+            }
+        }
+        System.out.println("最少编辑次数：" + dp[aLen][bLen]);
+    }
 
     /**
+     * 左程云：218
      * 4.编辑距离的代价
      */
+    public static void editDistanceCost(String str1, String str2, int ic, int dc, int rc) {
+        int aLen = str1.length();
+        int bLen = str2.length();
+        int[][] dp = new int[aLen + 1][aLen + 1];
+        //初始化
+        for (int i = 0; i < aLen + 1; i++) {
+            dp[i][0] = i * dc;
+        }
+        for (int j = 0; j < bLen + 1; j++) {
+            dp[0][j] = j * ic;
+        }
+
+        for (int i = 1; i < aLen + 1; i++) {
+            for (int j = 1; j < bLen + 1; j++) {
+                if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    //1为次数
+                    dp[i][j] = Math.min(dp[i - 1][j - 1] + rc, Math.min(dp[i - 1][j] + dc, dp[i][j - 1] + ic));
+                }
+            }
+        }
+        System.out.println("最小编辑距离代价：" + dp[aLen][bLen]);
+    }
+
     /**
-     * 5. 矩阵取数问题
+     * 左程云：188
+     * 5. 矩阵取数问题(最大和最小)
+     * 二维数组
+     * dp[i][j] 表示从左上角的位置(0,0)走到右下角(i，j)的最小值
      */
+    public static int matrixFetchMin(int[][] arr) {
+        int row = arr.length;
+        int col = arr[0].length;
+
+        int[][] dp = new int[row][col];
+        dp[0][0] = arr[0][0];
+        //初始化
+        for (int i = 1; i < row; i++) {
+            dp[row][0] = dp[row - 1][0] + arr[row][0];
+        }
+        for (int j = 1; j < col; j++) {
+            dp[0][col] = dp[0][col - 1] + arr[0][col];
+        }
+
+
+        for (int i = 1; i < row; i++) {
+            for (int j = 1; j < col; j++) {
+                dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + arr[i][j];
+            }
+        }
+        return dp[row - 1][col + 1];
+    }
+
 
     /**
      * 6. 最长递增子序列
+     * 二维数组
+     * dp[i][j] 表示
      */
 
     /**
