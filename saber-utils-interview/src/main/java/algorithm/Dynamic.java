@@ -99,7 +99,7 @@ public class Dynamic {
         int start = 0;
         for (int i = 0; i < length; i++) {
             for (int j = 0; j <= i; j++) {
-
+                //特殊情况处理
                 if (i - j < 2) {
                     // 子字符串长度小于 2 的时候单独处理
                     lps[j][i] = (chars[i] == chars[j]);
