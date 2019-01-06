@@ -15,11 +15,11 @@ public class DyTest {
         int result = Dynamic.dataTower(tower);
 
         String str = "1233215869";
-        System.out.println("2.最长回文字符串 - 二位数字表示是否:"+ Dynamic.getLPS(str));
+        System.out.println("2.最长回文字符串 - 二位数字表示是否:" + Dynamic.getLPS(str));
         //编辑距离
         String aStr = "qbcde146788148";
         String bStr = "qbcdwewftwegtg";
-        Dynamic.editDistance(aStr,bStr);
+        Dynamic.editDistance(aStr, bStr);
         //数组取数
         // Dynamic.matrixFetch();
         ArrayList<Integer> arrayList = null;
@@ -32,12 +32,12 @@ public class DyTest {
         System.out.println(c);*/
         //lcsChun("123","6");
         //最大字段和
-        /*int[] sub = {-2, -100, -9, -1};
-        System.out.println(Dynamic.maxSubSum1(sub));*/
+        int[] sub = {2, -100, -9, -1};
+        System.out.println("最大字段和:" + Dynamic.maxSubSum1(sub));
 
         //最长递增子序列
         int[] longSub = {2, 1, 5, 3, 6, 4, 8, 9, 7};
-        System.out.println(Dynamic.longestIncreasingSubsequence(longSub));
+        System.out.println("最长递增子序列:" + Dynamic.longestIncreasingSubsequence(longSub));
 
     }
 }

@@ -1,6 +1,7 @@
 package ZPractise;
 
 
+import algorithm.Dynamic;
 import com.alibaba.fastjson.JSON;
 
 import static ZPractise.Practise.mergeSort;
@@ -49,10 +50,32 @@ public class PraTest {
         String aStr = "qbcde146788148";
         String bStr = "qbcdwewftwegtg";
         Practise.editDistance(aStr, bStr);
+        //编辑代价
         System.out.println("4.最小编辑距离代价:");
         String str1 = "ab12cd3";
         String str2 = "abcdf";
         Practise.editDistanceCost(str1, str2, 5, 3, 2);
+        // 矩阵取数问题(最大和最小)
+        int[][] m = {{1, 3, 5, 9}, {8, 1, 3, 4}, {5, 0, 6, 1},
+                {8, 8, 4, 0}};
+        System.out.println("4.矩阵取数问题(最大和最小):" + Practise.matrixFetchMin(m));
+        //最长递增子序列
+        int[] longSub = {2, 1, 5, 3, 6, 4, 8, 9, 7};
+        System.out.println("6.最长递增子序列:" + Practise.getLongestSubSequence(longSub));
+        //最长连续递增子序列
+        int[] sub = {1, 9, 2, 5, 7, 3, 4, 6, 8, 0, 11, 15, 17, 17, 10};
+        System.out.println("7.最长连续递增子序列:" + Practise.getLongestString(sub));
+        //最大字段和
+        int[] subSum = {2, -100, -9, -1};
+        System.out.println("8.最大字段和:" + Practise.maxSubSum1(subSum));
+        //最长公共子序列路径长度
+        String subStr1 = "A1BC2D3EFGH45I6JK7LMN";
+        String sunStr2 = "12OPQ3RST4U5V6W7XYZ";
+        System.out.println("9.最长公共子序列路径长度:");
+        Practise.getLp(subStr1, sunStr2);
+        System.out.println("10.最长公共子序列路径:" + Practise.getStringFromLp(subStr1, sunStr2));
+
+
     }
 
     private static void tree() {

@@ -124,6 +124,7 @@ public class Dynamic {
      * dp[i][j] 代表str1[0,...,i-1] 编辑成 str2[0,....,j-1]需要的最少次数
      * dp[i][0] 代表str1[0,...,i-1] 编辑成空串的次数
      * dp[0][j] 代表空串 编辑成str2[0,...,j-1]的次数
+     *
      * @return
      */
     public static void editDistance(String str1, String str2) {
@@ -151,7 +152,7 @@ public class Dynamic {
                 // System.out.println(dp[i][j]);
             }
         }
-        System.out.println("最少编辑次数："+dp[aLen][bLen]);
+        System.out.println("最少编辑次数：" + dp[aLen][bLen]);
     }
 
     /**
@@ -268,10 +269,12 @@ public class Dynamic {
         int maxCount = 0;
         int[] dp = new int[length];
         for (int i = 0; i < length; i++) {
+            //出初始化
             dp[i] = 1;
             for (int j = 0; j < i; j++) {
                 if (array[j] < array[i]) {
-                    dp[i] = dp[i] > dp[j] + 1 ? dp[i] : dp[j] + 1;
+                    dp[i] = Math.max(dp[j] + 1, dp[i]);
+                    //dp[i] = dp[i] > dp[j] + 1 ? dp[i] : dp[j] + 1;
                 }
                 if (maxCount < dp[i]) {
                     maxCount = dp[i];

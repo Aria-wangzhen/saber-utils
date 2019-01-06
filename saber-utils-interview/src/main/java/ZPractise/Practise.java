@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
+import static java.lang.System.in;
 import static java.lang.System.out;
 
 /**
@@ -1335,10 +1336,10 @@ public class Practise {
         dp[0][0] = arr[0][0];
         //初始化
         for (int i = 1; i < row; i++) {
-            dp[row][0] = dp[row - 1][0] + arr[row][0];
+            dp[i][0] = dp[i - 1][0] + arr[i][0];
         }
         for (int j = 1; j < col; j++) {
-            dp[0][col] = dp[0][col - 1] + arr[0][col];
+            dp[0][j] = dp[0][j - 1] + arr[0][j];
         }
 
 
@@ -1347,32 +1348,167 @@ public class Practise {
                 dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + arr[i][j];
             }
         }
-        return dp[row - 1][col + 1];
+        return dp[row - 1][col - 1];
     }
 
 
     /**
      * 6. 最长递增子序列
-     * 二维数组
-     * dp[i][j] 表示
+     * 一维数组：两重循环：
+     * dp[i]表示到第i元素时候，递增子序列是多大
      */
+    public static int getLongestSubSequence(int[] array) {
+        if (array == null || array.length <= 0) {
+            return 0;
+        }
+        int length = array.length;
+        int[] dp = new int[length];
+        int maxLen = 0;
+        //截止下标
+        for (int i = 0; i < length; i++) {
+            dp[i] = 1;
+            for (int j = 0; j <= i; j++) {
+                if (array[j] < array[i]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+                if (maxLen < dp[i]) {
+                    maxLen = dp[i];
+                }
+            }
+        }
+        return maxLen;
+
+    }
 
     /**
      * 7.最长递增连续子序列
      */
+    public static int getLongestString(int[] array) {
+        if (array == null || array.length <= 0) {
+            return 0;
+        }
+        int length = array.length;
+        int cur = 1;
+        int maxLen = 1;
+        for (int i = 1; i < length; i++) {
+            if (array[i] > array[i - 1]) {
+                cur++;
+            } else {
+                if (maxLen < cur) {
+                    maxLen = cur;
+                }
+                //否则断掉初始化
+                cur = 1;
+            }
+
+
+        }
+        return maxLen;
+
+    }
+
 
     /**
      * 8.最大子段和,当全为负数时候合为0
+     * 一维数组
      */
+    public static int maxSubSum1(int[] array) {
+        if (array == null || array.length <= 0) {
+            return 0;
+        }
+        int maxSum = 0;
+        int curSum = 0;
+        int length = array.length;
+        for (int i = 0; i < length; i++) {
+            curSum += array[i];
+            if (curSum > maxSum) {
+                maxSum = curSum;
+            }
+            if (curSum <= 0) {
+                curSum = 0;
+            }
+
+        }
+        return maxSum;
+    }
+
 
     /**
-     * 9.最长公共子序列路径
+     * 左程云：210
+     * <p>
+     * 9.最长公共子序列路径长度
+     * dp[i][j] 表示str1[0,...,i]与str1[0,...,j]最长公共子序列长度，从左到右，从上到下
      */
+
+    public static int[][] getLp(String str1, String str2) {
+        if (str1 == null || str1.length() <= 0) {
+            return null;
+        }
+        if (str2 == null || str2.length() <= 0) {
+            return null;
+        }
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+        int aLen = str1.length();
+        int bLen = str2.length();
+        int[][] dp = new int[aLen][bLen];
+        //初始化
+        dp[0][0] = arr1[0] == arr2[0] ? 1 : 0;
+        for (int i = 1; i < aLen; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], arr1[i] == arr2[0] ? 1 : 0);
+        }
+        for (int j = 1; j < bLen; j++) {
+            dp[0][j] = Math.max(dp[0][j - 1], arr2[j] == arr1[0] ? 1 : 0);
+        }
+        for (int i = 1; i < aLen; i++) {
+            for (int j = 1; j < bLen; j++) {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                if (arr1[i] == arr2[j]) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i - 1][j - 1] + 1);
+                }
+            }
+        }
+        System.out.println("最长公共子序列路径长度:" + dp[aLen - 1][bLen - 1]);
+        return dp;
+    }
+
     /**
-     * 10.最长公共子序列路径长度
+     * 10.最长公共子序列的路径
      */
+    public static String getStringFromLp(String str1, String str2) {
+        if (str1 == null || str1.length() <= 0) {
+            return null;
+        }
+        if (str2 == null || str2.length() <= 0) {
+            return null;
+        }
+        char[] arr1 = str1.toCharArray();
+        int i = str1.length() - 1;
+        int j = str2.length() - 1;
+        int[][] dp = getLp(str1, str2);
+        char[] res = new char[dp[i][j]];
+        int index = res.length - 1;
+        while (index >= 0) {
+            if (i > 0 && dp[i][j] > dp[i - 1][j]) {
+                i--;
+            } else if (j > 0 && dp[i][j] > dp[i][j]) {
+                j--;
+            } else {
+                res[index--] = arr1[i];
+                i--;
+                j--;
+            }
+        }
+        return String.valueOf(res);
+
+    }
+
     /**
+     * 左程云：213
      * 11.最长公共子串
+     * 二维数组
+     * dp[i][j]表示把str1[i]和str2[j]当做最后字符串的情况下，最长公共子串有多长
+     * 从左向右，再从上到下
      */
     /**
      * 12.最长公共子串路径
@@ -1418,9 +1554,7 @@ public class Practise {
      * 24.跳跃游戏
      */
     /**
-     * 25.数组中最长连续的序列
+     * 25.N皇后问题
      */
-    /**
-     * 26.N皇后问题
-     */
+
 }
