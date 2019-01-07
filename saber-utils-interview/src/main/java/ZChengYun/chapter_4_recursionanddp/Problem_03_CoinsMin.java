@@ -110,10 +110,10 @@ public class Problem_03_CoinsMin {
     }
 
     public static void main(String[] args) {
-        int[] arr1 = {1, 20, 5, 10, 2, 50, 1};
+       /* int[] arr1 = {1, 20, 5, 10, 2, 50, 1};
         int aim1 = 3;
         System.out.println(minCoins1(arr1, aim1));
-        System.out.println(minCoins2(arr1, aim1));
+        System.out.println(minCoins2(arr1, aim1));*/
 
         int[] arr2 = {10, 100, 2, 5, 5, 5, 10, 1, 1, 1, 2, 100};
         int aim2 = 223;

@@ -1510,35 +1510,170 @@ public class Practise {
      * dp[i][j]表示把str1[i]和str2[j]当做最后字符串的情况下，最长公共子串有多长
      * 从左向右，再从上到下
      */
+    public static int[][] getLcsChuan(char[] str1, char[] str2) {
+        int alen = str1.length;
+        int blen = str2.length;
+
+        int[][] dp = new int[alen][blen];
+        int maxLen = 0;
+        //初始化
+        for (int i = 0; i < alen; i++) {
+            dp[i][0] = str1[i] == str2[0] ? 1 : 0;
+        }
+        for (int j = 0; j < blen; j++) {
+            dp[0][j] = str1[0] == str2[j] ? 1 : 0;
+        }
+
+        for (int i = 0; i < alen; i++) {
+            for (int j = 0; j < blen; j++) {
+                if (str1[i] == str2[j]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                }
+                if (maxLen < dp[i][j]) {
+                    maxLen = dp[i][j];
+                }
+            }
+        }
+        out.println("最长公共子串:" + maxLen);
+        return dp;
+    }
+
+
     /**
+     * 左程云：213
+     * 找到dp最大值和下标，然后截取
      * 12.最长公共子串路径
      */
+
+
     /**
      * 13.正整数分组
      */
 
+
     /**
+     * 左：181
+     * <p>
      * 14.斐波那契数列
      */
+    public static int fbnq(int n) {
+        if (n < 1) {
+            return 0;
+        }
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+        int pre = 1;
+        int res = 1;
+        int tmp = 0;
+        for (int i = 3; i <= n; i++) {
+            tmp = res;
+            res = tmp + pre;
+            pre = tmp;
+        }
+        return res;
+    }
 
-    /**
-     * 15.台阶
+    /**左：181
+     * 15.台阶 -- 左
      */
 
-    /**
+    /**左：181
      * 16.奶牛
      */
 
 
     /**
      * 17.换钱最少货币数(重复)
+     * 二维数组
+     * dp[i][j]可以使用任意arr[0,..,i]货币的情况下，组成j所需要的最小张数
+     * 从左到右，再从上到下
+     * dp[i][j] = min{ dp[i-1][j], dp[i][j - arr[i]] + 1 }
+     *
+     * @link{Problem_03_CoinsMin}
      */
+    public static int minCoinsRepetition(int[] arr, int aim) {
+        if (arr == null || arr.length == 0 || aim < 0) {
+            return -1;
+        }
+        int len = arr.length;
+        //因为是钱一定会到aim下边（由于数组从0开始）
+        int[][] dp = new int[len][aim + 1];
+        //初始化
+        for (int i = 0; i < len; i++) {
+            dp[i][0] = 0;
+        }
+        //找不开的
+        int max = Integer.MAX_VALUE;
+        int min = 0;
+        for (int j = 0; j <= aim; j++) {
+            dp[0][j] = max;
+            //其他情况找不开
+            //此处处理能找开的情况
+            if (j - arr[0] >= 0 && dp[0][j - arr[0]] != max) {
+                dp[0][j] = dp[0][j - arr[0]] + 1;
+            }
+        }
+
+        for (int i = 1; i < len; i++) {
+            for (int j = 1; j <= aim; j++) {
+                min = max;
+                if (j - arr[i] >= 0 && dp[i][j - arr[i]] != max) {
+                    min = dp[i][j] = dp[i][j - arr[i]] + 1;
+                }
+                dp[i][j] = Math.min(dp[i - 1][j], min);
+            }
+        }
+        return dp[len - 1][aim] != max ? dp[len - 1][aim] : -1;
+    }
 
     /**
      * 18.换钱最少货币数(不重复)
+     * 二维数组
+     * dp[i][j]可以使用任意arr[0,..,i]货币的情况下(每个值仅代表一张货币)，组成j所需要的最小张数
+     * 初始化不同；
      */
+    public static int minCoins(int[] arr, int aim) {
+        if (arr == null || arr.length == 0 || aim < 0) {
+            return -1;
+        }
+        int len = arr.length;
+        //因为是钱一定会到aim下边（由于数组从0开始）
+        int[][] dp = new int[len][aim + 1];
+        //找不开的
+        int max = Integer.MAX_VALUE;
+        int min = 0;
+        for (int i = 0; i < len; i++) {
+            dp[i][0] = 0;
+        }
+        //只用一张情况下，只有相等才能找开,其他都找不开
+        for (int j = 0; j <= aim; j++) {
+            dp[0][j] = max;
+
+        }
+        if (arr[0] <= aim) {
+            dp[0][arr[0]] = 1;
+        }
+        for (int i = 1; i < len; i++) {
+            for (int j = 1; j <= aim; j++) {
+                min = max;
+                if (j - arr[i] >= 0 && dp[i][j - arr[i]] != max) {
+                    min = dp[i][j] = dp[i][j - arr[i]] + 1;
+                }
+                dp[i][j] = Math.min(dp[i - 1][j], min);
+            }
+        }
+        return dp[len - 1][aim] != max ? dp[len - 1][aim] : -1;
+
+    }
+
     /**
+     * 左程云：196
+     *
      * 19.换钱的方法数
+     * 二维数组
+     * dp[i][j] 表示在使用arr[0,..,i]货币的情况下，组成钱数j有多少种方法
+     * @see{Problem_04_CoinsWay}
      */
 
     /**

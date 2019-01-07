@@ -74,6 +74,19 @@ public class PraTest {
         System.out.println("9.最长公共子序列路径长度:");
         Practise.getLp(subStr1, sunStr2);
         System.out.println("10.最长公共子序列路径:" + Practise.getStringFromLp(subStr1, sunStr2));
+        System.out.println("11.最长公共子串:");
+        String string1 = "ABC1234567DEFG";
+        String string2 = "HIJKL1234567MNOP";
+        Practise.getLcsChuan(string1.toCharArray(), string2.toCharArray());
+        System.out.println("13.正整数分组:");
+        //TODO 实现
+        System.out.println("14.斐波那契数列:" + Practise.fbnq(6));
+        int[] arr1 = {1, 20, 5, 10, 2, 50, 1};
+        int aim1 = 3;
+        System.out.println("17.换钱最少货币数(重复):" + Practise.minCoinsRepetition(arr1, aim1));
+        int[] arr2 = {10, 100, 2, 5, 5, 5, 10, 1, 1, 1, 2, 100};
+        int aim2 = 223;
+        System.out.println("18.换钱最少货币数(不重复):" + Practise.minCoins(arr2, aim2));
 
 
     }
