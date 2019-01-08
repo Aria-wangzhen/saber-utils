@@ -1619,7 +1619,7 @@ public class Practise {
             for (int j = 1; j <= aim; j++) {
                 min = max;
                 if (j - arr[i] >= 0 && dp[i][j - arr[i]] != max) {
-                    min = dp[i][j] = dp[i][j - arr[i]] + 1;
+                    min = dp[i][j - arr[i]] + 1;
                 }
                 dp[i][j] = Math.min(dp[i - 1][j], min);
             }
@@ -1638,7 +1638,7 @@ public class Practise {
             return -1;
         }
         int len = arr.length;
-        //因为是钱一定会到aim下边（由于数组从0开始）
+        //因为是钱一定会到aim下边（由于数组从0开始）;数据最大下标比长度小1
         int[][] dp = new int[len][aim + 1];
         //找不开的
         int max = Integer.MAX_VALUE;
@@ -1649,7 +1649,6 @@ public class Practise {
         //只用一张情况下，只有相等才能找开,其他都找不开
         for (int j = 0; j <= aim; j++) {
             dp[0][j] = max;
-
         }
         if (arr[0] <= aim) {
             dp[0][arr[0]] = 1;
@@ -1658,7 +1657,7 @@ public class Practise {
             for (int j = 1; j <= aim; j++) {
                 min = max;
                 if (j - arr[i] >= 0 && dp[i][j - arr[i]] != max) {
-                    min = dp[i][j] = dp[i][j - arr[i]] + 1;
+                    min = dp[i][j - arr[i]] + 1;
                 }
                 dp[i][j] = Math.min(dp[i - 1][j], min);
             }
@@ -1669,22 +1668,105 @@ public class Practise {
 
     /**
      * 左程云：196
-     *
-     * 19.换钱的方法数
+     * <p>
+     * 19.换钱的方法数(可重复)(累加 + ) -- 区别于最大(max)和最小(min)
      * 二维数组
      * dp[i][j] 表示在使用arr[0,..,i]货币的情况下，组成钱数j有多少种方法
+     *
      * @see{Problem_04_CoinsWay}
      */
+    public static int maxCoinWays(int[] arr, int aim) {
+        if (arr == null || arr.length == 0 || aim < 0) {
+            return -1;
+        }
+        int len = arr.length;
+        //因为是钱一定会到aim下边（由于数组从0开始）
+        int[][] dp = new int[len][aim + 1];
+        //初始化
+        //不使用任何货币兑换0，也是一种方法
+        for (int i = 0; i < len; i++) {
+            dp[i][0] = 1;
+        }
+        //在只有arr[0],一种货币情况下。倍数才行，其他不行
+        for (int j = 0; arr[0] * j <= aim; j++) {
+            dp[0][arr[0] * j] = 1;
+        }
+        int sum = 0;
+        for (int i = 1; i < len; i++) {
+            for (int j = 1; j <= aim; j++) {
+                //每一次都是从新的开始
+                sum = 0;
+                for (int k = 0; j - arr[i] * k >= 0; k++) {
+                    sum += dp[i - 1][j - arr[i] * k];
+                }
+                dp[i][j] = sum;
+            }
+        }
+        return dp[len - 1][aim];
+
+
+    }
 
     /**
      * 20.背包问题
+     * <p>
+     * 参考：https://www.cnblogs.com/lfeng1205/p/5981198.html
+     *
+     * @param m 表示背包的最大容量 m = 10
+     * @param w 表示商品重量数组 w[] = {3, 4, 5}
+     * @param p 表示商品价值数组 p[] = {4, 5, 6}
      */
+    public static int BackPack_Solution1(int m, int[] w, int[] p) {
+        //c[i][j] 表示前i件物品恰放入一个容量为j的背包可以获得的最大价值
+        //行是物品数字。列是容量
+        //下标会走到n或者m所以加1
+        int n = w.length;
+        int c[][] = new int[n][m + 1];
+        for (int i = 0; i < n; i++) {
+            c[i][0] = 0;
+        }
+        for (int j = 0; j < m + 1; j++) {
+            //可以重复放
+           /* if (j >= w[0]) {
+                c[0][j] = (j / w[0]) * p[0];
+            } else {
+                c[0][j] = 0;
+            }*/
+            //不可重复放
+            if (j >= w[0]) {
+                c[0][j] = p[0];
+            } else {
+                c[0][j] = 0;
+            }
+
+        }
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m + 1; j++) {
+                //当物品为i件重量为j时，如果第i件的重量(w[i-1])小于重量j时，c[i][j]为下列两种情况之一：
+                //(1)物品i不放入背包中，所以c[i][j]为c[i-1][j]的值
+                //(2)物品i放入背包中，则背包剩余重量为j-w[i-1],所以c[i][j]为c[i-1][j-w[i-1]]的值加上当前物品i的价值
+                if (w[i] <= j) {
+                    if (c[i - 1][j] < (c[i - 1][j - w[i]] + p[i])) {
+                        c[i][j] = c[i - 1][j - w[i]] + p[i];
+                    } else {
+                        c[i][j] = c[i - 1][j];
+                    }
+                } else {
+                    c[i][j] = c[i - 1][j];
+                }
+            }
+        }
+        return c[n - 1][m];
+    }
     /**
      * 21.汉诺塔问题
      */
+
     /**
      * 22.字符串交错组成
      */
+
     /**
      * 23.数字字符串转成字母组合的种数
      */

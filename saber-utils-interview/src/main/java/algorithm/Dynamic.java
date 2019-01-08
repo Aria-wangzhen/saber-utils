@@ -221,36 +221,10 @@ public class Dynamic {
      * @param n 表示商品个数 n = 3
      * @param w 表示商品重量数组 w[] = {3, 4, 5}
      * @param p 表示商品价值数组 p[] = {4, 5, 6}
+     * @see{BackPack}
      */
     public static int BackPack_Solution(int m, int n, int[] w, int[] p) {
-        //value[i][v]表示前i件物品恰放入一个重量为m的背包可以获得的最大价值
-        int value[][] = new int[n + 1][m + 1];
-        //行初始化 --- n 个数
-        for (int i = 0; i < n + 1; i++) {
-            value[i][0] = 0;
-        }
-        //列初始化 --- m 重量
-        for (int j = 0; j < m + 1; j++) {
-            value[0][j] = 0;
-        }
-
-        for (int i = 1; i < n + 1; i++) {
-            for (int j = 1; j < m + 1; j++) {
-                //当物品为i件重量为j时，如果第i件的重量(w[i-1])小于重量j时，value[i][j]为下列两种情况之一：
-                //(1)物品i不放入背包中，所以value[i][j]为value[i-1][j]的值
-                //(2)物品i放入背包中，则背包剩余重量为j-w[i-1],所以value[i][j]为value[i-1][j-w[i-1]]的值加上当前物品i的价值
-                if (w[i - 1] <= j) {
-                    if (value[i - 1][j] < (value[i - 1][j - w[i - 1]] + p[i - 1])) {
-                        value[i][j] = value[i - 1][j - w[i - 1]] + p[i - 1];
-                    } else {
-                        value[i][j] = value[i - 1][j];
-                    }
-                } else {
-                    value[i][j] = value[i - 1][j];
-                }
-            }
-        }
-        return value[n][m];
+        return 0;
     }
 
 

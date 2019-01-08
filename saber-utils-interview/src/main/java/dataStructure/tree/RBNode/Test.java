@@ -2,6 +2,12 @@ package dataStructure.tree.RBNode;
 
 /**
  * Java 语言: 二叉查找树
+ * 红黑树的特性:
+ * （1）每个节点或者是黑色，或者是红色。
+ * （2）根节点是黑色。
+ * （3）每个叶子节点（NIL）是黑色。 [注意：这里叶子节点，是指为空(NIL或NULL)的叶子节点！]
+ * （4）如果一个节点是红色的，则它的子节点必须是黑色的。
+ * （5）从一个节点到该节点的子孙节点的所有路径上包含相同数目的黑节点。
  *
  * @author skywang
  * @date 2013/11/07
@@ -14,14 +20,14 @@ public class Test {
 
     public static void main(String[] args) {
         int i, ilen = a.length;
-        RBTree<Integer> tree=new RBTree<Integer>();
+        RBTree<Integer> tree = new RBTree<Integer>();
 
         System.out.printf("== 原始数据: ");
-        for(i=0; i<ilen; i++)
+        for (i = 0; i < ilen; i++)
             System.out.printf("%d ", a[i]);
         System.out.printf("\n");
 
-        for(i=0; i<ilen; i++) {
+        for (i = 0; i < ilen; i++) {
             tree.insert(a[i]);
             // 设置mDebugInsert=true,测试"添加函数"
             if (mDebugInsert) {
@@ -50,8 +56,7 @@ public class Test {
 
         // 设置mDebugDelete=true,测试"删除函数"
         if (mDebugDelete) {
-            for(i=0; i<ilen; i++)
-            {
+            for (i = 0; i < ilen; i++) {
                 tree.remove(a[i]);
 
                 System.out.printf("== 删除节点: %d\n", a[i]);

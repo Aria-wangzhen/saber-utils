@@ -87,7 +87,9 @@ public class PraTest {
         int[] arr2 = {10, 100, 2, 5, 5, 5, 10, 1, 1, 1, 2, 100};
         int aim2 = 223;
         System.out.println("18.换钱最少货币数(不重复):" + Practise.minCoins(arr2, aim2));
-
+        int[] coins = { 10, 5, 1, 25 };
+        int aim = 29;
+        System.out.println("19.换钱的方法数(可重复)(累加 + ) -- 区别于最大(max)和最小(min):" + Practise.maxCoinWays(coins, aim));
 
     }
 
