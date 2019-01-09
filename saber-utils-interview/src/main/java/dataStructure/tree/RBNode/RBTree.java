@@ -3,6 +3,8 @@ package dataStructure.tree.RBNode;
 /**
  * Java 语言: 红黑树
  * 参考：https://www.cnblogs.com/skywang12345/p/3624343.html
+ * 附加参考：https://www.cnblogs.com/CarpenterLee/p/5503882.html
+ *
  * @author skywang
  * @date 2013/11/07
  */
@@ -232,13 +234,13 @@ public class RBTree<T extends Comparable<T>> {
         // 如果x没有右孩子。则x有以下两种可能：
         // (01) x是"一个左孩子"，则"x的后继结点"为 "它的父结点"。
         // (02) x是"一个右孩子"，则查找"x的最低的父结点，并且该父结点要具有左孩子"，找到的这个"最低的父结点"就是"x的后继结点"。
-        RBTNode<T> y = x.parent;
-        while ((y != null) && (x == y.right)) {
-            x = y;
-            y = y.parent;
+        RBTNode<T> parent = x.parent;
+        while ((parent != null) && (x == parent.right)) {
+            x = parent;
+            parent = parent.parent;
         }
 
-        return y;
+        return parent;
     }
 
     /**
@@ -256,17 +258,18 @@ public class RBTree<T extends Comparable<T>> {
         // 如果x没有左孩子。则x有以下两种可能：
         // (01) x是"一个右孩子"，则"x的前驱结点"为 "它的父结点"。
         // (01) x是"一个左孩子"，则查找"x的最低的父结点，并且该父结点要具有右孩子"，找到的这个"最低的父结点"就是"x的前驱结点"。
-        RBTNode<T> y = x.parent;
-        while ((y != null) && (x == y.left)) {
-            x = y;
-            y = y.parent;
+        RBTNode<T> parent = x.parent;
+        while ((parent != null) && (x == parent.left)) {
+            x = parent;
+            parent = parent.parent;
         }
 
-        return y;
+        return parent;
     }
 
     /**
      * 对红黑树的节点(x)进行左旋转
+     * 设置孩子也要考虑设置父亲
      * <p>
      * 左旋示意图(对节点x进行左旋)：
      * px                              px
@@ -280,34 +283,42 @@ public class RBTree<T extends Comparable<T>> {
      * @param x
      */
     private void leftRotate(RBTNode<T> x) {
-        // 设置x的右孩子为y
-        RBTNode<T> y = x.right;
+        // 保存x的右孩子为y
+        RBTNode<T> xOldRight = x.right;
 
-        // 将 “y的左孩子” 设为 “x的右孩子”；
-        // 如果y的左孩子非空，将 “x” 设为 “y的左孩子的父亲”
-        x.right = y.left;
-        if (y.left != null) {
-            y.left.parent = x;
+        //第一步：右节点的左孩子处理
+
+        // 将 “xOldRight的左孩子” 设为 “x的右孩子”；如果xOldRight的左孩子非空，将 “x” 设为 “xOldRight的左孩子的父亲”
+        x.right = xOldRight.left;
+        if (xOldRight.left != null) {
+            xOldRight.left.parent = x;
         }
 
-        // 将 “x的父亲” 设为 “y的父亲”
-        y.parent = x.parent;
+        //第二步：右节点的处理
+
+        // 将 “x的父亲” 设为 “xOldRight的父亲”
+        xOldRight.parent = x.parent;
 
         if (x.parent == null) {
-            this.mRoot = y;            // 如果 “x的父亲” 是空节点，则将y设为根节点
+            // 如果 “x的父亲” 是空节点，则将xOldRight设为根节点
+            this.mRoot = xOldRight;
         } else {
+            //处理父节点的子孩子处理
+            // 如果 x是它父节点的左孩子，则将xOldRight设为“x的父节点的左孩子”
             if (x.parent.left == x) {
-                x.parent.left = y;
-            }   // 如果 x是它父节点的左孩子，则将y设为“x的父节点的左孩子”
-            else {
-                x.parent.right = y;
-            }   // 如果 x是它父节点的左孩子，则将y设为“x的父节点的左孩子”
+                x.parent.left = xOldRight;
+            } else {
+                // 如果 x是它父节点的左孩子，则将xOldRight设为“x的父节点的左孩子”
+                x.parent.right = xOldRight;
+            }
         }
 
-        // 将 “x” 设为 “y的左孩子”
-        y.left = x;
-        // 将 “x的父节点” 设为 “y”
-        x.parent = y;
+        //第三步：x的处理
+
+        // 将 “x” 设为 “xOldRight的左孩子”
+        xOldRight.left = x;
+        // 将 “x的父节点” 设为 “xOldRight”
+        x.parent = xOldRight;
     }
 
     /**
@@ -328,13 +339,14 @@ public class RBTree<T extends Comparable<T>> {
         // 设置x是当前节点的左孩子。
         RBTNode<T> x = y.left;
 
+        //第一步：处理左节点接单的右孩子
         // 将 “x的右孩子” 设为 “y的左孩子”；
         // 如果"x的右孩子"不为空的话，将 “y” 设为 “x的右孩子的父亲”
         y.left = x.right;
         if (x.right != null) {
             x.right.parent = y;
         }
-
+        //第二步：处理左节点
         // 将 “y的父亲” 设为 “x的父亲”
         x.parent = y.parent;
 
@@ -349,6 +361,7 @@ public class RBTree<T extends Comparable<T>> {
             }    // (y是它父节点的左孩子) 将x设为“x的父节点的左孩子”
         }
 
+        //第三步：处理自身
         // 将 “y” 设为 “x的右孩子”
         x.right = y;
 
