@@ -26,7 +26,7 @@ public class PraTest {
 
         /*---------------------------------------------------二叉树---------------------------------------------------*/
 
-        //tree();
+        tree();
 
         /*--------------------------------------------------红黑树---------------------------------------------------*/
 
@@ -142,9 +142,9 @@ public class PraTest {
         m3.right = m6;
         TreeNode mroot = m1;
 
-        System.out.println("二叉树的前序遍历 - 遍历：");
+        System.out.println("二叉树的前序遍历(深度优先搜索) - 遍历：");
         Practise.preTree(root);
-        System.out.println("二叉树的前序遍历 - 递归：");
+        System.out.println("二叉树的前序遍历(深度优先搜索) - 递归：");
         Practise.preTreeRec(root);
 
         System.out.println("二叉树的中序遍历 - 遍历：");

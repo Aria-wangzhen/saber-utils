@@ -619,7 +619,7 @@ public class Practise {
      */
 
     /**
-     * 1.1 前序遍历 -- 遍历
+     * 1.1 前序遍历(深度优先搜索) -- 遍历
      */
     public static void preTree(TreeNode root) {
         if (root != null) {
@@ -639,7 +639,7 @@ public class Practise {
     }
 
     /**
-     * 1.1 前序遍历 -- 递归
+     * 1.1 前序遍历(深度优先搜索) -- 递归
      */
     public static void preTreeRec(TreeNode root) {
         if (root == null) {
