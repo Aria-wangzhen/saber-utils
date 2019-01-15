@@ -1,0 +1,41 @@
+动态代理原理：生成一个代理机制，可以灵活的调用被代理类的各种方法。
+
+JDK动态代理形式：
+
+1.首先建一个接口
+Call
+2.实现接口
+RealObject
+3.创建代理类
+ProxyHandler
+4.运行
+ProxyTest
+
+
+JDK动态代理原理：
+1.当代理对象调用真实对象的方法时，其会自动的跳转到代理对象关联的handler对象的invoke方法来进行调用
+2.byte[] proxyClassFile = ProxyGenerator.generateProxyClass(proxyName, interfaces, accessFlags);    生成字节码
+3.生成字节码之后，调用了native方法来声明这个生成的真正的代理类
+4.最终真正的代理类，它继承自Proxy并实现了我们定义的Call接口，在实现Call接口方法的内部，通过反射调用了InvocationHandlerImpl的invoke方法
+
+
+jdk和cglib动态代理实现的区别
+1、jdk动态代理生成的代理类和委托类实现了相同的接口；
+2、cglib动态代理中生成的字节码更加复杂，生成的代理类是委托类的子类，且不能处理被final关键字修饰的方法；
+3、jdk采用反射机制调用委托类的方法，cglib采用类似索引的方式直接调用委托类方法；
+
+
+
+cglib动态代理步骤：
+
+1.   查找委托类上的所有非final 的public类型的方法定义；
+
+2.   将这些方法的定义转换成字节码；
+
+3.   将组成的字节码转换成相应的代理的class对象；
+
+4.   实现 MethodInterceptor接口，用来处理 对代理类上所有方法的请求（这个接口和JDK动态代理InvocationHandler的功能和角色是一样的）
+
+详细介绍
+
+http://www.cnblogs.com/chinajava/p/5880887.html
