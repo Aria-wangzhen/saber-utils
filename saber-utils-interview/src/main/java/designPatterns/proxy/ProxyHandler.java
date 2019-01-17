@@ -1,5 +1,7 @@
 package designPatterns.proxy;
 
+import com.alibaba.fastjson.JSON;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -18,11 +20,16 @@ public class ProxyHandler implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        System.out.println("method.getName:" + method.getName());
+        System.out.println("method.getParameterTypes:" + JSON.toJSONString(method.getParameterTypes()));
+        System.out.println("args:" + JSON.toJSONString(args));
+        System.out.println("method.getGenericReturnType:" + method.getGenericReturnType());
         return method.invoke(tar, args);
     }
 
     /**
      * 绑定委托对象，并返回代理类
+     *
      * @param <T>
      * @return
      */

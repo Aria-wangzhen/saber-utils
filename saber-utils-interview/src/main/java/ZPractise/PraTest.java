@@ -18,7 +18,7 @@ public class PraTest {
 
         /*---------------------------------------------------排序和查找---------------------------------------------------*/
 
-        algorithm();
+        //algorithm();
 
         /*---------------------------------------------------链表---------------------------------------------------*/
 
@@ -26,13 +26,13 @@ public class PraTest {
 
         /*---------------------------------------------------二叉树---------------------------------------------------*/
 
-        tree();
+        //tree();
 
         /*--------------------------------------------------红黑树---------------------------------------------------*/
 
 
         /*---------------------------------------------------动态规划---------------------------------------------------*/
-        dynamic();
+        //dynamic();
 
     }
 
@@ -87,7 +87,7 @@ public class PraTest {
         int[] arr2 = {10, 100, 2, 5, 5, 5, 10, 1, 1, 1, 2, 100};
         int aim2 = 223;
         System.out.println("18.换钱最少货币数(不重复):" + Practise.minCoins(arr2, aim2));
-        int[] coins = { 10, 5, 1, 25 };
+        int[] coins = {10, 5, 1, 25};
         int aim = 29;
         System.out.println("19.换钱的方法数(可重复)(累加 + ) -- 区别于最大(max)和最小(min):" + Practise.maxCoinWays(coins, aim));
 
@@ -240,6 +240,7 @@ public class PraTest {
         System.out.println("合并两个有序链表，使合并后的链表依然有序 -递归：");
         printLinkList(Practise.mergeSortedListRec(n1, n21));
 
+
         System.out.println("无序链表排序：");
         printLinkList(Practise.sortList(n1));
     }
@@ -269,9 +270,11 @@ public class PraTest {
         }
         ListNode tmp = head;
         while (tmp != null) {
-            System.out.println(tmp.value);
+            System.out.print(tmp.value + "" +
+                    "");
             tmp = tmp.next;
         }
+        System.out.println("");
     }
 
     private static void printArr(int[] numbers) {
