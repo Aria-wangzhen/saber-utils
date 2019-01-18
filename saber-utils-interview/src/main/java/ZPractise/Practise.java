@@ -654,17 +654,17 @@ public class Practise {
     /**
      * 1.2 中序遍历 -- 遍历
      */
-    public static void inOrderUnRecur(TreeNode head) {
-        if (head != null) {
+    public static void inOrderUnRecur(TreeNode root) {
+        if (root != null) {
             Stack<TreeNode> stack = new Stack<>();
-            while (head != null || !stack.isEmpty()) {
-                if (head != null) {
-                    stack.push(head);
-                    head = head.left;
+            while (root != null || !stack.isEmpty()) {
+                if (root != null) {
+                    stack.push(root);
+                    root = root.left;
                 } else {
-                    head = stack.pop();
-                    out.print(head.value + " ");
-                    head = head.right;
+                    root = stack.pop();
+                    out.print(root.value + " ");
+                    root = root.right;
                 }
             }
             System.out.println();
