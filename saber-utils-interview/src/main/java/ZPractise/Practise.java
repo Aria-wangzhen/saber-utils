@@ -658,13 +658,22 @@ public class Practise {
         if (root != null) {
             Stack<TreeNode> stack = new Stack<>();
             while (root != null || !stack.isEmpty()) {
-                if (root != null) {
+                /*if (root != null) {
                     stack.push(root);
                     root = root.left;
                 } else {
                     root = stack.pop();
                     out.print(root.value + " ");
                     root = root.right;
+                }*/
+                while (root != null) {
+                    stack.push(root);
+                    root = root.getLeft();
+                }
+                if (!stack.isEmpty()) {
+                    root = stack.pop();
+                    System.out.print(root.getValue() + "  ");
+                    root = root.getRight();
                 }
             }
             System.out.println();
@@ -844,6 +853,7 @@ public class Practise {
 
     /**
      * 6.求二叉树的镜像(破坏原树) - 遍历
+     * 先序遍历 + 加交换
      */
     public static TreeNode getJXDes(TreeNode root) {
         if (root == null) {
