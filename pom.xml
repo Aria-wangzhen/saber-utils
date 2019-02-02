@@ -9,17 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>saber-utils-mybatis</module>
         <module>saber-utils-interview</module>
-        <module>saber-utils-springmvc-param</module>
         <module>saber-utils-readFile</module>
-        <module>saber-utils-regex</module>
-        <module>saber-utils-collection-date-string</module>
         <module>saber-utils-frame</module>
-        <module>saber-utils-encryption</module>
-        <module>saber-utils-coding</module>
         <module>saber-utils-spring</module>
-        <module>saber-utils-jdk8</module>
     </modules>
     <properties>
         <env>qa</env>

@@ -562,7 +562,7 @@ public class BinaryTree {
      */
     public static void findPath(TreeNode root, int expectedSum) {
         // 创建一个链表，用于存放根结点到当前处理结点的所经过的结点
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<Integer>();
 
         // 如果根结点不为空，就调用辅助处理方法
         if (root != null) {

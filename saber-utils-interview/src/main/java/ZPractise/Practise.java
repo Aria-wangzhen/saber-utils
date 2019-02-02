@@ -1815,4 +1815,8 @@ public class Practise {
      * 25.N皇后问题
      */
 
+    /**
+     * 26.https://blog.csdn.net/give_me_energy/article/details/51006708
+     */
+
 }
