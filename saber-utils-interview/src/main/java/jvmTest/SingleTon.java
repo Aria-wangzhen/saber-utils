@@ -1,4 +1,4 @@
-package javaBase;
+package jvmTest;
 
 /**
  * @author Aria
