@@ -36,5 +36,8 @@ public class StaticDispatch {
         StaticDispatch dispatch = new StaticDispatch();
         dispatch.hello(man);
         dispatch.hello(woman);
+        //
+        dispatch.hello((Man)man);
+        dispatch.hello((Woman)woman);
     }
 }
