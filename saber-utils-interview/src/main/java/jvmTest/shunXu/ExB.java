@@ -1,4 +1,6 @@
-package jvmTest;
+package jvmTest.shunXu;
+
+import jvmTest.shunXu.ExA;
 
 /**
  * @author Aria

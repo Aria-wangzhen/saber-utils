@@ -1,4 +1,4 @@
-package jvmTest;
+package jvmTest.shunXu;
 
 /**
  * @author Aria

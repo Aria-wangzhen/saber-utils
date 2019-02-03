@@ -1,4 +1,4 @@
-package jvmTest;
+package jvmTest.shunXu;
 
 /**
  * 静态代码块以及非静态代码块都会在构造函数前执行，首次访问时，静态代码块会在非静态代码块前执行
