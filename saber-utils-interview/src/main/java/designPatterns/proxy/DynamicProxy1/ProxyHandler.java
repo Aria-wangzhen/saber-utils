@@ -1,4 +1,4 @@
-package designPatterns.proxy;
+package designPatterns.proxy.DynamicProxy1;
 
 import com.alibaba.fastjson.JSON;
 

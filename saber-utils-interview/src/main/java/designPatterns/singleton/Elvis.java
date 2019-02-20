@@ -40,8 +40,7 @@ public class Elvis {
 
     }
 
-    public static void main(String[] args) throws InstantiationException, IllegalAccessException,
-            IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
+    public static void main(String[] args) throws Exception {
 
         Class<?> classType = Elvis.class;
         Constructor<?> c = classType.getDeclaredConstructor(null);

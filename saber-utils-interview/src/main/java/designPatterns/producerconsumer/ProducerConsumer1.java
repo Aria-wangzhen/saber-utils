@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 
 /**
  * 1、wait()和notify()
- *
+ * <p>
  * Created by wangzhen on 2017/5/17.
  */
 public class ProducerConsumer1 {
@@ -28,7 +28,6 @@ public class ProducerConsumer1 {
     class Produce implements Runnable {
 
 
-
         public void run() {
 
             while (true) {
@@ -40,9 +39,9 @@ public class ProducerConsumer1 {
                         }
 
                         Object object = new Object();
-                        if(storoHouse.add(object)) {
+                        if (storoHouse.add(object)) {
                             System.out.println("Producer put a Object to storeHouse");
-                            Thread.sleep((long) Math.random()*3000);
+                            Thread.sleep((long) Math.random() * 3000);
                             storoHouse.notify();
                         }
 
@@ -57,7 +56,6 @@ public class ProducerConsumer1 {
     class Consumer implements Runnable {
 
 
-
         public void run() {
 
             while (true) {
@@ -70,7 +68,7 @@ public class ProducerConsumer1 {
 
                         storoHouse.removeLast();
                         System.out.println("Comsumer get  a Object from storeHouse");
-                        Thread.sleep((long) Math.random()*3000);
+                        Thread.sleep((long) Math.random() * 3000);
                         storoHouse.notify();
                     } catch (InterruptedException e) {
                         System.out.println("Consumer is interrupted");

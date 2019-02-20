@@ -1,6 +1,8 @@
 package fanXing;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 
 /**
  * @author Aria
@@ -13,5 +15,13 @@ public class Test {
         ArrayList<Integer> arrayList2 = new ArrayList<Integer>();
         arrayList2.add(123);
         System.out.println(arrayList1.getClass() == arrayList2.getClass());
+
+        HashSet<Integer> set = new HashSet<>();
+        set.add(1);
+        set.add(2);
+
+        LinkedHashMap<Integer, Integer> linkedHashMap = new LinkedHashMap<>();
+        linkedHashMap.put(1, 1);
+        linkedHashMap.put(2, 2);
     }
 }

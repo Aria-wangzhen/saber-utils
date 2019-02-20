@@ -388,7 +388,7 @@ public class Practise {
             stack.push(tmp);
         }
         while (!stack.isEmpty()) {
-            out.println(stack.pop().value);
+            System.out.println(stack.pop().value);
         }
     }
 
@@ -400,7 +400,7 @@ public class Practise {
             return;
         }
         reversePrintListStackRec(head.next);
-        out.println(head.value);
+        System.out.println(head.value);
     }
 
     /**
@@ -904,7 +904,9 @@ public class Practise {
         }
 
         Stack<TreeNode> stack = new Stack<>();
+
         Stack<TreeNode> newStack = new Stack<>();
+
         stack.push(root);
         //每一个节点必须是新的new出来的
         TreeNode newRoot = new TreeNode(root.value);
@@ -990,6 +992,7 @@ public class Practise {
         if (root == null) {
             return true;
         }
+        //Math.abs()取绝对值
         if (Math.abs(getTreeHighRec(root.left) - getTreeHighRec(root.right)) > 1) {
             return false;
         }
@@ -1002,6 +1005,7 @@ public class Practise {
      * 11.判断二叉树是否是平衡二叉树
      */
     private boolean isBalanced = true;//最后的返回值
+
     //后续遍历时，遍历到一个节点，其左右子树已经遍历  依次自底向上判断，每个节点只需要遍历一次
     public boolean IsBalanced_Solution(TreeNode root) {
         getDepth(root);

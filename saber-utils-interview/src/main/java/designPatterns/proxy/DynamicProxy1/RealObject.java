@@ -1,4 +1,6 @@
-package designPatterns.proxy;
+package designPatterns.proxy.DynamicProxy1;
+
+import designPatterns.proxy.DynamicProxy1.Call;
 
 /**
  * @author Aria
