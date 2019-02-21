@@ -291,21 +291,13 @@ public class Dynamic {
      *
      * @return
      */
-    public static int maxSubSum1(int[] a) {
-        int maxSum = 0;
-        int nowSum = 0;
-        for (int i = 0; i < a.length; i++) {
-            nowSum = nowSum + a[i];
-            //更新最大子段和
-            if (nowSum > maxSum) {
-                maxSum = nowSum;
-            }
-            ////当当前累加和为负数时舍弃，重置为0
-            if (nowSum < 0) {
-                nowSum = 0;
-            }
+    public static int maxSubSum1(int[] nums) {
+        int res = Integer.MIN_VALUE, curSum = 0;
+        for (int num : nums) {
+            curSum = Math.max(curSum + num, num);
+            res = Math.max(res, curSum);
         }
-        return maxSum;
+        return res;
     }
 
     /**

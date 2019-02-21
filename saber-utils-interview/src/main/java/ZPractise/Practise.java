@@ -516,21 +516,22 @@ public class Practise {
      * 12.合并两个有序链表，使合并后的链表依然有序 - 递归
      */
     public static ListNode mergeSortedListRec(ListNode head1, ListNode head2) {
-        if (head1 == null) {
+        if(head1 == null){
             return head2;
         }
-        if (head2 == null) {
+        if(head2 == null){
             return head1;
         }
-        ListNode mergeHead = null;
-        if (head1.value < head2.value) {
-            mergeHead = head1;
-            mergeHead.next = mergeSortedListRec(head1.next, head2);
-        } else {
-            mergeHead = head2;
-            mergeHead.next = mergeSortedListRec(head1, head2.next);
+        ListNode mergeNode = null;
+        if(head1.value > head2.value){
+            mergeNode = new ListNode(head2.value);
+            mergeNode.next = mergeSortedListRec(head1, head2.next);
+        }else{
+            mergeNode = new ListNode(head1.value);
+            mergeNode.next = mergeSortedListRec(head1.next, head2);
         }
-        return mergeHead;
+
+        return mergeNode;
     }
 
     /**
@@ -1454,24 +1455,14 @@ public class Practise {
      * 8.最大子段和,当全为负数时候合为0
      * 一维数组
      */
-    public static int maxSubSum1(int[] array) {
-        if (array == null || array.length <= 0) {
-            return 0;
+    public static int maxSubSum1(int[] nums) {
+        int res = Integer.MIN_VALUE, curSum = 0;
+        for (int i = 0 ; i< nums.length;i++ ) {
+            //（1）当前最大和 （2）及时更新最大位置
+            curSum = Math.max(curSum + nums[i], nums[i]);
+            res = Math.max(res, curSum);
         }
-        int maxSum = 0;
-        int curSum = 0;
-        int length = array.length;
-        for (int i = 0; i < length; i++) {
-            curSum += array[i];
-            if (curSum > maxSum) {
-                maxSum = curSum;
-            }
-            if (curSum <= 0) {
-                curSum = 0;
-            }
-
-        }
-        return maxSum;
+        return res;
     }
 
 

@@ -66,7 +66,7 @@ public class PraTest {
         int[] sub = {1, 9, 2, 5, 7, 3, 4, 6, 8, 0, 11, 15, 17, 17, 10};
         System.out.println("7.最长连续递增子序列:" + Practise.getLongestString(sub));
         //最大字段和
-        int[] subSum = {2, -100, -9, -1};
+        int[] subSum = {2, -100, -9, -1, 9, -6, 1};
         System.out.println("8.最大字段和:" + Practise.maxSubSum1(subSum));
         //最长公共子序列路径长度
         String subStr1 = "A1BC2D3EFGH45I6JK7LMN";
