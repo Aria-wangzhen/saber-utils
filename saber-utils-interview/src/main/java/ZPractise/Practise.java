@@ -128,17 +128,18 @@ public class Practise {
 
         int low = 0;
         int high = arr.length - 1;
+
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (key < arr[mid]) {
-                high = mid - 1;
-            }
-            if (key > arr[mid]) {
-                low = mid + 1;
-            }
             if (key == arr[mid]) {
                 return mid;
+            } else if (key > arr[mid]) {
+                low = mid + 1;
+            } else {
+                high = mid;
             }
+
+
         }
         return null;
     }
@@ -516,17 +517,17 @@ public class Practise {
      * 12.合并两个有序链表，使合并后的链表依然有序 - 递归
      */
     public static ListNode mergeSortedListRec(ListNode head1, ListNode head2) {
-        if(head1 == null){
+        if (head1 == null) {
             return head2;
         }
-        if(head2 == null){
+        if (head2 == null) {
             return head1;
         }
         ListNode mergeNode = null;
-        if(head1.value > head2.value){
+        if (head1.value > head2.value) {
             mergeNode = new ListNode(head2.value);
             mergeNode.next = mergeSortedListRec(head1, head2.next);
-        }else{
+        } else {
             mergeNode = new ListNode(head1.value);
             mergeNode.next = mergeSortedListRec(head1.next, head2);
         }
@@ -1457,7 +1458,7 @@ public class Practise {
      */
     public static int maxSubSum1(int[] nums) {
         int res = Integer.MIN_VALUE, curSum = 0;
-        for (int i = 0 ; i< nums.length;i++ ) {
+        for (int i = 0; i < nums.length; i++) {
             //（1）当前最大和 （2）及时更新最大位置
             curSum = Math.max(curSum + nums[i], nums[i]);
             res = Math.max(res, curSum);
