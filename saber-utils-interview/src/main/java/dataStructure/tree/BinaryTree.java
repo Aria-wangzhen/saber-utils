@@ -311,40 +311,7 @@ public class BinaryTree {
 
     //8.判断两颗二叉树是不是相同的树  --非递归--
     public boolean isSameTree(TreeNode root1, TreeNode root2) {
-        if (root1 == null && root2 == null) {
-            return true;
-        }
-        if (root1 == null || root2 == null) {
-            return false;
-        }
-        if (root1.value != root2.value) {
-            return false;
-        }
-        Stack<TreeNode> stack1 = new Stack<TreeNode>();
-        Stack<TreeNode> stack2 = new Stack<TreeNode>();
-        stack1.push(root1);
-        stack2.push(root2);
-        while (!stack1.isEmpty() && !stack1.isEmpty()) {
-            TreeNode cur1 = stack1.pop();
-            TreeNode cur2 = stack2.pop();
-            if (cur1.value != cur2.value) {
-                return false;
-            } else {
-                if (cur1.right != null && cur2.right != null) {
-                    stack1.push(cur1.right);
-                    stack2.push(cur2.right);
-                }
-                if (cur1.left != null && cur2.left != null) {
-                    stack1.push(cur1.left);
-                    stack2.push(cur2.left);
-                }
-                if (cur1.left == null && cur1.right == null && cur2.left == null && cur2.right == null) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        }
+
         return true;
     }
     //9.判断二叉树1是不是二叉树2的子结构
