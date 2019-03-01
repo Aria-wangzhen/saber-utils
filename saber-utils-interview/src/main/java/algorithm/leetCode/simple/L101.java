@@ -1,7 +1,8 @@
 package algorithm.leetCode.simple;
 
+import algorithm.leetCode.TreeNode;
+
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * Symmetric Tree 判断对称树
