@@ -1006,7 +1006,8 @@ public class Practise {
      * 思路：https://blog.csdn.net/u013276277/article/details/78575033
      * 11.判断二叉树是否是平衡二叉树
      */
-    private boolean isBalanced = true;//最后的返回值
+    //以下是错误的 见  L110
+    /*private boolean isBalanced = true;//最后的返回值
 
     //后续遍历时，遍历到一个节点，其左右子树已经遍历  依次自底向上判断，每个节点只需要遍历一次
     public boolean IsBalanced_Solution(TreeNode root) {
@@ -1028,7 +1029,7 @@ public class Practise {
             isBalanced = false;
         }
         return depth;//下层的深度，上层可以接着用免得再遍历
-    }
+    }*/
 
     /**
      * 12.二叉树第k层的节点个数 -- 递归
