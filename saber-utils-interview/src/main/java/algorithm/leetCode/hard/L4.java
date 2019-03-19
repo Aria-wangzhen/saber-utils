@@ -1,13 +1,13 @@
-package algorithm.leetCode;
+package algorithm.leetCode.hard;
 
 /**
- * 4.寻找两个有序数组的中位数
+ * Median of Two Sorted Arrays 两个有序数组的中位数
  * http://www.cnblogs.com/grandyang/p/4465932.html
  *
  * @author Aria
  * @time on 2018-12-29.
  */
-public class LC4_MedianofTwSortedArrays {
+public class L4 {
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int m = nums1.length;
         int n = nums2.length;
