@@ -349,29 +349,44 @@ public class Practise {
 
     /**
      * 9.找出两个相交链表的第一个交点
+     * 思路:先让长的链表的指针先走长度差的距离，然后两个指针一起走，相遇的地方便是交点的开始处。
      */
-    public static boolean getFirstXJ(ListNode head1, ListNode head2) {
+    public static ListNode getFirstXJ(ListNode head1, ListNode head2) {
         if (head1 == null || head2 == null) {
-            return true;
+            return null;
         }
-        ListNode tmp1 = head1;
-        int len1 = 0;
-        while (tmp1.next != null) {
+
+        ListNode tail1 = head1;
+        int len1 = 1;
+        while (tail1.next != null) {
             len1++;
-            tmp1 = tmp1.next;
+            tail1 = tail1.next;
         }
-        ListNode tmp2 = head2;
-        int len2 = 0;
-        while (tmp2.next != null) {
+        ListNode tail2 = head2;
+        int len2 = 1;
+        while (tail2.next != null) {
             len2++;
-            tmp2 = tmp2.next;
+            tail2 = tail2.next;
         }
+        ListNode n1 = head1;
+        ListNode n2 = head2;
         if (len1 > len2) {
             int k = len1 - len2;
-            while (--k >= 0) {
+            //这样写更精妙~~~~
+            while (k-- > 0) {
+                n1 = n1.next;
+            }
+        } else {
+            int k = len2 - len1;
+            while (k-- > 0) {
+                n2 = n2.next;
             }
         }
-        return tmp1 == tmp2;
+        while (n1 != n2) {
+            n1 = n1.next;
+            n2 = n2.next;
+        }
+        return n1;
     }
 
     /**
