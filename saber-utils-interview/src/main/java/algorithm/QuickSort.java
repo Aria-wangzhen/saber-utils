@@ -38,7 +38,7 @@ public class QuickSort {
     private static int getMiddle(int[] numbers, int low, int high) {
         int temp = numbers[low]; //数组的第一个作为中轴
         while (low < high) {
-            //直到找到一个比中轴值小的，或者都比他大
+            //直到找到一个比中轴值小的
             while (low < high && numbers[high] > temp) {
                 high--;
             }
