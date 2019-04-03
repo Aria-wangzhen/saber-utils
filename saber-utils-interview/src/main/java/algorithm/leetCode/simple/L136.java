@@ -1,7 +1,5 @@
 package algorithm.leetCode.simple;
 
-import dataStructure.listList.ListNode;
-
 /**
  * Single Number 单独的数字
  * http://www.cnblogs.com/grandyang/p/4130577.html
