@@ -1,5 +1,8 @@
 package algorithm.ZChengYun.chapter_5_stringproblem;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 找到字符串中最长无重复的子串
  */
@@ -22,6 +25,30 @@ public class Problem_18_LongestNoRepeatSubstring {
             cur = i - pre;
             len = Math.max(len, cur);
             map[chas[i]] = i;
+        }
+        return len;
+    }
+
+    /**
+     * 自己改的更好
+     *
+     * @param str
+     * @return
+     */
+    public static int maxUnique1(String str) {
+        if (str == null || str.equals("")) {
+            return 0;
+        }
+        char[] chas = str.toCharArray();
+        Map<Character, Integer> map = new HashMap<>();
+        int len = 0;
+        int pre = -1;
+        int cur = 0;
+        for (int i = 0; i != chas.length; i++) {
+            pre = Math.max(pre, map.get(chas[i]) == null ? -1 : map.get(chas[i]));
+            cur = i - pre;
+            len = Math.max(len, cur);
+            map.put(chas[i], i);
         }
         return len;
     }
@@ -67,6 +94,7 @@ public class Problem_18_LongestNoRepeatSubstring {
         String str = getRandomString(20);
         System.out.println(str);
         System.out.println(maxUnique(str));
+        System.out.println(maxUnique1(str));
         System.out.println(maxUniqueString(str));
     }
 }
