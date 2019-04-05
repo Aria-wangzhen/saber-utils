@@ -6,7 +6,7 @@ package algorithm.leetCode.simple;
  * @author Aria
  * @time on 2019-02-19.
  */
-public class L8 {
+public class L008 {
     public static void main(String[] args) {
         System.out.println(isPalindrome(-121));
     }

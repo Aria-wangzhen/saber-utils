@@ -1,5 +1,8 @@
 package algorithm.ZChengYun.chapter_5_stringproblem;
 
+/**
+ * 去掉字符串中连续出现K个0的子串
+ */
 public class Problem_03_RemoveKZeros {
 
     public static String removeKZeros(String str, int k) {

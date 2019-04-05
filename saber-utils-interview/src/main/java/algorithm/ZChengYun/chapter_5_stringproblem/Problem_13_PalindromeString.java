@@ -1,5 +1,10 @@
 package algorithm.ZChengYun.chapter_5_stringproblem;
 
+import com.alibaba.fastjson.JSON;
+
+/**
+ * 添加最少字符使字符串整体都是回文字符串
+ */
 public class Problem_13_PalindromeString {
 
 
@@ -47,7 +52,7 @@ public class Problem_13_PalindromeString {
     public static int[][] getDP(char[] str) {
         int[][] dp = new int[str.length][str.length];
         for (int j = 1; j < str.length; j++) {
-            dp[j - 1][j] = str[j - 1] == str[j] ? 0 : 1;
+            dp[j - 1][j] = (str[j - 1] == str[j] ? 0 : 1);
             for (int i = j - 2; i > -1; i--) {
                 if (str[i] == str[j]) {
                     dp[i][j] = dp[i + 1][j - 1];
@@ -65,6 +70,8 @@ public class Problem_13_PalindromeString {
         }
         char[] chas = str.toCharArray();
         int[][] dp = getDP(chas);
+        System.out.println(JSON.toJSONString(dp));
+        System.out.println(JSON.toJSONString(dp[0][str.length() - 1]));
         char[] res = new char[chas.length + dp[0][chas.length - 1]];
         int i = 0;
         int j = chas.length - 1;
@@ -135,6 +142,8 @@ public class Problem_13_PalindromeString {
 
     public static void main(String[] args) {
         String str = "AB1CD2EFG3H43IJK2L1MN";
+
+        System.out.println(getDP(str.toCharArray())[0][str.length() - 1]);
         System.out.println(getPalindrome1(str));
 
         String strlps = "1234321";

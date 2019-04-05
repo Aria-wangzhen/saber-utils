@@ -6,7 +6,7 @@ package algorithm.leetCode.simple;
  * @author Aria
  * @time on 2019-02-28.
  */
-public class L88 {
+public class L088 {
     public static void main(String[] args) {
         int[] nums1 = {3, 45, 455};
         int[] nums2 = {3, 45, 45, 90};

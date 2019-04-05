@@ -10,7 +10,7 @@ import java.util.Map;
  * @author Aria
  * @time on 2019-02-20.
  */
-public class L26 {
+public class L026 {
     public static void main(String[] args) {
 
     }

@@ -483,90 +483,62 @@ public class BinaryTree {
         root.right = buildTreeRec2(mid.substring(i + 1, len), pro.substring(i, len - 1));
         return root;
     }
-    //15.二叉树中两节点的最大距离
 
+    //15.二叉树中两节点的最大距离 L543
     /**
-     * 计算一个二叉树的最大距离有两个情况:
-     * <p>
-     * 情况A: 路径经过左子树的最深节点，通过根节点，再到右子树的最深节点。
-     * 情况B: 路径不穿过根节点，而是左子树或右子树的最大距离路径，取其大者。
-     * 只需要计算这两个情况的路径距离，并取其大者，就是该二叉树的最大距离
+     * 设置一个全局变量记录左右子树最大深度和。
      */
-    public static Result getMaxDistanceRec(TreeNode root) {
+    int maxDepth = 0;
+
+    public int diameterOfBinaryTree(algorithm.leetCode.TreeNode root) {
+        maxDepth(root);
+        return maxDepth;
+    }
+
+    private int maxDepth(algorithm.leetCode.TreeNode root) {
         if (root == null) {
-            Result empty = new Result(0, -1);       // 目的是让调用方 +1 后，把当前的不存在的 (NULL) 子树当成最大深度为 0
-            return empty;
+            return 0;
         }
-
-        // 计算出左右子树分别最大距离
-        Result lmd = getMaxDistanceRec(root.left);
-        Result rmd = getMaxDistanceRec(root.right);
-
-        Result res = new Result();
-        res.maxDepth = Math.max(lmd.maxDepth, rmd.maxDepth) + 1;        // 当前最大深度
-        // 取情况A和情况B中较大值
-        res.maxDistance = Math.max(lmd.maxDepth + rmd.maxDepth, Math.max(lmd.maxDistance, rmd.maxDistance));
-        return res;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        //额外计算最大长度 - 否则两个递归
+        maxDepth = Math.max(maxDepth, left + right);
+        return Math.max(left, right) + 1;
     }
 
-    private static class Result {
-        int maxDistance;
-        int maxDepth;
 
-        public Result() {
-        }
-
-        public Result(int maxDistance, int maxDepth) {
-            this.maxDistance = maxDistance;
-            this.maxDepth = maxDepth;
-        }
-    }
     /**
-     * 17.二叉树中和为某一值的路径
+     * 17.二叉树中和为某一值的路径 L113
      * <p>
      * 输入一棵二叉树和一个整数， 打印出二叉树中结点值的和为输入整数的所有路径。
      * 从树的根结点开始往下一直到叶销点所经过的结点形成一条路径。
      */
-    public static void findPath(TreeNode root, int expectedSum) {
-        // 创建一个链表，用于存放根结点到当前处理结点的所经过的结点
-        List<Integer> list = new ArrayList<Integer>();
-
-        // 如果根结点不为空，就调用辅助处理方法
-        if (root != null) {
-            findPath(root, 0, expectedSum, list);
-        }
+    public List<List<Integer>> findPath(TreeNode root, int sum) {
+        List<List<Integer>> pathList = new ArrayList<List<Integer>>();
+        List<Integer> sumList = new ArrayList<Integer>();
+        pathSumHelper(root, sum, sumList, pathList);
+        return pathList;
     }
 
-    /**
-     * @param root        当前要处理的结点
-     * @param curSum      当前记录的和（还未加上当前结点的值）
-     * @param expectedSum 要求的路径和
-     * @param result      根结点到当前处理结点的所经过的结点，（还未包括当前结点）
-     */
-    private static void findPath(TreeNode root, int curSum, int expectedSum, List<Integer> result) {
-
-        // 如果结点不为空就进行处理
-        if (root != null) {
-            // 加上当前结点的值
-            curSum += root.val;
-            // 将当前结点入队
-            result.add(root.val);
-            // 如果当前结点的值小于期望的和
-            if (curSum < expectedSum) {
-                // 递归处理左子树
-                findPath(root.left, curSum, expectedSum, result);
-                // 递归处理右子树
-                findPath(root.right, curSum, expectedSum, result);
-            } else if (curSum == expectedSum) {
-                // 如果当前和与期望的和相等
-                // 当前结点是叶结点，则输出结果
-                if (root.left == null && root.right == null) {
-                    System.out.println(result);
-                }
-            }
-            // 移除当前结点
-            result.remove(result.size() - 1);
+    private void pathSumHelper(TreeNode root, int sum, List<Integer> sumList, List<List<Integer>> pathList) {
+        if (root == null) {
+            return;
         }
+        sumList.add(root.val);
+        sum = sum - root.val;
+        if (root.left == null && root.right == null) {
+            if (sum == 0) {
+                pathList.add(new ArrayList<Integer>(sumList));
+            }
+        } else {
+            if (root.left != null) {
+                pathSumHelper(root.left, sum, sumList, pathList);
+            }
+            if (root.right != null) {
+                pathSumHelper(root.right, sum, sumList, pathList);
+            }
+        }
+        sumList.remove(sumList.size() - 1);
     }
 
 
@@ -588,8 +560,10 @@ public class BinaryTree {
         // 其他情况是要不然在左子树要不然在右子树
         if (commonInLeft != null) {
             return commonInLeft;
+        }else{
+            return commonInRight;
         }
-        return commonInRight;
+
     }
 
 

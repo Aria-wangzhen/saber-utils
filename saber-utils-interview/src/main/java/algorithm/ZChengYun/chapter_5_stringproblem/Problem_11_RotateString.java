@@ -1,5 +1,8 @@
 package algorithm.ZChengYun.chapter_5_stringproblem;
 
+/**
+ * 反转字符串-句子
+ */
 public class Problem_11_RotateString {
 
 	public static void rotateWord(char[] chas) {

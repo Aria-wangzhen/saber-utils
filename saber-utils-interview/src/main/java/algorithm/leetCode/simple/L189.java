@@ -3,7 +3,7 @@ package algorithm.leetCode.simple;
 /**
  * LeetCode 189. Rotate Array （旋转数组）
  * https://www.cnblogs.com/jimmycheng/p/7476681.html
- *
+ * 动态规划DP
  * @author Aria
  * @time on 2019-03-25.
  */

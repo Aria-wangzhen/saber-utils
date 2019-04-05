@@ -57,6 +57,7 @@ public class List {
         printLinkList(sortList(n1));
 
     }
+
     private static void printLinkList(ListNode head) {
         if (head == null) {
             return;
@@ -67,6 +68,7 @@ public class List {
             tmp = tmp.next;
         }
     }
+
     /**
      * 1.链表长度
      *
@@ -370,7 +372,8 @@ public class List {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode reHead = reverseListRec(head.next); //默认为已经逆置好了6-->5-->3-->2,即只需要在2的后面接1，因为2是head.next.所以 head.next.next = head;
+        ListNode reHead = reverseListRec(head.next); //默认为已经逆置好了6-->5-->3-->2,即只需要在2的后面接1，因为2是head.next.所以 head.next
+        // .next = head;
         head.next.next = head;
         head.next = null;               // 防止循环链表
         return reHead;
@@ -419,19 +422,22 @@ public class List {
 
     //11.合并两个有序链表，使合并后的链表依然有序           ----递归-----
     public static ListNode mergeSortedListRec(ListNode head1, ListNode head2) {
-        if (head1 == null)
+        if (head1 == null) {
             return head2;
-        if (head2 == null)
-            return head1;
-        ListNode mergeHead = null;
-        if (head1.value < head2.value) {
-            mergeHead = head1;
-            mergeHead.next = mergeSortedListRec(head1.next, head2);   // 连接已解决的子问题
-        } else {
-            mergeHead = head2;
-            mergeHead.next = mergeSortedListRec(head1, head2.next);
         }
-        return mergeHead;
+        if (head2 == null) {
+            return head1;
+        }
+        ListNode mergeNode = null;
+        if (head1.value > head2.value) {
+            mergeNode = new ListNode(head2.value);
+            mergeNode.next = mergeSortedListRec(head1, head2.next);
+        } else {
+            mergeNode = new ListNode(head1.value);
+            mergeNode.next = mergeSortedListRec(head1.next, head2);
+        }
+
+        return mergeNode;
     }
 
     /**
@@ -470,6 +476,9 @@ public class List {
      */
 
     public static ListNode sortList(ListNode head) {
+        /**
+         * 找中间节点
+         */
         if (head == null || head.next == null) {  // 链表没有元素或是只有一个元素的情况直接返回
             return head;
         }
@@ -484,12 +493,21 @@ public class List {
         }
 
 //      System.out.println(preSlow.val);
-        // 断开，分成两段
+        /**
+         *  断开，分成两段
+         */
+
         preSlow.next = null;
 
+        /**
+         * 递归
+         */
         ListNode first = sortList(head);        // 得到以排序好的前半段
         ListNode second = sortList(slow);   // 得到以排序好的后半段
 
+        /**
+         * 合并
+         */
         ListNode dummy = new ListNode(-1);
         ListNode dummyCur = dummy;
         while (first != null && second != null) { // 合并两半段

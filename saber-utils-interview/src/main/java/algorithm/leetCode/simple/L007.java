@@ -6,7 +6,7 @@ package algorithm.leetCode.simple;
  * @author Aria
  * @time on 2019-02-14.
  */
-public class L7 {
+public class L007 {
 
     public static void main(String[] args) {
         System.out.println(reverse1(1534236469));

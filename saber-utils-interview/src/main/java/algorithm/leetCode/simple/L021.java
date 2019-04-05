@@ -7,5 +7,5 @@ package algorithm.leetCode.simple;
  * @author Aria
  * @time on 2019-02-20.
  */
-public class L21 {
+public class L021 {
 }

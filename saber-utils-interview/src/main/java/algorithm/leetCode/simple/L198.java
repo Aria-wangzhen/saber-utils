@@ -3,6 +3,7 @@ package algorithm.leetCode.simple;
 /**
  * House Robber 打家劫舍
  * http://www.cnblogs.com/grandyang/p/4383632.html
+ * 动态规划DP
  *
  * @author Aria
  * @time on 2019-04-01.
@@ -33,7 +34,7 @@ public class L198 {
         for (int i = 2; i < len; i++) {
             dp[i] = Math.max(nums[i] + dp[i - 2], dp[i - 1]);
         }
-        return dp[len-1];
+        return dp[len - 1];
 
 
     }

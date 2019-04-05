@@ -1,5 +1,8 @@
 package algorithm.ZChengYun.chapter_5_stringproblem;
 
+/**
+ * 判断字符串是否互为旋转词语
+ */
 public class Problem_04_IsRotation {
 
 	public static boolean isRotation(String a, String b) {

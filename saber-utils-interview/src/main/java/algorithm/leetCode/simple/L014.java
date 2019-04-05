@@ -7,7 +7,7 @@ package algorithm.leetCode.simple;
  * @author Aria
  * @time on 2019-02-20.
  */
-public class L14 {
+public class L014 {
     public static void main(String[] args) {
         /**
          * ｛int i=0; int j=i++;｝

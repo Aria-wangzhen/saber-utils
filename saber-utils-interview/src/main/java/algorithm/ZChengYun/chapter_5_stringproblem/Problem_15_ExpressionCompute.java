@@ -1,5 +1,8 @@
 package algorithm.ZChengYun.chapter_5_stringproblem;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import java.util.LinkedList;
 
 /**
@@ -71,9 +74,12 @@ public class Problem_15_ExpressionCompute {
         return res;
     }
 
-    public static void main(String[] args) {
+    static ScriptEngine jse = new ScriptEngineManager().getEngineByName("JavaScript");
+
+    public static void main(String[] args) throws ScriptException {
         String exp = "4*((7*5)-43)+8*1";
         System.out.println(getValue(exp));
+        System.out.println(jse.eval(exp));
 
         /*exp = "4*(6+78)+53-9/2+45*8";
         System.out.println(getValue(exp));

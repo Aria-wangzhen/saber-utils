@@ -7,7 +7,7 @@ package algorithm.leetCode.simple;
  * @author Aria
  * @time on 2019-02-20.
  */
-public class L27 {
+public class L027 {
     public static void main(String[] args) {
 
     }

@@ -9,7 +9,7 @@ import java.util.Stack;
  * @author Aria
  * @time on 2019-02-20.
  */
-public class L20 {
+public class L020 {
     public static void main(String[] args) {
         System.out.println(isValid("(}"));
     }
