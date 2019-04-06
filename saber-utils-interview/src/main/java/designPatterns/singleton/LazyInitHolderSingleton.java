@@ -14,6 +14,7 @@ package designPatterns.singleton;
  * http://www.cnblogs.com/ttylinux/p/6498822.html?utm_source=itdadao&utm_medium=referral
  * <p>
  * http://www.blogjava.net/kenzhh/archive/2013/03/15/357824.html
+ * https://www.cnblogs.com/fangfuhai/p/6666850.html
  */
 public class LazyInitHolderSingleton {
     private LazyInitHolderSingleton() {
