@@ -191,7 +191,7 @@ public class BinaryTree {
 
     /**
      * 5.求二叉树的镜像(直接把原树变为其镜像树，即破坏原树)   --非递归--
-     * 思路: 利用Stsck,让节点的子节点互相交换
+     * 思路: 利用Stack,让节点的子节点互相交换
      *
      * @param root
      * @return
@@ -208,6 +208,7 @@ public class BinaryTree {
             TreeNode temp = cur.right;
             cur.right = cur.left;
             cur.left = temp;
+
             if (cur.right != null) {
                 stack.push(cur.right);
             }
@@ -314,8 +315,36 @@ public class BinaryTree {
 
         return true;
     }
-    //9.判断二叉树1是不是二叉树2的子结构
 
+    //9.判断二叉树1是不是二叉树2的子结构
+    public boolean hasSub(TreeNode root, TreeNode node) {
+        boolean res = false;
+        if (root != null && node != null) {
+            if (root.value == node.value) {
+                res = dosTree(root, node);
+                if (!res) {
+                    hasSub(root.left, node);
+                }
+                if (!res) {
+                    hasSub(root.right, node);
+                }
+            }
+        }
+        return res;
+    }
+
+    private boolean dosTree(TreeNode root, TreeNode node) {
+        if (root == null) {
+            return false;
+        }
+        if (node == null) {
+            return true;
+        }
+        if (root.value != node.value) {
+            return false;
+        }
+        return dosTree(root.left, node.left) && dosTree(root.right, node.right);
+    }
 
     //10.判断二叉树是否是平衡二叉树    --递归--   但是这种方式虽然简洁，但是每个节点会被遍历多次，并不高效
     public boolean isBlanced(TreeNode root) {
@@ -331,7 +360,8 @@ public class BinaryTree {
 
     //10.判断二叉树是否是平衡二叉树    --递归--   更加高效的解法：每个节点只被遍历一次
     //11.在遍历的过程中一边遍历一边计算高度
-    public boolean isBlanced2(TreeNode root) {
+    //以下是错误的
+    /*public boolean isBlanced2(TreeNode root) {
         int high = 0;
         return isBlanced3(root, high);
     }
@@ -349,8 +379,35 @@ public class BinaryTree {
             }
         }
         return false;
+    }*/
+    public boolean isBalanced1(TreeNode root) {
+        if (checkDepth(root) == -1) {
+            return false;
+        } else {
+            return true;
+        }
+
     }
 
+    private int checkDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = checkDepth(root.left);
+        if (left == -1) {
+            return -1;
+        }
+        int right = checkDepth(root.right);
+        if (right == -1) {
+            return -1;
+        }
+        int diff = Math.abs(left - right);
+        if (diff > 1) {
+            return -1;
+        } else {
+            return 1 + Math.max(left, right);
+        }
+    }
 
     //11.求二叉树第k层的节点个数  --递归--
     public int getNodesInKRec(TreeNode root, int k) {
@@ -450,8 +507,8 @@ public class BinaryTree {
         int len = pre.length();
         TreeNode root = new TreeNode(pre.charAt(0) + "");//先找到根节点，前序遍历的第一个是根节点
         int i = 0;
-        while (mid.charAt(i) != pre.charAt(0))//找到中序遍历中根节点的位置，那么它前面的即是左树，后面的是右树
-        {
+        //找到中序遍历中根节点的位置，那么它前面的即是左树，后面的是右树
+        while (mid.charAt(i) != pre.charAt(0)) {
             i++;
         }
 
@@ -484,8 +541,8 @@ public class BinaryTree {
         return root;
     }
 
-    //15.二叉树中两节点的最大距离 L543
     /**
+     * 15.二叉树中两节点的最大距离 L543
      * 设置一个全局变量记录左右子树最大深度和。
      */
     int maxDepth = 0;
@@ -560,7 +617,7 @@ public class BinaryTree {
         // 其他情况是要不然在左子树要不然在右子树
         if (commonInLeft != null) {
             return commonInLeft;
-        }else{
+        } else {
             return commonInRight;
         }
 

@@ -4,6 +4,7 @@ package algorithm;
 import org.springframework.util.CollectionUtils;
 
 /**
+ * https://blog.csdn.net/shihuboke/article/details/79387523
  * 快排
  * 　　把整个序列看做一个数组，把第零个位置看做中轴，
  * 和最后一个比，如果比它小交换，比它大不做任何处理；交换了以后再和小的那端比，比它小不交换，

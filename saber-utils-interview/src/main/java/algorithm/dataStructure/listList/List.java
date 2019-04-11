@@ -414,9 +414,11 @@ public class List {
             }
         }
         if (head1 != null)    // 合并剩余的元素
+        {
             mergeCur.next = head1;
-        else if (head2 != null)
+        } else if (head2 != null) {
             mergeCur.next = head2;
+        }
         return mergeCur;
     }
 

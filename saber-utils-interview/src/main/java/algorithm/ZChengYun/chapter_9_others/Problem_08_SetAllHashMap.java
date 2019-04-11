@@ -24,6 +24,7 @@ public class Problem_08_SetAllHashMap {
 
 	public static class MyHashMap<K, V> {
 		private HashMap<K, MyValue<V>> baseMap;
+
 		private long time;
 		private MyValue<V> setAll;
 

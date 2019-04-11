@@ -30,6 +30,50 @@ public class BinaryBaseTree {
     }
 
     /**
+     * 插入二叉树排序 有序插入 （大于根节点放右边 小于根节点放左边）
+     *
+     * @param value
+     */
+    public void insert(String value) {
+        if (value == null || value.length() <= 0) {
+            return;
+        }
+        TreeNode newNode = new TreeNode(value);
+        if (root == null) {
+            root = newNode;
+            root.left = null;
+            root.right = null;
+        }else {
+            TreeNode current = root;
+            TreeNode praentNode ;
+            while (true) {
+                praentNode = current;
+                if(newNode.val > praentNode.val){
+                    current = current.right;
+                    if (current == null) {
+                        praentNode.setRight(newNode);
+                        return;
+                    }
+
+                }else {
+                    current = current.left;
+                    if (current == null) {
+                        praentNode.setRight(newNode);
+                        return;
+                    }
+                }
+            }
+
+        }
+
+
+
+
+
+    }
+
+
+    /**
      * 递归 前续遍历：
      */
     public void preOrder(TreeNode node) {
@@ -110,7 +154,7 @@ public class BinaryBaseTree {
     /**
      * 非递归 后续遍历：左右中  一个栈
      */
-    public void postorderNoRecursion() {
+    public void postOrderNoRecursion() {
         TreeNode rNode = null;
         TreeNode current = root;
         Stack<TreeNode> stack = new Stack<TreeNode>();
@@ -141,7 +185,8 @@ public class BinaryBaseTree {
      */
     public void thePostOrderTraversal_Stack(TreeNode root) {   //后序遍历
         Stack<TreeNode> stack = new Stack<TreeNode>();
-        Stack<TreeNode> output = new Stack<TreeNode>();//构造一个中间栈来存储逆后序遍历的结果
+        //构造一个中间栈来存储逆后序遍历的结果
+        Stack<TreeNode> output = new Stack<TreeNode>();
         TreeNode node = root;
         while (node != null || stack.size() > 0) {
             if (node != null) {
@@ -184,12 +229,11 @@ public class BinaryBaseTree {
     }
 
     /**
-     *     A
-     *  /     \
-     *  B      C
-     *   \     /
-     *   D     E
-     *
+     * A
+     * /     \
+     * B      C
+     * \     /
+     * D     E
      *
      * @param args
      */
@@ -212,7 +256,7 @@ public class BinaryBaseTree {
         System.out.print(" 递归 后序遍历------->");
         bt.postOrder(bt.getRoot());
         System.out.print(" 非递归 后序遍历------->");
-        bt.postorderNoRecursion();
+        bt.postOrderNoRecursion();
         System.out.print(" 非递归 后序遍历------->");
         bt.thePostOrderTraversal_Stack(bt.getRoot());
         System.out.print(" 非递归 层序遍历(广度优先遍历)------->");

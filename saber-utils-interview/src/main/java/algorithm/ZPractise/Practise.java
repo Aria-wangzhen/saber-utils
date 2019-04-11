@@ -1044,6 +1044,34 @@ public class Practise {
         }
         return depth;//下层的深度，上层可以接着用免得再遍历
     }*/
+    public boolean isBalanced1(TreeNode root) {
+        if (checkDepth(root) == -1) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    private int checkDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = checkDepth(root.left);
+        if (left == -1) {
+            return -1;
+        }
+        int right = checkDepth(root.right);
+        if (right == -1) {
+            return -1;
+        }
+        int diff = Math.abs(left - right);
+        if (diff > 1) {
+            return -1;
+        } else {
+            return 1 + Math.max(left, right);
+        }
+    }
 
     /**
      * 12.二叉树第k层的节点个数 -- 递归
@@ -1252,27 +1280,27 @@ public class Practise {
         }
         int high = arr.length;
         int len = arr[arr.length - 1].length;
-        int[][] result = new int[high][len];
+        int[][] dp = new int[high][len];
         int[][] path = new int[high][len];
         //初始化
         for (int i = 0; i < arr[arr.length - 1].length; i++) {
-            result[high - 1][i] = arr[high - 1][i];
+            dp[high - 1][i] = arr[high - 1][i];
         }
 
         //行
         for (int i = high - 2; i >= 0; i--) {
             //列
             for (int j = 0; j <= i; j++) {
-                if (result[i + 1][j] > result[i + 1][j + 1]) {
-                    result[i][j] = arr[i][j] + result[i + 1][j];
+                if (dp[i + 1][j] > dp[i + 1][j + 1]) {
+                    dp[i][j] = arr[i][j] + dp[i + 1][j];
                     path[i][j] = j;
                 } else {
-                    result[i][j] = arr[i][j] + result[i + 1][j + 1];
+                    dp[i][j] = arr[i][j] + dp[i + 1][j + 1];
                     path[i][j] = j + 1;
                 }
             }
         }
-        out.println("最大值：" + result[0][0]);
+        out.println("最大值：" + dp[0][0]);
         int j = path[0][0];
         for (int i = 1; i <= high - 1; i++) {
             System.out.println("第" + i + "层数值：" + arr[i][j]);
@@ -1525,27 +1553,25 @@ public class Practise {
      * 10.最长公共子序列的路径
      */
     public static String getStringFromLp(String str1, String str2) {
-        if (str1 == null || str1.length() <= 0) {
-            return null;
+        if (str1 == null || str2 == null || str1.equals("") || str2.equals("")) {
+            return "";
         }
-        if (str2 == null || str2.length() <= 0) {
-            return null;
-        }
-        char[] arr1 = str1.toCharArray();
-        int i = str1.length() - 1;
-        int j = str2.length() - 1;
+        char[] chs1 = str1.toCharArray();
+        char[] chs2 = str2.toCharArray();
         int[][] dp = getLp(str1, str2);
-        char[] res = new char[dp[i][j]];
+        int m = chs1.length - 1;
+        int n = chs2.length - 1;
+        char[] res = new char[dp[m][n]];
         int index = res.length - 1;
         while (index >= 0) {
-            if (i > 0 && dp[i][j] > dp[i - 1][j]) {
-                i--;
-            } else if (j > 0 && dp[i][j] > dp[i][j]) {
-                j--;
+            if (n > 0 && dp[m][n] == dp[m][n - 1]) {
+                n--;
+            } else if (m > 0 && dp[m][n] == dp[m - 1][n]) {
+                m--;
             } else {
-                res[index--] = arr1[i];
-                i--;
-                j--;
+                res[index--] = chs1[m];
+                m--;
+                n--;
             }
         }
         return String.valueOf(res);
@@ -1631,9 +1657,8 @@ public class Practise {
      * 16.奶牛
      */
 
-
     /**
-     * 17.换钱最少货币数(重复)
+     * 17.换钱最少货币数(前提：钱币值不重复，但是可以重复使用) - 求钱的数量
      * 二维数组
      * dp[i][j]可以使用任意arr[0,..,i]货币的情况下，组成j所需要的最小张数
      * 从左到右，再从上到下
@@ -1646,7 +1671,7 @@ public class Practise {
             return -1;
         }
         int len = arr.length;
-        //因为是钱一定会到aim下边（由于数组从0开始）
+        //因为是钱一定会取到aim下边，所以aim + 1放aim（由于数组从0开始）
         int[][] dp = new int[len][aim + 1];
         //初始化
         for (int i = 0; i < len; i++) {
@@ -1677,7 +1702,7 @@ public class Practise {
     }
 
     /**
-     * 18.换钱最少货币数(不重复)
+     * 18.换钱最少货币数(前提：钱币值不重复，且只能使用一次) - 目的求钱的数量
      * 二维数组
      * dp[i][j]可以使用任意arr[0,..,i]货币的情况下(每个值仅代表一张货币)，组成j所需要的最小张数
      * 初始化不同；
@@ -1715,10 +1740,11 @@ public class Practise {
 
     }
 
+
     /**
-     * 左程云：196
+     * 左程云：196 - 求方法的数量
      * <p>
-     * 19.换钱的方法数(可重复)(累加 + ) -- 区别于最大(max)和最小(min)
+     * 19.换钱的方法数(前提：钱币值可重复)(累加 + ) -- 区别于最大(max)和最小(min)
      * 二维数组
      * dp[i][j] 表示在使用arr[0,..,i]货币的情况下，组成钱数j有多少种方法
      *
@@ -1791,7 +1817,7 @@ public class Practise {
         }
 
         for (int i = 1; i < n; i++) {
-            for (int j = 1; j < m + 1; j++) {
+            for (int j = 1; j <= m ; j++) {
                 //当物品为i件重量为j时，如果第i件的重量(w[i-1])小于重量j时，c[i][j]为下列两种情况之一：
                 //(1)物品i不放入背包中，所以c[i][j]为c[i-1][j]的值
                 //(2)物品i放入背包中，则背包剩余重量为j-w[i-1],所以c[i][j]为c[i-1][j-w[i-1]]的值加上当前物品i的价值

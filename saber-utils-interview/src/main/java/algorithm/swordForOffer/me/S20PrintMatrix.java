@@ -1,15 +1,15 @@
-package algorithm;
+package algorithm.swordForOffer.me;
 
 /**
  * https://blog.csdn.net/cherrydreamsover/article/details/80518759
  * https://blog.csdn.net/derrantcm/article/details/46691013
  * <p>
- * 剑指20题目
+ * 剑指20题目:顺时针打印矩阵
  *
  * @author Aria
  * @time on 2019-04-06.
  */
-public class PrintMatrix {
+public class S20PrintMatrix {
     public static void printMatrix(int[][] arr) {
         if (arr == null) {
             return;
