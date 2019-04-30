@@ -14,11 +14,13 @@ public class SelectSort {
      * @param numbers
      */
     public static void selectSort(int[] numbers) {
-        int size = numbers.length; //数组长度
-        int temp = 0; //中间变量
+        int size = numbers.length;
+        //中间变量
+        int temp = 0;
 
         for (int i = 0; i < size; i++) {
-            int k = i;   //待确定的位置
+            //待确定的位置，保持最小的值的索引
+            int k = i;
             //选择出应该在第i个位置的数
             for (int j = size - 1; j > i; j--) {
                 if (numbers[j] < numbers[k]) {

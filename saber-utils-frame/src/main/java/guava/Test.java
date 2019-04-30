@@ -10,7 +10,7 @@ public class Test {
 
     public static void change(BigDecimal a) {
        a = BigDecimal.ONE;
-        System.out.println("change a=" + a);
+        System.out.println(Long.MAX_VALUE);
 
     }
 

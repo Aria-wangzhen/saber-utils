@@ -12,6 +12,9 @@ public class DCLSingleton {
     private volatile static DCLSingleton dclSingleton = null;
     public static DCLSingleton getInstance(){
         if(null == dclSingleton){
+            //刚开始是dclSingleton=null,所有不能synchronized(dclSingleton),synchronized不能锁空对象；
+            //synchronized(this)
+
             synchronized (DCLSingleton.class){
                 if(null == dclSingleton){
                     dclSingleton = new DCLSingleton();

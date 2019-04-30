@@ -37,7 +37,7 @@ public class MergeSort {
      * @param mid  待排中间位置
      * @param high 待排结束位置
      */
-    public static void merge(int[] nums, int low, int mid, int high) {
+    private static void merge(int[] nums, int low, int mid, int high) {
         int[] temp = new int[high - low + 1];
         int left = low;// 左指针
         int right = mid + 1;// 右指针

@@ -1,6 +1,8 @@
 package algorithm.ZPractise;
 
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * @author Aria
  * @time on 2018-12-29.
@@ -19,7 +21,7 @@ public class PraTest {
 
         /*---------------------------------------------------二叉树---------------------------------------------------*/
 
-        //tree();
+        tree();
 
         /*--------------------------------------------------红黑树---------------------------------------------------*/
 
@@ -141,7 +143,7 @@ public class PraTest {
         Practise.preTreeRec(root);
 
         System.out.println("二叉树的中序遍历 - 遍历：");
-        Practise.inOrderUnRecur(root);
+        System.out.println(JSON.toJSONString(Practise.inOrderUnRecur(root)));;
 
         System.out.println("二叉树的后续序遍历 - 遍历 - 两个栈：");
         Practise.postOrderUnRecur(root);
@@ -178,10 +180,10 @@ public class PraTest {
 
         System.out.println("二叉树叶子节点的个数 - 递归:" + Practise.getYeNodesRec(root));
         System.out.println("二叉树叶子节点的个数 - 遍历(前序遍历):" + Practise.getYeNodes(root));
-        System.out.println("二叉树中两节点的最大距离:" + Practise.getMaxDistanceRec(root).maxDistance);
+        //System.out.println("二叉树中两节点的最大距离:" + Practise.getMaxDistanceRec(root).maxDistance);
 
         System.out.println("二叉树中和为某一值的路径:");
-        Practise.findPath(mroot, 25);
+        //Practise.findPath(mroot, 25);
         System.out.println("求二叉树中两个节点的最低公共祖先节点:" + Practise.getLastCommonParentRec(root, t4, t5).value);
     }
 

@@ -1,6 +1,8 @@
 package algorithm.dataStructure.tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -134,21 +136,26 @@ public class BinaryBaseTree {
      * 出栈，访问T->data，再中序遍历T的右子树。
      */
 
-    public void inorderNoRecursion() {
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode current = root;
-        while (current != null || !stack.isEmpty()) {
-            while (current != null) {
-                stack.push(current);
-                current = current.getLeft();
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if(root == null){
+            return result;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+        while(!stack.isEmpty() || cur != null){
+            while(cur != null){
+                stack.push(cur);
+                cur = cur.left;
             }
-            if (!stack.isEmpty()) {
-                current = stack.pop();
-                System.out.print(current.getValue() + "  ");
-                current = current.getRight();
+            if(!stack.isEmpty()){
+                cur = stack.pop();
+                result.add(cur.val);
+                cur = cur.right;
             }
         }
-        System.out.println();
+        return result;
+
     }
 
     /**
@@ -252,7 +259,7 @@ public class BinaryBaseTree {
         System.out.print(" 递归 中序遍历------->");
         bt.inOrder(bt.getRoot());
         System.out.print(" 非递归 中序遍历------->");
-        bt.inorderNoRecursion();
+        bt.inorderTraversal(bt.getRoot());
         System.out.print(" 递归 后序遍历------->");
         bt.postOrder(bt.getRoot());
         System.out.print(" 非递归 后序遍历------->");
