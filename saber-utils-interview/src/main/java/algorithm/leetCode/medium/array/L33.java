@@ -26,9 +26,9 @@ public class L33 {
                     right = mid - 1;
                 }
             } else {
-                if (nums[left] <= target && nums[mid] > target) {
-                    right = mid -1;
-                }else {
+                if (nums[mid] > target && nums[left] <= target) {
+                    right = mid - 1;
+                } else {
                     left = mid + 1;
                 }
             }

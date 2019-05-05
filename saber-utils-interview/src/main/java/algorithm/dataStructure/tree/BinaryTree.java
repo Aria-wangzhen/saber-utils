@@ -360,26 +360,6 @@ public class BinaryTree {
 
     //10.判断二叉树是否是平衡二叉树    --递归--   更加高效的解法：每个节点只被遍历一次
     //11.在遍历的过程中一边遍历一边计算高度
-    //以下是错误的
-    /*public boolean isBlanced2(TreeNode root) {
-        int high = 0;
-        return isBlanced3(root, high);
-    }
-
-    public boolean isBlanced3(TreeNode root, int high) {
-        if (root == null) {
-            high = 0;
-            return true;
-        }
-        int lefthigh = 0, righthigh = 0;
-        if (isBlanced3(root.left, lefthigh) && isBlanced3(root.right, righthigh)) {
-            if (Math.abs(lefthigh - righthigh) <= 1) {
-                high = 1 + Math.max(lefthigh, righthigh);
-                return true;
-            }
-        }
-        return false;
-    }*/
     public boolean isBalanced1(TreeNode root) {
         if (checkDepth(root) == -1) {
             return false;
@@ -401,6 +381,7 @@ public class BinaryTree {
         if (right == -1) {
             return -1;
         }
+        //比较差值
         int diff = Math.abs(left - right);
         if (diff > 1) {
             return -1;
@@ -599,22 +580,29 @@ public class BinaryTree {
     }
 
 
-    //16.最低公共祖先节点
+    //16.最低公共祖先节点 -- 前提是一定有 L236
     public TreeNode getLastCommonParentRec(TreeNode root, TreeNode n1, TreeNode n2) {
         if (root == null) {
             return null;
         }
-        // 如果有一个match，则说明当前node就是要找的最低公共祖先  注意递归条件！！！！！
+        /**
+         * 1、如果有一个match，则说明当前node就是要找的最低公共祖先  注意递归条件！！！！！
+         */
         if (root.equals(n1) || root.equals(n2)) {
             return root;
         }
         TreeNode commonInLeft = getLastCommonParentRec(root.left, n1, n2);
         TreeNode commonInRight = getLastCommonParentRec(root.right, n1, n2);
-        // 如果一个左子树找到，一个在右子树找到，则说明root是唯一可能的最低公共祖先
+
+        /**
+         * 2、如果一个左子树找到，一个在右子树找到，则说明root是唯一可能的最低公共祖先
+         */
         if (commonInLeft != null && commonInRight != null) {
             return root;
         }
-        // 其他情况是要不然在左子树要不然在右子树
+        /**
+         * 3、其他情况是要不然在左子树要不然在右子树
+         */
         if (commonInLeft != null) {
             return commonInLeft;
         } else {
