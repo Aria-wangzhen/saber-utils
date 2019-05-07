@@ -220,7 +220,9 @@ public class Dynamic {
      * @param m 表示背包的最大容量 m = 10
      * @param n 表示商品个数 n = 3
      * @param w 表示商品重量数组 w[] = {3, 4, 5}
-     * @param p 表示商品价值数组 p[] = {4, 5, 6}
+     * @param p 表示
+     *
+     *          商品价值数组 p[] = {4, 5, 6}
      * @see{BackPack}
      */
     public static int BackPack_Solution(int m, int n, int[] w, int[] p) {

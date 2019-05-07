@@ -12,10 +12,10 @@ public class Problem_11_RotateString {
         reverse(chas, 0, chas.length - 1);
         int low = -1;
         int high = -1;
-        for (int i = 0; i < chas.length; i++) {
+        for (int i = 0; i <= chas.length - 1; i++) {
             if (chas[i] != ' ') {
-                low = (i == 0 || chas[i - 1] == ' ' ? i : low);
-                high = (i == chas.length - 1 || chas[i + 1] == ' ' ? i : high);
+                low = (i == 0 || chas[i - 1] == ' ' )? i : low;
+                high = (i == chas.length - 1 || chas[i + 1] == ' ') ? i : high;
             }
             if (low != -1 && high != -1) {
                 reverse(chas, low, high);

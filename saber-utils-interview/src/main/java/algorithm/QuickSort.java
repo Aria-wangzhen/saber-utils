@@ -37,7 +37,8 @@ public class QuickSort {
      * @return 中轴所在位置
      */
     private static int getMiddle(int[] numbers, int low, int high) {
-        int temp = numbers[low]; //数组的第一个作为中轴
+        //数组的第一个作为中轴
+        int temp = numbers[low];
         while (low < high) {
             //直到找到一个比中轴值小的
             while (low < high && numbers[high] > temp) {
@@ -61,9 +62,13 @@ public class QuickSort {
      */
     private static void quickSort(int[] numbers, int low, int high) {
         if (low < high) {
-            int middle = getMiddle(numbers, low, high); //将numbers数组进行一分为二
-            quickSort(numbers, low, middle - 1);   //对低字段表进行递归排序
-            quickSort(numbers, middle + 1, high); //对高字段表进行递归排序
+            //快排有加一和减一
+            //将numbers数组进行一分为二
+            int middle = getMiddle(numbers, low, high);
+            //对低字段表进行递归排序
+            quickSort(numbers, low, middle - 1);
+            //对高字段表进行递归排序
+            quickSort(numbers, middle + 1, high);
         }
 
     }

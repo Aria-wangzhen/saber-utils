@@ -9,19 +9,19 @@ import designPatterns.roundingMode.Main;
  * @time on 2019-02-20.
  */
 public class DCLSingleton {
-    private volatile static DCLSingleton dclSingleton = null;
+    private volatile static DCLSingleton instance = null;
+
     public static DCLSingleton getInstance(){
-        if(null == dclSingleton){
+        if(null == instance){
             //刚开始是dclSingleton=null,所有不能synchronized(dclSingleton),synchronized不能锁空对象；
             //synchronized(this)
-
             synchronized (DCLSingleton.class){
-                if(null == dclSingleton){
-                    dclSingleton = new DCLSingleton();
+                if(null == instance){
+                    instance = new DCLSingleton();
                 }
             }
         }
-        return dclSingleton;
+        return instance;
     }
 
     private DCLSingleton() {

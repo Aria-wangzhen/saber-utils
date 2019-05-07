@@ -7,8 +7,8 @@ public class TestMain {
 
     public static void main(String[] args) {
 
-        LazyInitHolderSingleton one = LazyInitHolderSingleton.getInstance();
-        LazyInitHolderSingleton two = LazyInitHolderSingleton.getInstance();
+        StaticInsideHolderSingleton one = StaticInsideHolderSingleton.getInstance();
+        StaticInsideHolderSingleton two = StaticInsideHolderSingleton.getInstance();
         /*one.test();
         one.setName("I am a SingletonClass Instance");
         System.out.println(one.getName());*/

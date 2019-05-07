@@ -16,15 +16,18 @@ package designPatterns.singleton;
  * http://www.blogjava.net/kenzhh/archive/2013/03/15/357824.html
  * https://www.cnblogs.com/fangfuhai/p/6666850.html
  */
-public class LazyInitHolderSingleton {
-    private LazyInitHolderSingleton() {
+public class StaticInsideHolderSingleton {
+    private StaticInsideHolderSingleton() {
     }
 
+    //静态内部类
     private static class SingletonHolder {
-        private static final LazyInitHolderSingleton INSTANCE = new LazyInitHolderSingleton();
+        //静态、终止常量
+        private static final StaticInsideHolderSingleton INSTANCE = new StaticInsideHolderSingleton();
     }
 
-    public static LazyInitHolderSingleton getInstance() {
+    //静态内部方法获得单例
+    public static StaticInsideHolderSingleton getInstance() {
         return SingletonHolder.INSTANCE;
     }
 }

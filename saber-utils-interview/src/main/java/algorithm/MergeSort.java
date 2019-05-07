@@ -19,9 +19,9 @@ public class MergeSort {
     public static int[] sort(int[] nums, int low, int high) {
         int mid = (low + high) / 2;
         if (low < high) {
-            // 左边
+            // 左边，没有减一
             sort(nums, low, mid);
-            // 右边
+            // 右边，加一
             sort(nums, mid + 1, high);
             // 左右归并
             merge(nums, low, mid, high);
@@ -39,8 +39,10 @@ public class MergeSort {
      */
     private static void merge(int[] nums, int low, int mid, int high) {
         int[] temp = new int[high - low + 1];
-        int left = low;// 左指针
-        int right = mid + 1;// 右指针
+        // 左指针
+        int left = low;
+        // 右指针
+        int right = mid + 1;
         int k = 0;
 
         // 把较小的数先移到新数组中
