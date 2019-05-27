@@ -7,6 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * https://blog.csdn.net/h525483481/article/details/80347485
+ * https://www.jianshu.com/p/a636b3d83911
  * 基于链表的阻塞队列
  *
  * @author Aria
@@ -18,9 +19,9 @@ public class LinkedBlockingQueue<E> {
 
     private Lock lock = new ReentrantLock();
 
-    private Condition unfull = lock.newCondition();
+    private Condition unFull = lock.newCondition();
 
-    private Condition unempty = lock.newCondition();
+    private Condition unEmpty = lock.newCondition();
 
     private int count;
 
@@ -40,11 +41,11 @@ public class LinkedBlockingQueue<E> {
         lock.lock();
         try {
             while (count == capacity) {
-                unfull.await();
+                unFull.await();
             }
             queue.addLast(e);
             count++;
-            unfull.signal();
+            unEmpty.signal();
         } finally {
             lock.unlock();
         }
@@ -55,11 +56,11 @@ public class LinkedBlockingQueue<E> {
         lock.lock();
         try {
             while (count == 0) {
-                unempty.await();
+                unEmpty.await();
             }
             E e = queue.pop();
             count--;
-            unempty.signal();
+            unFull.signal();
             return e;
         } finally {
             lock.unlock();

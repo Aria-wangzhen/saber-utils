@@ -4,6 +4,13 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * 从源码中可以看出ArrayBlockingQueue内部是采用数组进行数据存储的（属性items），为了保证线程安全，采用的是ReentrantLock
+ * lock，为了保证可阻塞式的插入删除数据利用的是Condition，
+ * 当获取数据的消费者线程被阻塞时,会将该线程放置到notEmpty等待队列中，
+ * 当插入数据的生产者线程被阻塞时，会将该线程放置到notFull等待队列中。
+ * 而notEmpty和notFull等中要属性在构造方法中进行创建
+ * https://www.jianshu.com/p/a636b3d83911
+ *
  * @author Aria
  * @time on 2019-03-19.
  */
@@ -56,7 +63,7 @@ public class ArrayBlockingQueue<E> {
                 putIndex = 0;
             }
             count++;
-            notFull.signal();
+            notEmpty.signal();
         } finally {
             lock.unlock();
         }
@@ -74,7 +81,7 @@ public class ArrayBlockingQueue<E> {
             if (takeIndex == items.length) {
                 takeIndex = 0;
             }
-            notEmpty.signal();
+            notFull.signal();
             return e;
         } finally {
             lock.unlock();
