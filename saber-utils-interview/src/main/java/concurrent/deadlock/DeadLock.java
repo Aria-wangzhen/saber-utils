@@ -7,6 +7,7 @@ package concurrent.deadlock;
 public class DeadLock implements Runnable {
 
     private boolean lockFormer;
+    //必须是静态
     private static Object o1 = new Object();
     private static Object o2 = new Object();
 
@@ -20,6 +21,7 @@ public class DeadLock implements Runnable {
             synchronized (o1) {
                 try {
                     Thread.sleep(500);
+                    //记住这个异常名字
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

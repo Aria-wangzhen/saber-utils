@@ -6,8 +6,9 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * https://blog.csdn.net/h525483481/article/details/80347485
- * https://www.jianshu.com/p/a636b3d83911
+ * 写一个同步阻塞队列
+ * https://blog.csdn.net/h525483481/article/details/80347485  里面是错误的，condition用错了
+ * https://www.jianshu.com/p/a636b3d83911 JDK LinkedBlockingQueue原理讲解
  * 基于链表的阻塞队列
  *
  * @author Aria

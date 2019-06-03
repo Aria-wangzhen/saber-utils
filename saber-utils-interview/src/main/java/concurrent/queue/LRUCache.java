@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * 写一个最近最少使用的缓存
  * https://blog.csdn.net/elricboa/article/details/78847305
  * 最近最少使用
  * https://mp.weixin.qq.com/s/E60I9RLLT1lw3ZxCH0IPVA

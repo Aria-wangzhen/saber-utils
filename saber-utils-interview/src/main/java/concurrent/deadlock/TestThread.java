@@ -1,12 +1,13 @@
 package concurrent.deadlock;
 
 /**
+ * 写一个可以运行的死锁程序
+ *
  * @author Aria
  * @time on 2019-04-03.
  */
 public class TestThread {
     public static void main(String[] args) {
-// test dead lock
         Thread t9 = new Thread(
                 new DeadLock(true));
         Thread t10 = new Thread(
