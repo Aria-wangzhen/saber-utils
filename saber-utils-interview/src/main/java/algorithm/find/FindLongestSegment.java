@@ -33,7 +33,7 @@ public class FindLongestSegment {
             return 0;
         }
         //排序
-        quickSort(set, 0, set.length - 1);
+        SegmentSort.quickSort(set, 0, set.length - 1);
         System.out.println(JSON.toJSONString(set));
         //查找
         return overlap(set);
@@ -64,44 +64,6 @@ public class FindLongestSegment {
         }
     }
 
-    private static void quickSort(SegmentNode[] set, int low, int high) {
-        if (low < high) {
-            int port = findPort(set, low, high);
-            quickSort(set, low, port - 1);
-            quickSort(set, port + 1, high);
-        }
-
-    }
-
-    private static int findPort(SegmentNode[] set, int low, int high) {
-        SegmentNode temp = set[low];
-        while (low < high) {
-            while (low < high && compare(set[high], temp) == 1) {
-                high--;
-            }
-            set[low] = set[high];
-            while (low < high && compare(set[low], temp) <= 0) {
-                low++;
-            }
-            set[high] = set[low];
-        }
-        set[low] = temp;
-        return low;
-
-    }
-
-    private static int compare(SegmentNode segmentNode, SegmentNode segmentNode1) {
-        if (segmentNode.start < segmentNode1.start
-                || (segmentNode.start == segmentNode1.start && segmentNode.end < segmentNode1.end)) {
-            return -1;
-        } else if (segmentNode.start == segmentNode1.start && segmentNode.end == segmentNode1.end) {
-            return 0;
-        } else {
-            return 1;
-        }
-
-
-    }
 
 
     private static int commonSegment(SegmentNode segmentNode, SegmentNode segmentNode1) {
@@ -114,29 +76,5 @@ public class FindLongestSegment {
 
     }
 
-    private static class SegmentNode {
-        private int start;
-        private int end;
 
-        SegmentNode(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-
-        public int getStart() {
-            return start;
-        }
-
-        public void setStart(int start) {
-            this.start = start;
-        }
-
-        public int getEnd() {
-            return end;
-        }
-
-        public void setEnd(int end) {
-            this.end = end;
-        }
-    }
 }

@@ -3,6 +3,7 @@ package designPatterns.singleton;
 import designPatterns.roundingMode.Main;
 
 /**
+ * 写一个线程安全的双重检查锁（DCL）的单例模式
  * 超级好：https://www.cnblogs.com/codingmengmeng/p/9846131.html
  * 带volatile的DCL（双重检查锁）的单例模式
  * @author Aria
