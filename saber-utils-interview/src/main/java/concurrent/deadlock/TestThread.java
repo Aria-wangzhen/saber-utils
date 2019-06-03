@@ -1,7 +1,7 @@
 package concurrent.deadlock;
 
 /**
- * 写一个可以运行的死锁程序
+ * 写一个可以运行的线程死锁程序
  *
  * @author Aria
  * @time on 2019-04-03.
