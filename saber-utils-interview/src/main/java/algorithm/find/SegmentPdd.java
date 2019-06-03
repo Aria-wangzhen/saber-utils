@@ -1,5 +1,7 @@
 package algorithm.find;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * 求在一维坐标轴上有n个区间段,求线段A是否可以被n个区间段完全覆盖
  *
@@ -8,6 +10,17 @@ package algorithm.find;
  */
 public class SegmentPdd {
     public static void main(String[] args) {
+        SegmentNode node1 = new SegmentNode(1, 4);
+        SegmentNode node2 = new SegmentNode(7, 9);
+        SegmentNode node3 = new SegmentNode(5, 8);
+        SegmentNode node4 = new SegmentNode(7, 7);
+        SegmentNode node5 = new SegmentNode(2, 4);
+
+        SegmentNode[] set = {node1, node2, node3, node4, node5};
+
+        SegmentNode node6 = new SegmentNode(1, 5);
+        System.out.println(isCover(set, node6));
+
 
     }
 
@@ -21,7 +34,7 @@ public class SegmentPdd {
         for (int i = 0; i <= segmentNodes.length - 1; i++) {
             SegmentNode node = segmentNodes[i];
             //找到起点落入的线段
-            if (node.start >= point.start && node.start <= node.end) {
+            if (point.start >= node.start && point.start <= node.end) {
                 start = i;
             } else {
                 continue;
