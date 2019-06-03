@@ -10,9 +10,9 @@ import com.alibaba.fastjson.JSON;
  */
 public class SegmentPdd {
     public static void main(String[] args) {
-        SegmentNode node1 = new SegmentNode(1, 4);
-        SegmentNode node2 = new SegmentNode(7, 9);
-        SegmentNode node3 = new SegmentNode(5, 8);
+        SegmentNode node1 = new SegmentNode(1, 3);
+        SegmentNode node2 = new SegmentNode(2, 2);
+        SegmentNode node3 = new SegmentNode(2, 3);
         SegmentNode node4 = new SegmentNode(7, 7);
         SegmentNode node5 = new SegmentNode(2, 4);
 
