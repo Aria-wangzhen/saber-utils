@@ -50,7 +50,7 @@ public class SegmentPdd {
         SegmentNode endNode = segmentNodes[start];
         for (int i = start; i <= segmentNodes.length - 1; i++) {
             SegmentNode node = segmentNodes[i];
-            if (node.start >= endNode.start && endNode.start <= node.end) {
+            if (node.start >= endNode.start && node.start <= endNode.end) {
                 if (node.end >= endNode.end) {
                     endNode = node;
                     if (endNode.end >= point.end) {
