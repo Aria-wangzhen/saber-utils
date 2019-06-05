@@ -1,6 +1,6 @@
 package algorithm.find;
 
-import com.alibaba.fastjson.JSON;
+
 
 /**
  * 求在一维坐标轴上有n个区间段,求线段A是否可以被n个区间段完全覆盖
